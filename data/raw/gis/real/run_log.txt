@@ -1,0 +1,61 @@
+[13:01:09] L0 sınırlar
+[13:01:14]   indirildi: geoboundaries_adm0 (7.0 MB)
+[13:01:23]   indirildi: geoboundaries_adm1 (10.1 MB)
+[13:01:36]   ızgara: 8115 hücre (Türkiye sınırı içinde)
+[13:01:36] OSM katmanları
+[13:03:19]   Overpass protected: 476 öğe (overpass-api.de)
+[13:04:06]   Overpass military başarısız (https://overpass.kumi.systems/api/interpreter: HTTP 500); 30s bekleniyor
+[13:06:26]   Overpass military: 2332 öğe (overpass-api.de)
+[13:06:28]   Overpass airports başarısız (https://overpass.kumi.systems/api/interpreter: HTTP 500); 30s bekleniyor
+[13:08:30]   Overpass airports: 119 öğe (overpass-api.de)
+[13:08:57]   Overpass power_lines: 3810 öğe (maps.mail.ru)
+[13:09:19]   Overpass substations: 4374 öğe (maps.mail.ru)
+[13:09:21]   OSM: 255 koruma, 2265 askeri, 91 havalimanı, 2127 trafo (≥154 kV), 3744 hat
+[13:09:21] Güneş (PVGIS)
+[13:09:21]   PVGIS: 8115 önbellekte, 0 sorgulanacak
+[13:09:21] Rüzgâr (GWA IEC2)
+[13:09:45]   indirildi: gwa3_cf_IEC2 (65.3 MB)
+[13:09:45] Piksel düzeyi dışlamalar (DEM + WorldCover + vektörler)
+[13:09:45]   Karo: 110 işlenecek (0 önbellekte)
+[13:09:59]   Karo 5/110
+[13:10:12]   Karo 10/110
+[13:10:29]   Karo 15/110
+[13:10:47]   Karo 20/110
+[13:10:57]   Karo 25/110
+[13:11:08]   Karo 30/110
+[13:11:26]   Karo 35/110
+[13:11:43]   Karo 40/110
+[13:12:00]   Karo 45/110
+[13:12:14]   Karo 50/110
+[13:12:20]   Karo 55/110
+[13:12:36]   Karo 60/110
+[13:12:52]   Karo 65/110
+[13:13:14]   Karo 70/110
+[13:13:15]   Karo 75/110
+[13:13:38]   Karo 80/110
+[13:14:02]   Karo 85/110
+[13:14:04]   Karo 90/110
+[13:14:20]   Karo 95/110
+[13:14:36]   Karo 100/110
+[13:14:40]   Karo 105/110
+[13:14:49]   Karo 110/110
+[13:14:49] Hücre mesafeleri
+[13:15:21]   indirildi: hydrorivers_v10_eu (67.6 MB)
+[13:15:25]   indirildi: ne_10m_lakes (2.3 MB)
+[13:15:27]   indirildi: ne_10m_coastline (3.1 MB)
+[13:15:30]   özellik tablosu: data\raw\gis\real\grid_cells_features.csv (sha256 5d13268f382e…)
+[13:15:30] Uygun hücre: 333 / 8115; küme: 29; aday: 5
+                 stage  surviving  eliminated  independent_pass  pct_of_total
+          Initial grid       8115           0              8115         100.0
+         C1: Solar GHI       7404         711              7404          91.2
+C2: Wind-eligible area        995        6409              1008          12.3
+  C3: PV-eligible area        333         662              1383           4.1
+      C4: Water access        333           0              8115           4.1
+        C5: Substation        333           0              8102           4.1
+code      province   lat   lon  n_cells  cluster_eligible_area_km2  cell_wind_cf_eligible_pct  cell_ghi_kwh_m2  dist_substation_km
+  S1       Karaman 36.95 33.35       40                     3712.7                       34.1           1801.0                11.8
+  S2 Kahramanmaraş 38.55 36.95       40                     2244.0                       33.6           1780.0                21.7
+  S3     Şanlıurfa 37.55 39.85       23                     1662.0                       27.1           1830.0                13.4
+  S4       Kayseri 38.45 35.25       12                      809.5                       28.7           1788.0                 5.4
+  S5     Şanlıurfa 37.85 39.45       10                      689.1                       26.7           1801.0                14.5
+[13:15:32] Bitti (14.4 dk). Çıktılar: C:\Users\Lenova\Desktop\GIS_Hydrojen\data\raw\gis\real

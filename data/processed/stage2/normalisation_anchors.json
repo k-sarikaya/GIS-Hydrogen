@@ -1,0 +1,29 @@
+{
+  "rule": "published scale or Stage I threshold where available; otherwise P5/P95 over Stage I-eligible cells",
+  "n_eligible_cells": 333,
+  "K1_substation_km": {
+    "L": 0.0,
+    "U": 50.0,
+    "direction": "cost",
+    "basis": "Stage I threshold C_substation_max_km"
+  },
+  "K2_water_stress_score": {
+    "L": 0.0,
+    "U": 5.0,
+    "direction": "cost",
+    "basis": "Aqueduct 4.0 score scale"
+  },
+  "K3_protected_km": {
+    "L": 8.4482,
+    "U": 82.2137,
+    "direction": "benefit",
+    "basis": "P5/P95 eligible cells"
+  },
+  "K4_pga_g": {
+    "L": 0.0784,
+    "U": 0.3319,
+    "direction": "cost",
+    "basis": "P5/P95 eligible cells"
+  },
+  "gem_sha256": "b06fbc4d303ac735d9fcf464cff3b26c0ad16cec485ee0c465127278afd8b41f"
+}

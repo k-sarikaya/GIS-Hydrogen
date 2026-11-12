@@ -1,0 +1,49 @@
+{
+  "method": "leave-one-respondent-out; respondent-level scores and identifiers are not retained",
+  "alpha_expert": 0.5,
+  "lambda_waspas": 0.5,
+  "n_respondents": 4,
+  "full_panel": {
+    "case": "full_panel",
+    "ranking": [
+      "S5",
+      "S4",
+      "S2",
+      "S3",
+      "S1"
+    ],
+    "top_site": "S5"
+  },
+  "leave_one_out_rankings": [
+    [
+      "S5",
+      "S4",
+      "S3",
+      "S2",
+      "S1"
+    ],
+    [
+      "S5",
+      "S4",
+      "S2",
+      "S3",
+      "S1"
+    ],
+    [
+      "S5",
+      "S4",
+      "S2",
+      "S3",
+      "S1"
+    ],
+    [
+      "S5",
+      "S4",
+      "S2",
+      "S3",
+      "S1"
+    ]
+  ],
+  "top_site_preserved_count": 4,
+  "top_site_preserved_fraction": 1.0
+}

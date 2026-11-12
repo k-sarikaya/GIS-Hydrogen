@@ -1,0 +1,180 @@
+# Stage III parameter set (machine-readable). Every value is transcribed from
+# data/raw/params/params_sources.md (row numbers in `src`) or from the sources named here.
+# Triangular fuzzy numbers (TFN) are [low, mode, high]. Money in EUR (price basis per row,
+# no escalation; see params_sources.md N1). Energy per kg H2 on LHV (33.33 kWh/kg).
+# Do not edit values without updating params_sources.md.
+
+meta:
+  version: 1.0
+  compiled: 2026-10-18
+  currency: EUR
+  investment_year: 2030
+  lhv_kwh_per_kg: 33.33
+
+# ---------------------------------------------------------------- technology
+wind:
+  capex_eur_per_kw:        {tfn: [796, 924, 1533],  src: "1.1"}
+  fom_eur_per_kw_yr:       {tfn: [22.2, 34.5, 41.6], src: "1.2"}
+  lifetime_yr:             {tfn: [20, 25, 30],      src: "1.3"}
+  density_mw_per_km2: 3.0  # Denholm et al. 2009, NREL/TP-6A2-45834 (total project area 34 +/- 22 ha/MW), doi:10.2172/964608
+
+pv:
+  capex_eur_per_kw:        {tfn: [359, 647, 954],   src: "2.1"}
+  fom_eur_per_kw_yr:       {tfn: [11.9, 13.8, 19.1], src: "2.2"}
+  lifetime_yr:             {tfn: [25, 25, 40],      src: "2.3"}
+  density_mw_per_km2: 31.0 # Ong et al. 2013, NREL/TP-6A20-56290 (total area, large PV), doi:10.2172/1086349
+
+electrolyser:              # PEM system
+  capex_eur_per_kw:        {tfn: [888, 1249, 2503], src: "3.1"}
+  fom_pct_capex_yr:        {tfn: [2.0, 3.0, 4.0],   src: "3.2"}
+  stack_lifetime_h:        {tfn: [40000, 50000, 80000], src: "3.3"}
+  stack_cost_pct_capex:    {tfn: [11, 22.5, 45],    src: "3.4"}
+  lifetime_yr:             {tfn: [22, 25, 30],      src: "3.5"}
+  min_load_pct:            {tfn: [3, 5, 10],        src: "3.6"}   # not enforced (LP); reported
+  sec_kwh_per_kg: 55.0     # system SEC baseline; sensitivity 48 / 57.5 (docs/reviews/electricity_source_decision.md)
+  sec_sensitivity: [48.0, 57.5]
+  min_size_mw_if_open: 50  # MENR 2023 roadmap: 50-500 MW electrolyser class for 2030 (ETKB_Hydrogen_T_Strategies.pdf, Fig. 3)
+
+water:
+  use_l_per_kg:            {tfn: [8.94, 17.5, 26.5], src: "10.1"}
+  cost_eur_per_m3:         {tfn: [0.33, 1.12, 2.57], src: "10.2"}
+
+compression:
+  pipeline_kwh_per_kg:     {tfn: [0.39, 0.56, 0.97], src: "4.1"}  # 30 -> 70-100 bar
+  trailer_kwh_per_kg:      {tfn: [1.47, 2.41, 3.36], src: "7.6"}  # 30 -> 500 bar
+  cavern_booster_kwh_per_kg: {tfn: [0.30, 0.56, 0.85], src: "4.3"} # pipeline -> 200 bar at the cavern
+  capex_eur_per_kw:        {tfn: [2205, 3400, 6700], src: "4.4"}
+  fom_pct_capex_yr:        {tfn: [1.7, 4.0, 5.0],   src: "4.5"}
+  lifetime_yr:             {tfn: [15, 20, 25],      src: "4.6"}
+
+# ---------------------------------------------------------------- storage (Tuz Gölü)
+cavern:
+  capex_eur_per_kg_wg:     {tfn: [11.2, 16.1, 30.1], src: "5.1"}  # incl. cavern compressor and cushion gas (N3)
+  fom_pct_capex_yr:        {tfn: [0, 2, 3],          src: "5.2"}
+  lifetime_yr:             {tfn: [20, 30, 100],      src: "5.3"}
+  working_gas_max_t:       {tfn: [62013, 62013, 63436], src: "5.5"}  # 12-cavern equivalent
+  injection_t_per_day:     {tfn: [1860, 1860, 2696], src: "5.7"}
+  withdrawal_t_per_day:    {tfn: [2481, 2481, 3595], src: "5.8"}
+
+# ---------------------------------------------------------------- transport
+pipeline:                  # new 20-inch line, 1.2 GW (~864 t/d) design capacity (N5)
+  capex_meur_per_km:       {tfn: [1.4, 1.5, 1.8],   src: "6.1"}
+  fom_pct_capex_yr:        {tfn: [0.8, 0.9, 1.0],   src: "6.7"}
+  lifetime_yr:             {tfn: [30, 40, 50],      src: "6.8"}
+  route_rule: road_proxy  # road distance is the base proxy; geodesic_cap is sensitivity only
+  distance_tau: 1.2
+  recompression_kwh_per_kg_per_1000km: 0.63          # src 6.11 (crisp)
+  capacity_t_per_day: 864                            # 1.2 GW x 24 h / 33.33 kWh/kg (N5)
+  # V4: a second, smaller diameter (N12). EHB 2022 medium CAPEX is close to linear in diameter
+  # (20" 1.5, 36" 2.2, 48" 2.8 M€/km; least-squares slope 0.0463 M€/km per inch) -> 12" = 1.12 M€/km;
+  # low/high scaled by the same ratio (1.12/1.5). Capacity: log-log fit to the EHB design capacities
+  # (1.2 / 4.7 / 13 GW) gives exponent 2.66; anchored at 20" -> 12" = 0.31 GW = 222 t/d.
+  # Evidence level D (extrapolated below the smallest EHB class).
+  # Check: DEA 2025 datasheet v8 sheet 4.1/4.2: 12" 1.14 M€/km (0.798-1.71), excl. 35 % owner's costs (note G);
+  # sensitivity runs pipe12_dea and pipe_capex135 (N12).
+  small_diameter: true
+  small:
+    capex_meur_per_km:     {tfn: [1.045, 1.12, 1.344], src: "6.1s (N12)"}
+    capacity_t_per_day: 222
+
+trailer:                   # CGH2 tube trailer, levelised (N6)
+  var_eur_per_kg_per_100km: {tfn: [0.14, 0.35, 0.58], src: "7.5"}
+  # Distance-independent intercept of the same three cost lines (N6): DESNZ GBP 0.78/kg @0.86979;
+  # Reddi USD 0.80/kg @1.0824; Reuss USD 0.47/kg @1.0824 -> sorted. Excludes compression.
+  fix_eur_per_kg:          {tfn: [0.43, 0.74, 0.90], src: "7.5 (intercepts, N6)"}
+  # V4: trip-feasibility correction (N13). The levelised lines above assume ~300 trips/yr per trailer.
+  # A round trip takes 2L/v + t_lu; with H_avail operating hours per year a trailer makes
+  # n(L) = min(300, H_avail / (2L/v + t_lu)) trips. Extra trailer capital per kg delivered:
+  # A_tr (1/n(L) - 1/300), A_tr = annualised trailer CAPEX + O&M per kg payload (rows 7.2, 7.3).
+  fleet_correction: true
+  speed_kmh: 50
+  load_unload_h: 4
+  hours_available_yr: 6000   # two-shift operation; sensitivity 4 400 / 8 000
+  trips_ref_yr: 300
+  capex_eur_per_kg_payload: {tfn: [779, 961, 1227], src: "7.2"}
+  lifetime_yr:              {tfn: [10, 15, 30],     src: "7.3"}
+  om_pct_capex_yr: 5.0
+  # V4: trailers leaving the Tuz Gölü cavern are refilled to 500 bar on grid electricity (N14);
+  # the 30->500 bar energy (row 7.6) is used as a conservative upper value.
+  cavern_refill_compression: true
+
+# ---------------------------------------------------------------- finance and market
+finance:
+  wacc_real:               {tfn: [0.075, 0.10, 0.12], src: "8.1"}
+
+electricity_market:
+  ptf_eur_per_mwh:         {tfn: [58.4, 60.6, 62.8], src: "9.1"}
+  # EPİAŞ Sept-2025 time-band factors relative to the monthly mean (N7): night 22-06, day 06-17, peak 17-22
+  band_factor: {night: 1.079, day: 0.840, peak: 1.226}
+  grid_ef_t_per_mwh: 0.436  # Türkiye grid emission factor (docs/reviews/electricity_source_decision.md)
+  export_cap_ratio: 1.0     # grid connection (export only) <= electrolyser capacity
+
+# ---------------------------------------------------------------- demand (2030 baseline)
+demand:
+  # V4: the renewable (RFNBO) share differs by sector, because RED III treats the two uses differently.
+  # Ammonia (Art. 22a industry target): low = 33.6 % (Art. 22b reduced 2030 target), mode = 42 % (2030),
+  #   high = 60 % (2035). Directive (EU) 2023/2413; Commission guidance C/2025/2983.
+  # Refineries: hydrogen used as an intermediate for conventional transport fuels is excluded from the
+  #   Art. 22a denominator and counts towards the transport target (Art. 25(1)(b): >= 1 percentage point
+  #   RFNBO in 2030; RFNBO counted at twice their energy content). Derivation (params_sources.md N11):
+  #   Turkish transport final energy 2024 (TUIK, 27 Mar 2026: road 1 103 279 + rail 10 358 + domestic
+  #   maritime 11 020 TJ = 1 124.7 PJ, aviation excluded) x 1 % / 2 (multiplier) = 5.62 PJ = 46.9 kt H2
+  #   (120 MJ/kg) = mode. high = same without the x2 multiplier (93.7 kt); low = 0.8 x mode (37.5 kt),
+  #   mirroring the 33.6/42 ratio of the industry target. Shares of the 237 kt refinery on-purpose
+  #   demand: 0.158/0.198/0.395.
+  #   Assumes the whole national transport RFNBO sub-target is met through refinery hydrogen (upper role).
+  # Türkiye is not bound by RED III; the targets are an external benchmark for export-oriented producers.
+  green_share:             {tfn: [0.336, 0.42, 0.60]}        # v3 value, kept for --set reproduction
+  green_share_by_sector:
+    ammonia:  {tfn: [0.336, 0.42, 0.60]}
+    refinery: {tfn: [0.1582, 0.1977, 0.3954]}
+  sector_basis: true        # V4 baseline; false reproduces v3 (one share for all nodes)
+  basis_column: h2_onpurpose_t_yr
+  rule_column: rule_baseline
+  days_per_year: 365
+  # Co-located facilities (< 2 km apart) are one delivery point, so one line can serve both (V4).
+  merge_nodes: true
+  merge_groups:
+    TR_HUB_ALIAGA: [TR_REF_IZMIR, TR_REF_STAR]
+    TR_HUB_KORFEZ: [TR_REF_IZMIT, TR_NH3_IGSAS]
+
+# ---------------------------------------------------------------- land (co-location)
+land:
+  # Renewable plants are co-located with the electrolyser inside the candidate's 0.1-degree cell
+  # (private-wire distance <= ~10 km). Sensitivity: cluster-level area.
+  area_basis: cell          # cell | cluster
+  # Share of the measured wind/PV mask overlap that may carry BOTH technologies at once.
+  # Wind density (3.0 MW/km2) is a gross project-area figure that includes turbine spacing,
+  # so PV between turbines is physically possible; co_use_share parameterises how much of it
+  # is allowed instead of leaving the assumption implicit.
+  #   1.0 = full co-use (reduces exactly to the independent Wmax/Pmax bounds used so far)
+  #   0.0 = exclusive land (every km2 carries one technology)
+  # Non-binding until wind_pv_overlap_km2 is measured by the Stage I extraction step.
+  co_use_share: 1.0         # phi in [0, 1]
+
+# ---------------------------------------------------------------- emissions (RFNBO check, post-processing)
+emissions:
+  rfnbo_threshold_kg_per_kg: 3.38      # 28.2 gCO2e/MJ x 120 MJ/kg (Delegated Regulation (EU) 2023/1185)
+  grid_ef_t_per_mwh: 0.436             # Türkiye, consumption point, 2023 (MENR 2025)
+  truck_fuel_l_per_100km: 32.6         # typical EU Euro VI tractor-trailer, Long Haul cycle (ICCT 2018, TU Graz tests)
+  diesel_wtw_kg_per_l: 3.124           # DESNZ/DEFRA 2024: 2.5128 (TTW, avg biofuel blend) + 0.61101 (WTT)
+  trailer_payload_kg: [300, 1000, 1300] # params_sources.md row 7.1 (low / mode / high)
+  empty_return: true                   # trailers return empty: 2 x distance per delivery
+
+# ---------------------------------------------------------------- RPP (Me measure)
+rpp:
+  lambda_me: 0.5            # Me = lambda*Pos + (1-lambda)*Nec; 0.5 = credibility (Xu & Zhou 2013)
+  gamma_opt: 0.2            # weight of optimality robustness (z_max - z_min); sensitivity sweep
+  # Unit penalty on possible demand violation = import parity of renewable H2: H2Global pilot auction,
+  # renewable ammonia delivered to EU ports at 1000 EUR/t NH3 (Hintco/BMWK, 11 Jul 2024) / 0.1776 t H2 per t NH3.
+  # Excludes ammonia cracking, so it is a lower bound for refinery nodes. Sensitivity sweep.
+  delta_pen_eur_per_kg: 5.63
+  # V4: node-specific import parity. Ammonia nodes: 5.63 €/kg (above). Refinery nodes need cracked H2:
+  # RFNBO-compliant H2 landed in Europe after cracking $7.50-9.00/kg (S&P Global Commodity Insights,
+  # 9 Jun 2025) / 1.130 USD per EUR (ECB 2025 average) = 6.64-7.96 €/kg; midpoint 7.30 €/kg (N15).
+  delta_by_sector: true
+  delta_eur_per_kg_by_sector: {ammonia: 5.63, refinery: 7.30}
+  # V4: modal domestic supply is an explicit security-of-supply mandate. import_mandate: false is the
+  # diagnostic in which imports at delta may replace any part of the modal demand.
+  import_mandate: true
+  pareto_points: 10         # AUGMECON2 grid points on f2

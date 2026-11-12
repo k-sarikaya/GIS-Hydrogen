@@ -1,0 +1,52 @@
+\begin{table}[htbp]
+\centering
+\caption{Stage~I exclusion and suitability criteria. Thresholds follow the cited studies.}
+\label{tab:s8}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llllp{5.2cm}}
+\toprule
+Code & Criterion & Rule & Data source & Basis \\
+\midrule
+\multicolumn{5}{l}{\textit{Pixel level, all technologies (exclusion)}} \\
+X1 & Elevation & $>2000$\,m & Copernicus GLO-90 digital elevation model (DEM) & Noorollahi et~al. (2016) \\
+X2 & Protected areas & area $+1$\,km & OpenStreetMap & Pfennig et~al. (2023); Taoufik et~al. (2021) \\
+X3 & Built-up areas & area $+1$\,km & European Space Agency (ESA) WorldCover 2021 & Ryberg et~al. (2018); Yaman (2024) \\
+X4 & Airports (International Air Transport Association / International Civil Aviation Organization codes) & $+5$\,km & OpenStreetMap & Yaman (2024); national obstacle rules \\
+X5 & Military areas & area & OpenStreetMap & Yildiz (2023) \\
+X6 & Permanent water, wetlands & area $+0.5$\,km & ESA WorldCover 2021 & Ali et~al. (2022); Noorollahi et~al. (2016) \\
+X7 & Tree cover (forest, mangrove), snow and ice & area & ESA WorldCover 2021 (classes 10, 70, 95) & Lu et~al. (2009); Pfennig et~al. (2023) \\
+\midrule
+\multicolumn{5}{l}{\textit{Pixel level, technology masks (eligibility)}} \\
+W1 & Slope, wind & $\le 30\%$ & Copernicus GLO-90 DEM & Yildiz (2023); Yaman (2024) \\
+W2 & Gross capacity factor, wind & $\ge 25\%$ & Global Wind Atlas v3, International Electrotechnical Commission (IEC) Class II & Davis et~al. (2023); Lu et~al. (2009); Kursun (2023) \\
+P1 & Slope, PV and electrolyser & $\le 10\%$ & Copernicus GLO-90 DEM & Noorollahi et~al. (2016); Pfennig et~al. (2023) \\
+P2 & Cropland, PV and electrolyser & excluded & ESA WorldCover 2021 & Law No.~5403, Art.~13 \\
+A1 & Contiguous wind-eligible patch & $\ge 10$\,km$^2$ & derived & Pfennig et~al. (2023) \\
+A2 & Contiguous PV-eligible patch & $\ge 3$\,km$^2$ & derived & Ong et~al. (2013) \\
+\midrule
+\multicolumn{5}{l}{\textit{Cell level ($0.1^\circ$), suitability constraints}} \\
+C1 & Global horizontal irradiation (GHI) & $\ge 1450$\,kWh/m$^2$/yr & Photovoltaic Geographical Information System (PVGIS), Surface Solar Radiation Data Set--Heliosat 3 (SARAH3) & Noorollahi et~al. (2016); Aly et~al. (2017) \\
+C2 & Wind-eligible area in cell & $\ge 10$\,km$^2$ & derived (A1) & Pfennig et~al. (2023) \\
+C3 & PV-eligible area in cell & $\ge 3$\,km$^2$ & derived (A2) & Ong et~al. (2013) \\
+C4 & Perennial river or freshwater lake, or coastline & $\le 50$\,km & HydroRIVERS; Natural Earth & Pfennig et~al. (2023) \\
+C5 & Substation $\ge 154$\,kV & $\le 50$\,km & OpenStreetMap & Turkish Electricity Transmission Corporation (TEİAŞ) connection levels \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\subsection*{Sources for this table}
+\begin{enumerate}\setlength{\itemsep}{0pt}
+\item Ali, F., Bennui, A., Chowdhury, S., Techato, K., 2022. Suitable site selection for solar-based green hydrogen in southern Thailand using GIS-MCDM approach. Sustainability 14~(11), 6597. https://doi.org/10.3390/su14116597
+\item Aly, A., Jensen, S.S., Pedersen, A.B., 2017. Solar power potential of Tanzania: Identifying CSP and PV hot spots through a GIS multicriteria decision making analysis. Renewable Energy 113, 159--175. https://doi.org/10.1016/j.renene.2017.05.077
+\item Davis, N.N., Badger, J., Hahmann, A.N., Hansen, B.O., Mortensen, N.G., Kelly, M., et~al., 2023. The Global Wind Atlas: A high-resolution dataset of climatologies and associated web-based application. Bulletin of the American Meteorological Society 104~(8), E1507--E1525. https://doi.org/10.1175/BAMS-D-21-0075.1
+\item Kursun, B., 2023. Exploitable wind power potential in Turkey with technological advancement and resulting environmental-economic aspects. Energy Exploration \& Exploitation 41~(1), 187--209. https://doi.org/10.1177/01445987221115814
+\item Lu, X., McElroy, M.B., Kiviluoma, J., 2009. Global potential for wind-generated electricity. Proceedings of the National Academy of Sciences 106~(27), 10933--10938. https://doi.org/10.1073/pnas.0904101106
+\item Noorollahi, E., Fadai, D., Akbarpour Shirazi, M., Ghodsipour, S., 2016. Land suitability analysis for solar farms exploitation using GIS and fuzzy analytic hierarchy process (FAHP)---A case study of Iran. Energies 9~(8), 643. https://doi.org/10.3390/en9080643
+\item Ong, S., Campbell, C., Denholm, P., Margolis, R., Heath, G., 2013. Land-Use Requirements for Solar Power Plants in the United States. Technical Report NREL/TP-6A20-56290. National Renewable Energy Laboratory, Golden, CO. https://doi.org/10.2172/1086349
+\item Pfennig, M., B{\"o}ttger, D., H{\"a}ckner, B., Geiger, D., Zink, C., Bisevic, A., et~al., 2023. Global GIS-based potential analysis and cost assessment of Power-to-X fuels in 2050. Applied Energy 347, 121289. https://doi.org/10.1016/j.apenergy.2023.121289
+\item Ryberg, D.S., Robinius, M., Stolten, D., 2018. Evaluating land eligibility constraints of renewable energy sources in Europe. Energies 11~(5), 1246. https://doi.org/10.3390/en11051246
+\item Taoufik, M., Laghlimi, M., Fekri, A., 2021. Land suitability analysis for solar farms exploitation using the GIS and analytic hierarchy process (AHP) -- a case study of Morocco. Polityka Energetyczna -- Energy Policy Journal 24~(2), 79--96. https://doi.org/10.33223/epj/133474
+\item Yaman, A., 2024. A GIS-based multi-criteria decision-making approach (GIS-MCDM) for determination of the most appropriate site selection of onshore wind farm in Adana, Turkey. Clean Technologies and Environmental Policy 26~(12), 4231--4254. https://doi.org/10.1007/s10098-024-02866-3
+\item Yildiz, S.S., 2023. Determining wind energy potential using geographic information system functions: A case study in Bal{\i}kesir, Turkey. Applied Sciences 13~(16), 9183. https://doi.org/10.3390/app13169183
+\end{enumerate}

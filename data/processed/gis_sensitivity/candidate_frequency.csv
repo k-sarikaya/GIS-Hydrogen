@@ -1,0 +1,6 @@
+base_code,province,lat,lon,scenarios_selected,n_scenarios,scenarios
+S1,Karaman,36.95,33.35,12,12,"base, ghi1550, pv_patch10, pv_with_cropland, spacing150, spacing200, spacing50, spacing_none, substation30, water30, wind_cf20, wind_cf30"
+S2,Kahramanmaraş,38.55,36.95,10,12,"base, ghi1550, pv_patch10, spacing150, spacing200, spacing50, spacing_none, water30, wind_cf20, wind_cf30"
+S3,Şanlıurfa,37.55,39.85,12,12,"base, ghi1550, pv_patch10, pv_with_cropland, spacing150, spacing200, spacing50, spacing_none, substation30, water30, wind_cf20, wind_cf30"
+S4,Kayseri,38.45,35.25,6,12,"base, ghi1550, spacing50, spacing_none, substation30, water30"
+S5,Kırklareli,41.65,27.55,8,12,"base, pv_patch10, pv_with_cropland, spacing150, spacing200, substation30, water30, wind_cf30"

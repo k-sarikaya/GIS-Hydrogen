@@ -1,0 +1,168 @@
+Supplementary Table S2 - source notes
+
+Techno-economic parameter set (triangular fuzzy numbers, 2030 investment year)
+
+Green-hydrogen supply chain, Türkiye: onshore wind and utility PV feeding co-located PEM electrolysis, compression, pipeline or tube-trailer transport, and seasonal storage in the Tuz Gölü salt caverns.
+
+Compiled 2026-10-18 from the sources listed in the table below.
+
+**Conventions**
+- Each value is a triangular fuzzy number (TFN) given as (low, mode, high).
+- All money values are in EUR. A value published in another currency is converted at the ECB annual-average rate for the year of its price basis (rates in Note N1). No inflation escalation is applied, so the "basis year" column gives the price year. Escalate with euro-area HICP if you need one common price year.
+- Unless stated otherwise, energy per kg H₂ uses the LHV (33.33 kWh/kg).
+- Evidence levels: **FT** = full text (or the full relevant section) read; **Ex** = excerpt or search highlight only; **Abs** = abstract only. "FT-sec" means the full text of a secondary compilation was read (the PyPSA *technology-data* compilation of Danish Energy Agency (DEA) catalogue values), but not the original DEA datasheet.
+- "D" in the low/mode/high cells marks a derived value. Every derivation is shown in the notes below.
+
+---
+
+## 2. Tuz Gölü facility facts (deterministic data for the model)
+
+| Item | Value | Source | Evidence |
+|---|---|---|---|
+| Location | Sultanhanı, Aksaray, ~40 km south of Lake Tuz; tied into the Kayseri–Konya–Seydişehir NG line | BOTAŞ vulnerability report; World Bank ESIA | Ex |
+| Phase 1 caverns | 12 caverns (UGS-1 to UGS-12), ~630 000 m³ net (geometric) volume each; roof 1 100–1 230 m, floor 1 400–1 530 m | Şan & Karakılçık, Table 1 (after Melendizli & Akdağ 2015); ESIA | FT / Ex |
+| Phase 1 NG working gas / cushion gas | ~1.0 bcm WG / ~0.5–0.6 bcm cushion (later quoted as 1.2 bcm total capacity) | Şan & Karakılçık (1 bcm / 0.5 bcm; their own calc 0.94 / 0.50 bcm); Özarslan TR paper Table 5 (1 000 / 600 M m³); BOTAŞ / AIIB (1.2 bcm) | FT / Ex |
+| NG pressure range | 80–220 bar (alternative 70–200 bar) | Özarslan TR paper Table 5; Şan & Karakılçık | Ex / FT |
+| NG max injection / withdrawal (12 caverns) | 30 / 40 million m³/day | ESIA Table 3.2.1; Özarslan TR paper | Ex |
+| Expansion | +40 caverns (+ up to 8 spare), net 630 000–872 000 m³ each, total 5.4 bcm (AIIB, cost USD 2 735 M); BOTAŞ quotes 52 caverns / 5.4 bcm, 630 000–780 000 m³ each; ESIA quotes 48 new / 60 total, ~6 bcm WG, 60 / 80 M m³/d | AIIB PD; BOTAŞ; ESIA | Ex |
+| Status | 680 M m³ capacity and 20 M m³/d withdrawal operating in 2019; 1.2 bcm stored by Oct 2023 | BOTAŞ; Anadolu Agency 2023-10-26 (https://www.aa.com.tr/en/energy/natural-gas/exclusive-turkiye-ready-for-winter-as-gas-storage-facilities-totally-full/39153) | Ex |
+| **H₂ working gas, 12 caverns** | **62 013 t (≈2.45 TWh HHV = 2.07 TWh LHV); 5 168 t per cavern; cushion 38 519 t (38.3 %)** | Şan & Karakılçık (journal article from Şan's MSc thesis), Table 3; conversion in Note N4 | FT |
+| Özarslan (2012), IJHE 37:14265, https://doi.org/10.1016/j.ijhydene.2012.07.111 | Pre-evaluation of Tuz Gölü for a solar-hydrogen-NG system; the full text reports about 6 million kg of working H₂ gas for a representative salt cavern, but no Tuz Gölü-specific H₂ capacity. The generic estimate is not used as a model input. | ScienceDirect, ADS | FT |
+
+---
+
+## 3. Notes on conversions and derivations
+
+**N1. Exchange rates.** ECB annual averages, from the OeNB/ECB table and Bundesbank BBEX3, Eurostat ert_bil_eur_a for earlier years.
+- USD per €: 2018 1.181; 2021 1.1827; 2022 1.0530; 2023 1.0813; 2024 1.0824; 2025 1.1300.
+- GBP per €: 2022 0.85276; 2023 0.86979.
+- TRY per €: 2024 35.5734; 2025 44.8161. TCMB mid rates agree to <0.1 %: 35.5389 and 44.8084; USD/TRY 32.8451 and 39.5418 (TCMB EVDS via altin.exchange).
+
+Each value is converted at the rate for its price-basis year, with no CPI escalation.
+- Examples: USD 861/kW (2024) ÷ 1.0824 = €795.5/kW; USD 960/kWe (2023) ÷ 1.0813 = €887.8/kWe; USD 1 350/kW ÷ 1.0813 = €1 248.5/kW.
+- USD amounts with an unclear price year were treated as the publication year: Papadias 2021; Reddi and Reuß via Burke et al. 2024.
+
+**N2. Wind and PV O&M.**
+- DEA wind: fixed part 1.2167 % × 1 383.3 €/kW = 16.83 €/kW/yr. The variable part is VOM 1.8033 €/MWh × (0.34 × 8 760 h = 2 978 h, IRENA 2024 Türkiye capacity factor 34 %, Table 2.2) = 5.37 €/kW/yr. Total 22.2 €/kW/yr.
+- DEA PV: 2.4757 % × 482.5 = 11.94 €/kW/yr.
+- The PyPSA compilation reports DEA investment values in 2025 € (its `currency_year` column).
+
+**N3. Compression energy.**
+- Ideal isothermal work: W_iso = (R·T/M)·ln(p₂/p₁), with R·T/M = 8.314 × 303.15 / 0.002016 J/kg = 0.3473 kWh/kg per unit of ln.
+- Two real-machine efficiencies, each derived from a published data point:
+  - Neuman & Esser: 15 MW ÷ (300 000 Nm³/h × 0.0899 kg/Nm³) = 0.556 kWh/kg for 60→200 bar. W_iso = 0.3473 × ln(200/60) = 0.418, so η_NE = 0.752.
+  - Stöckl et al. (via PyPSA): 1.707 kWh/kg for 30→250 bar. W_iso = 0.3473 × ln(250/30) = 0.736, so η_St = 0.431.
+- Real energy = W_iso / η:
+
+| Pressure step | W_iso (kWh/kg) | At η_NE (kWh/kg) | At η_St (kWh/kg) |
+|---|---|---|---|
+| 30→70 bar | 0.294 | 0.39 | 0.68 |
+| 30→100 bar | 0.418 | 0.56 | 0.97 |
+| 30→150 bar | 0.559 | 0.74 | 1.30 |
+| 30→200 bar | 0.659 | 0.88 | 1.53 |
+| 70→200 bar | 0.365 | 0.49 | 0.85 |
+
+- Ideal gas is assumed. Z(H₂) ≈ 1.06–1.13 at 100–200 bar would raise the work by a few per cent.
+- Low compressor CAPEX: 110.26 €/kW_H2 ÷ 0.05 kW_el/kW_H2 = 2 205 €/kW_el (Stöckl via PyPSA; 206 kg/h, 30→250 bar).
+- **Avoid double counting:** the cavern CAPEX in row 5.1 (Papadias) already contains the cavern compressor (~18 % of capital) and the cushion gas (~4 %).
+
+**N4. Tuz Gölü hydrogen capacity (12 caverns).**
+- Şan & Karakılçık, Table 3: Σ maximum H₂ mass = 100 532 t and Σ minimum (cushion) = 38 519 t. Working gas = 100 532 − 38 519 = **62 013 t**.
+- Volume check: 689.76 × 10⁶ Nm³ × 0.08988 kg/Nm³ = 61 996 t ✓.
+- Energy check: 2 446.38 GWh (HHV) ÷ 39.41 kWh/kg = 62 075 t ✓. The rounded "≈2.5 TWh" gives 2.5 × 10⁹ / 39.41 = 63 436 t (used as the TFN high).
+- LHV energy = 62 013 t × 33.33 kWh/kg = 2.07 TWh. Per cavern: 62 013 / 12 = 5 168 t. Cushion share = 38 519 / 100 532 = 38.3 %.
+- Expansion (rough, assumes similar caverns): 62 013 × 52/12 = 268 723 t; × 5.4/1.2 = 279 058 t; × 60/12 = 310 065 t.
+- Rates:
+  - Same share of working gas per day: injection 30/1 000 = 3 %/d → 0.03 × 62 013 = 1 860 t/d; withdrawal 4 %/d → 2 481 t/d.
+  - Same volumetric flow: 30 × 10⁶ Nm³/d × 0.08988 = 2 696 t/d; 40 × 10⁶ × 0.08988 = 3 595 t/d.
+  - These are not published H₂ design values. Wells and surface plant would need H₂ re-rating.
+- Low cavern CAPEX: USD 2 735 M ÷ (40 caverns × 5 168 t) = USD 13.23/kg, ÷ 1.181 (2018) = **€11.2/kg**. This assumes the new caverns hold as much H₂ as the Phase 1 caverns. It includes NG-specific surface plant, water and brine lines, and excludes H₂-specific equipment and cushion gas.
+- Papadias: USD 19/kg ÷ 1.1827 = €16.1/kg; USD 35.6/kg ÷ 1.1827 = €30.1/kg.
+- GIE: €840/MWh × 0.03333 MWh/kg = €28.0/kg.
+
+**N5. Pipeline throughput (EHB design capacity, LHV).** kt/yr = GW × 10⁶ × h / 33.33 / 10⁶.
+
+| Size | Design capacity | kt/yr at 5 000 h | kt/yr at 8 760 h |
+|---|---|---|---|
+| 20″ | 1.2 GW | 180 | 315 |
+| 36″ repurposed | 3.6 GW | 540 | 946 |
+| 36″ new | 4.7 GW | 705 | 1 235 |
+| 48″ | 13 GW | 1 950 | 3 417 |
+
+The study range of 50–500 kt/yr therefore maps onto 20″ to 36″ lines. Below ~150 kt/yr, per-kg costs exceed the 20″ value, and no source was found for that range. EHB levelised costs use 5 000 full-load hours and a 5 % WACC (EHB 2022, Table 1). Re-levelise with your own WACC from the CAPEX rows.
+
+**N6. Tube-trailer cost per 100 km.**
+- DESNZ: (£1.14 − £0.90) / 2 = £0.12 per kg per 100 km ÷ 0.86979 = €0.14.
+- Reddi: ($2.6 − $1.4) / 320 km × 100 = $0.375 ÷ 1.0824 = €0.35.
+- Reuß: ($4.9 − $1.1) / 600 km × 100 = $0.633 ÷ 1.0824 = €0.58.
+- The distance-independent part (25 km trip) is £0.81–2.39/kg trailering plus £1.2–1.5/kg compression (DESNZ Tables A3/A4).
+- At 270–1 400 km a fixed 300 trips/yr is infeasible (50 km/h, 4 h load and unload). Model the fleet size explicitly with rows 7.1–7.4 rather than using a linear €/kg/100 km.
+
+**N7. PTF.**
+- 2024: 2 235.52 TL ÷ 35.5734 = 62.84 €/MWh.
+- 2025: 2 617.83 ÷ 44.8161 = 58.41 €/MWh (EPDK weighted average 2 651.81 → 59.17 €/MWh).
+- Hourly-converted USD means (EnerjiVeri): 68.1 (2024) and 66.4 (2025) USD/MWh, consistent with the € values.
+- Shape factors:
+  - 2024 hour-of-day: 12:00 = 1 503.28/2 235.52 = 0.672; 19:00 = 2 727.40/2 235.52 = 1.220.
+  - Sept 2025 time bands (EPİAŞ monthly report): night 22–06 = 1.079, day 06–17 = 0.840, peak 17–22 = 1.226 of the monthly mean.
+- Price caps: 3 000 TL/MWh (2024), 3 400 TL/MWh (2025).
+- Surplus sales from co-located PV happen mainly in midday hours, so apply the hourly shape. Do not use the flat mean.
+- 2026 year-to-date (EnerjiVeri, 291 days) is 2 012 TL ≈ 43.8 USD/MWh, a downside signal outside the requested 2024–25 window.
+- A full 8 760-h profile was **not** downloaded. Use the EPİAŞ Şeffaflık Platformu.
+
+**N8. Water.** 1 kg H₂ needs 18.015/2.016 = 8.94 kg H₂O stoichiometrically. TL tariffs are converted at 44.8161 TL/€. The İSKİ PDF tariff (11.59 TL raw bulk; 90.08 TL OSB tier 4) differs from the web-page values (14.81; 115.03), probably a mid-2025 revision; the web-page values were used. Demineralisation cost is not included.
+
+**N9. Scope differences in PEM CAPEX.**
+- IEA: system + electrical + gas treatment + BoP + EPC.
+- EHO 2025: stack + BoP + other utilities + other CAPEX (land, grid fees, permitting, contingency, EPC management).
+- Clean Hydrogen JU SRIA 2030 targets (500 €/kW; O&M 21 €/(kg/d)/yr ≈ 9.2 €/kW/yr at 55 kWh/kg) exclude installation. They are **not** used as the low value.
+- JRC CETO 2025 reports large European projects at 2 630–3 050 €/kW (TNO 2024), above the TFN high. Use it for a stress case.
+- The DEA 2026 electrolysis update states that PEMEC costs were underestimated before; its figures could not be read as text.
+- EHO OPEX may include stack replacement, so do not add row 3.4 on top of the EHO-based O&M.
+
+**N10. WACC.** Model in real EUR or USD terms. A TRY-nominal WACC would embed Turkish inflation and is not comparable. IRENA 2023 (*The cost of financing for renewable power*) lists Türkiye in its survey, but only in figures, so no numeric value could be extracted.
+
+---
+
+## 5. Additional inputs used in `params.yaml` (added 2026-10-18)
+
+| Item | Value | Source | Evidence |
+|---|---|---|---|
+| Wind capacity density (total project area) | 3.0 MW/km² (34 ± 22 ha/MW) | Denholm, Hand, Jackson & Ong 2009, NREL/TP-6A2-45834, doi:10.2172/964608 | FT (Table 1 and Conclusions) |
+| PV capacity density (total area) | 31 MWac/km² | Ong et al. 2013, NREL/TP-6A20-56290, doi:10.2172/1086349 | FT (already in the hard-criteria review) |
+| Green-hydrogen share of on-purpose demand, ammonia nodes | (0.336, 0.42, 0.60) | Directive (EU) 2023/2413, Art. 22a (42 % by 2030, 60 % by 2035) and Art. 22b (reduction to 33.6 % in 2030); Commission guidance C/2025/2983 | FT (EUR-Lex guidance text) |
+| National cross-check | 2 GW electrolysers by 2030, 5 GW by 2035, 70 GW by 2053 | MENR 2023, *Türkiye Hydrogen Technologies Strategy and Roadmap* (ETKB_Hydrogen_T_Strategies.pdf); IEA policy record 17216 | FT |
+| Minimum electrolyser size if a site is opened | 50 MW | MENR 2023 roadmap, Fig. 3 (50–500 MW class for 2030) | Ex |
+| Tube-trailer intercept (distance-independent, excl. compression) | (0.43, 0.74, 0.90) €/kg | Intercepts of the three cost lines in Note N6: DESNZ £0.78 @0.86979; Reddi $0.80 @1.0824; Reuß $0.47 @1.0824 | D |
+| Tuz Gölü coordinates | 38.0966 N, 33.5865 E | Google Places record "BOTAŞ Tuz Gölü Doğal Gaz Depolama Tesisi" (Sultanhanı), via Exa; consistent with BOTAŞ "40 km south of Tuz Gölü" | Ex |
+
+| RPP demand-violation penalty δ, ammonia nodes | 5.63 €/kg H₂-eq | H2Global pilot auction (Lot 1, Fertiglobe): renewable ammonia delivered to EU ports at 1 000 €/t (net FOB 811 €/t), https://hintco.eu/lot-1-renewable-ammonia/ ; ÷ 0.1776 t H₂/t NH₃. Excludes cracking | FT |
+| Green-hydrogen share of on-purpose demand, refinery nodes | (0.158, 0.198, 0.395) | RED III Art. 25(1)(b) transport sub-target applied to TÜİK 2024 transport final energy (road, rail, domestic maritime); Note N11 | Ex (secondary summaries of the directive) / FT (TÜİK figures) |
+| RPP demand-violation penalty δ, refinery nodes | 7.30 €/kg | Cracked RFNBO hydrogen landed in Europe, $7.50–9.00/kg (S&P Global Commodity Insights, 9 Jun 2025) at 1.1300 USD/EUR (ECB 2025 average); Note N15 | Ex |
+| New pipeline CAPEX and capacity, 12″ | (1.045, 1.12, 1.344) M€/km; 222 t/d | Extrapolated from the EHB 2022 20″/36″/48″ classes; mode confirmed by DEA 2025 datasheet (1.14 M€/km); Note N12 | D |
+| Trailer operating hours per year | 6 000 h (sensitivity 4 400 / 8 000) | Modelling assumption (two-shift operation) for the trip-feasibility correction; Note N13 | – |
+| Trailer refill compression at the cavern | row 7.6 energy; rows 4.4–4.6 compressor | Note N14 | FT |
+
+Modelling choices that are not literature values (sensitivity-tested): RPP weight γ = 0.2, Me parameter λ = 0.5, export connection ≤ electrolyser capacity, renewable plants co-located within the candidate's 0.1° cell (cluster level reported as a second baseline), modal demand supplied domestically (security-of-supply mandate; import diagnostic reported), trailer operating hours.
+
+## 6. Additional parameters
+
+**N11. Sector-specific renewable share of demand.**
+- Ammonia plants fall under the RED III industry target (Art. 22a): 33.6 % (Art. 22b reduced 2030 target) / 42 % (2030) / 60 % (2035).
+- Hydrogen used in refineries as an intermediate for conventional transport fuels is excluded from the Art. 22a denominator "as it is covered by the transport target" (Hydrogen Europe, RED III position paper, June 2024, p. 3). The transport target (Art. 25(1)(b)) requires a combined 5.5 % share of advanced biofuels and RFNBOs in 2030, of which at least 1 percentage point RFNBO; RFNBOs count at twice their energy content outside aviation and maritime (Clean Hydrogen Observatory, RED page, Dec 2025).
+- Turkish transport final energy 2024 (TÜİK, Ulaştırma Sektörü Nihai Enerji Tüketim İstatistikleri 2024, released 27 March 2026): road 1 103 279 TJ, rail 10 358 TJ, domestic maritime 11 020 TJ, aviation 287 106 TJ (84.5 % international). Aviation is excluded from the base because its international share and the 1.5 multiplier make it ambiguous, and because aviation fuels fall under the separate ReFuelEU obligation: 1 124 657 TJ.
+- Mode: 1 % × 1 124.7 PJ / 2 (multiplier) = 5.623 PJ → 46.9 kt H₂ at 120 MJ/kg LHV.
+- High: the same without the multiplier (the reading Hydrogen Europe recommends for the sub-target, guidance note 2025, Rec. 9): 93.7 kt.
+- Low: 0.8 × mode = 37.5 kt, mirroring the 33.6/42 ratio of the industry target (a symmetry assumption).
+- Shares of the 237 kt refinery on-purpose demand: 0.1582 / 0.1977 / 0.3954. The derivation assumes that the national transport RFNBO sub-target is met through refinery hydrogen, which is an upper estimate of the refinery role.
+- Baseline modal demand: ammonia 0.42 × 138.9 kt = 58.3 kt + refineries 46.9 kt = 105.2 kt (upper-bound scenario: 157.9 kt); possibility range 84.2–177.0 kt.
+
+**N12. 12-inch pipeline class.** EHB 2022 medium new-pipeline CAPEX: 20″ 1.5, 36″ 2.2, 48″ 2.8 M€/km (rows 6.1–6.3). A least-squares line in diameter gives 0.0463 M€/km per inch and 1.12 M€/km at 12″; the low/high vertices are the 20″ vertices scaled by 1.12/1.5 → 1.045 / 1.12 / 1.344 M€/km. Capacity: a log-log fit to the EHB design capacities (1.2 / 4.7 / 13 GW) gives an exponent of 2.66; anchored at 20″ (1.2 GW), 12″ = 0.31 GW = 222 t/d. Evidence level D: extrapolated below the smallest EHB class. Check (10 Nov 2026): the Danish Energy Agency technology brief (July 2025, Fig. 1, 20 m/s velocity limit) gives about 1 GW at 12" and 70 bar, i.e. a 12"/20" capacity ratio of about 0.38 against 0.26 here; a run with 311 t/d (D² scaling of the 20" class) leaves the design unchanged (9.96 €/kg, tag pipe12_cap311). The brief gives no cost figures; costs are in the catalogue datasheets. Its truck cost curve (about 0.18 €/kg + 0.31 €/kg per 100 km, 0–300 km) is close to row 7.5 (mode 0.35 €/kg per 100 km), and it states that road transport only makes sense below 200–300 km.
+- *DEA datasheet check (10 Nov 2026).* Technology Data for Energy Transport, data sheet version 8 (2025 prices), sheets 4.1–4.3: new 12″ line 1.14 M€/km (lower 0.798, upper 1.71; Class 5 range −30 %/+50 %, note F) at 40 and 90 barg, 1.23 at 140 barg; 20″ 1.41 (40 barg) / 1.76 (90 barg) / 2.10 (140 barg). PLR and LV stations are included (about 20 % of the figure, note F). Additional costs for construction management and owner's costs, 35 % (30–40 %) of investment, "need to be added on top" (note G). Fixed O&M 1 %/yr, lifetime 50 yr, booster compressor stations 1.2 M€/MWe. Capacity at 20 m/s and full utilisation: 12″ 600 MW at 40 barg (= 432 t/d), 1 200 MW at 90 barg; 20″ 1 600 / 3 300 MW. The EHB reports do not state whether owner's costs are included ("pipeline (including gas metering) capex"), so the 35 % cannot be assigned unambiguously.
+- *Decision:* the EHB-based values are kept as baseline; the DEA mode (1.14) confirms ours (1.12), and the DEA 12″/20″ cost ratio (0.81 at 40 barg, 0.65 at 90 barg) brackets ours (0.75). Two sensitivity runs: `pipe12_dea` (12″ triangle 0.798/1.14/1.71, 432 t/d) → 10.09 €/kg, Tuz Gölü→Aliağa line replaced by trailers, trailer share of final deliveries 39 %; `pipe_capex135` (both diameters ×1.35) → 10.45 €/kg, Aliağa and Kırklareli→Gemlik lines replaced, trailer share 60 %. The Karaman–Tuz Gölü–Körfez spine is built in every run. The cost is robust (+1.3 %, +4.9 %); the modal split is not.
+
+**N13. Long-haul trailer correction.** The levelised trailer lines (row 7.5) assume about 300 trips per trailer and year (DESNZ 2023). A round trip takes 2L/v + t_lu (v = 50 km/h, t_lu = 4 h, as in N6). With H = 6 000 operating hours per year (two-shift operation; sensitivity 4 400 and 8 000 h), a trailer makes n(L) = min(300, H/(2L/v + t_lu)) trips, which binds above L = 400 km. The extra trailer capital per kg delivered is A_tr (1/n(L) − 1/300), with A_tr the annualised trailer CAPEX plus 5 %/yr O&M per kg payload (rows 7.2, 7.3; WACC row 8.1). Driver time and fuel per km are already in the distance term.
+
+**N14. Trailer refilling at the cavern.** Hydrogen withdrawn from Tuz Gölü and dispatched by trailer is compressed to 500 bar on grid electricity. The 30 → 500 bar energy of row 7.6 (mode 2.41 kWh/kg) is used as a conservative upper value, because withdrawal pressure exceeds 30 bar. Compressor CAPEX and O&M follow rows 4.4–4.6; the electricity is charged at the day-ahead price and counted in the RFNBO emission check at the grid factor.
+
+**N15. Sector-specific import parity δ.** Ammonia nodes: 5.63 €/kg H₂-equivalent (H2Global Lot 1, unchanged). Refinery nodes need gaseous hydrogen: RFNBO-compliant hydrogen landed in Europe after ammonia cracking costs $7.50–9.00/kg (S&P Global Commodity Insights, 9 June 2025, https://www.spglobal.com/commodity-insights/en/news-research/latest-news/energy-transition/060925-ammonia-cracking-costs-emissions-key-to-hydrogens-competitiveness-in-europe). At the ECB 2025 average of 1.1300 USD/EUR this is 6.64–7.96 €/kg; the midpoint 7.30 €/kg is used. Merged nodes weight the penalty by each facility's demand range.

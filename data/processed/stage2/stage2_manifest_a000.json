@@ -1,0 +1,30 @@
+{
+  "run_utc": "2026-11-12T13:51:24+00:00",
+  "mode": "survey",
+  "alpha": 0.0,
+  "lambda_waspas": 0.5,
+  "data_map": "matched",
+  "critic_norm": "minmax",
+  "inputs_sha256": {
+    "data_criteria.csv": "84d65244a7e865103235b4c97a6c675440f8552de153eb0aca33b8dbc697492e",
+    "normalisation_anchors.json": "d1c4a3c32c0e4d7aae343b73e5ec3293aa322e91df593dde0aeedc2694c6ec97"
+  },
+  "survey_sha256": "5591021c319cfc8cec3def2709fcbe47a12c78ee4b3832d0179e56cf847e4c7e",
+  "n_valid_ratings": {
+    "K5_S1": 4,
+    "K5_S2": 4,
+    "K5_S3": 4,
+    "K5_S4": 4,
+    "K5_S5": 4,
+    "K6_S1": 4,
+    "K6_S2": 4,
+    "K6_S3": 4,
+    "K6_S4": 4,
+    "K6_S5": 4,
+    "K7_S1": 4,
+    "K7_S2": 4,
+    "K7_S3": 4,
+    "K7_S4": 4,
+    "K7_S5": 4
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "run_utc": "2026-10-18T19:47:46+00:00",
+  "mode": "provisional",
+  "alpha": 0.5,
+  "lambda_waspas": 0.5,
+  "inputs_sha256": {
+    "data_criteria.csv": "84d65244a7e865103235b4c97a6c675440f8552de153eb0aca33b8dbc697492e",
+    "normalisation_anchors.json": "d1c4a3c32c0e4d7aae343b73e5ec3293aa322e91df593dde0aeedc2694c6ec97"
+  },
+  "survey_sha256": null,
+  "n_valid_ratings": {}
+}

@@ -1,0 +1,6 @@
+code,cluster,cell_id,province,lat,lon,n_cells,cluster_eligible_area_km2,cluster_wind_area_km2,cluster_pv_area_km2,cell_wind_area_km2,cell_pv_area_km2,cell_wind_cf_eligible_pct,cell_ghi_kwh_m2,cell_elev_m,dist_freshwater_km,dist_coast_km,dist_substation_km,cluster_provinces
+S1,13,37.45_38.85,Sivas,38.85,37.45,166,11440.4,6696.7,4743.7,82.7,58.6,32.9,1739.0,1668.0,11.5,239.8,25.0,"Kahramanmaraş, Kayseri, Malatya, Sivas"
+S2,0,27.75_41.45,Tekirdağ,41.45,27.75,117,8326.5,4115.3,4211.1,67.1,66.9,32.8,1553.0,148.0,3.8,35.0,7.4,"Edirne, Kırklareli, Tekirdağ, Çanakkale, İstanbul"
+S3,43,33.35_36.95,Karaman,36.95,33.35,45,4394.4,2537.0,1857.4,97.7,87.8,34.1,1801.0,1612.0,10.9,84.5,11.8,"Karaman, Konya, Mersin"
+S4,41,37.25_36.95,Gaziantep,36.95,37.25,43,2617.8,1447.9,1169.9,63.1,41.8,30.5,1878.0,864.0,9.1,95.5,6.6,"Adıyaman, Gaziantep, Kahramanmaraş, Kilis"
+S5,40,39.85_37.55,Şanlıurfa,37.55,39.85,29,2488.3,1123.6,1364.8,89.0,79.7,27.1,1830.0,1356.0,12.1,335.2,13.4,"Diyarbakır, Mardin, Şanlıurfa"

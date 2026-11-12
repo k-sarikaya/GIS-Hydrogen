@@ -1,0 +1,260 @@
+{
+  "stage": "extract",
+  "run_utc": "2026-10-31T11:31:55+00:00",
+  "mode": "full",
+  "bbox": [
+    25.6,
+    35.8,
+    45.0,
+    42.2
+  ],
+  "params": {
+    "grid_res_deg": 0.1,
+    "grid_bbox": [
+      25.6,
+      35.8,
+      45.0,
+      42.2
+    ],
+    "test_bbox": [
+      33.0,
+      39.0,
+      34.0,
+      40.5
+    ],
+    "pixel_res_deg": 0.0008333333333333334,
+    "tile_pad_deg": 0.05,
+    "worldcover_decimation": 8,
+    "X_elev_max_m": 2000.0,
+    "X_protected_buffer_km": 1.0,
+    "X_builtup_buffer_km": 1.0,
+    "X_airport_buffer_km": 5.0,
+    "X_water_setback_km": 0.5,
+    "X_landcover_excluded": [
+      10,
+      70,
+      95
+    ],
+    "X_water_classes": [
+      80,
+      90
+    ],
+    "X_builtup_class": 50,
+    "W_slope_max_deg": 16.7,
+    "W_cf_variants": [
+      0.2,
+      0.25,
+      0.3
+    ],
+    "PV_slope_max_deg": 5.71,
+    "PV_landcover_excluded": [
+      40
+    ],
+    "W_min_patch_km2": 10.0,
+    "PV_min_patch_km2": 3.0,
+    "PV_min_patch_alt_km2": 10.0,
+    "C_ghi_min_kwh_m2_yr": 1450.0,
+    "C_wind_cf_variant": 0.25,
+    "C_wind_area_min_km2": 10.0,
+    "C_pv_area_min_km2": 3.0,
+    "C_pv_variant": "base",
+    "C_water_max_km": 50.0,
+    "C_substation_max_km": 50.0,
+    "river_min_discharge_m3s": 1.0,
+    "lake_classes": [
+      "Lake",
+      "Reservoir"
+    ],
+    "substation_min_kv": 154,
+    "substation_line_snap_km": 1.0,
+    "dbscan_eps_deg": 0.15,
+    "dbscan_min_samples": 3,
+    "n_candidates": 5,
+    "min_spacing_km": 100.0,
+    "pvgis_years": [
+      2005,
+      2023
+    ]
+  },
+  "metric_crs": "+proj=laea +lat_0=39 +lon_0=35 +x_0=0 +y_0=0 +ellps=GRS80 +units=m +no_defs",
+  "columns": {
+    "cell_id": "hücre kimliği \"lon_lat\" (hücre merkezi, 2 ondalık)",
+    "row": "ızgara satırı (kuzeyden güneye)",
+    "col": "ızgara sütunu (batıdan doğuya)",
+    "lon": "hücre merkezi boylamı (°E)",
+    "lat": "hücre merkezi enlemi (°N)",
+    "province": "il (geoBoundaries ADM1)",
+    "land_km2": "hücrenin Türkiye kara alanı (km²)",
+    "buildable_km2": "ortak dışlamalardan (X1–X7) sonra kalan alan (km²)",
+    "wind_area_km2_cf20": "rüzgâra uygun bitişik alan, CF ≥ %20 (km²)",
+    "wind_area_km2_cf25": "rüzgâra uygun bitişik alan, CF ≥ %25 (km²)",
+    "wind_area_km2_cf30": "rüzgâra uygun bitişik alan, CF ≥ %30 (km²)",
+    "pv_area_km2": "GES/elektrolizöre uygun bitişik alan, yama ≥ 3 km², tarım hariç (km²)",
+    "pv_area_km2_p10": "GES alanı, yama ≥ 10 km², tarım hariç (km²) — duyarlılık",
+    "pv_area_km2_withcrop": "GES alanı, yama ≥ 3 km², tarım dahil (km²) — duyarlılık",
+    "wind_pv_overlap_km2": "hem rüzgâra hem GES/elektrolizöre uygun ortak alan (km²); ortak kullanım kısıtı için (params.yaml land.co_use_share)",
+    "wind_cf_mean": "kara alanında ortalama brüt KF (GWA IEC2, 0–1)",
+    "wind_cf_eligible_mean": "rüzgâra uygun alanda (CF ≥ %25) ortalama brüt KF (0–1)",
+    "ghi": "PVGIS-SARAH3 yatay düzlem yıllık ışınım, hücre merkezi (kWh/m²/yıl)",
+    "elev_median": "medyan yükseklik (m)",
+    "slope_median": "medyan eğim (°)",
+    "share_cropland": "tarım arazisi payı",
+    "share_grass_shrub_bare": "çayır/çalı/çıplak arazi payı",
+    "share_tree": "orman payı",
+    "share_builtup": "yerleşim payı",
+    "dist_freshwater_km": "en yakın sürekli nehir veya tatlı su gölüne uzaklık (km)",
+    "dist_coast_km": "kıyı çizgisine uzaklık (km)",
+    "dist_substation_km": "en yakın ≥154 kV trafo merkezine uzaklık (km)",
+    "dist_grid_line_km": "en yakın ≥154 kV iletim hattına uzaklık (km)"
+  },
+  "n_cells": 8115,
+  "missing_values": {
+    "cell_id": 0,
+    "row": 0,
+    "col": 0,
+    "lon": 0,
+    "lat": 0,
+    "province": 0,
+    "land_km2": 0,
+    "buildable_km2": 0,
+    "wind_area_km2_cf20": 0,
+    "wind_area_km2_cf25": 0,
+    "wind_area_km2_cf30": 0,
+    "pv_area_km2": 0,
+    "pv_area_km2_p10": 0,
+    "pv_area_km2_withcrop": 0,
+    "wind_pv_overlap_km2": 6903,
+    "wind_cf_mean": 0,
+    "wind_cf_eligible_mean": 6407,
+    "ghi": 0,
+    "elev_median": 0,
+    "slope_median": 0,
+    "share_cropland": 0,
+    "share_grass_shrub_bare": 0,
+    "share_tree": 0,
+    "share_builtup": 0,
+    "dist_freshwater_km": 0,
+    "dist_coast_km": 0,
+    "dist_substation_km": 0,
+    "dist_grid_line_km": 0
+  },
+  "features_sha256": "68246a74c35a5a2ca3471aed982f68025d2bb74f0dfddcfbe37b826f11e435ae",
+  "area_exclusion_sha256": "b861293e4781f9dde6c10154975d267676cefe0e01c520748ec50a6f95726e8d",
+  "sources": {
+    "geoboundaries_adm0": {
+      "url": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/TUR/ADM0/geoBoundaries-TUR-ADM0.geojson",
+      "bytes": 7029658,
+      "sha256": "0bedfaa049d40de8545db632ed040f259067fc8d1b8f948ee93acd1e8078e463",
+      "retrieved_utc": "2026-10-31T11:31:20+00:00"
+    },
+    "geoboundaries_adm1": {
+      "url": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/TUR/ADM1/geoBoundaries-TUR-ADM1.geojson",
+      "bytes": 10128401,
+      "sha256": "01697a1722cf62db3b5f4e78ae73e7972edae52d2254ccfffa9163fc6cdbc918",
+      "retrieved_utc": "2026-10-31T11:31:23+00:00"
+    },
+    "osm_protected": {
+      "snapshot": "snapshot_osm_protected.geojson.gz",
+      "sha256": "3a5442c166df8a3b04f50c95857b00d8d4569fa36557af0454d2bb9382b2f954",
+      "reused": true
+    },
+    "osm_military": {
+      "snapshot": "snapshot_osm_military.geojson.gz",
+      "sha256": "82bdee82eeaca25aafd6df319b5de97b9b3b399704dfcaa82bb042c5c9a50176",
+      "reused": true
+    },
+    "osm_airports": {
+      "snapshot": "snapshot_osm_airports.geojson.gz",
+      "sha256": "d93e34847194aa84447130231b1f3e2b0b9b64042beb384134a4a84c2d33b64b",
+      "reused": true
+    },
+    "osm_substations": {
+      "snapshot": "snapshot_osm_substations.geojson.gz",
+      "sha256": "88c4e15f85d2bbb7e62cfc0e69fcbd2a4f6f146341d0f9d612eebeecd52b27fb",
+      "reused": true
+    },
+    "osm_power_lines": {
+      "snapshot": "snapshot_osm_power_lines.geojson.gz",
+      "sha256": "d7a6dcc087b7d914b2883ca3ca313fe10b07471d82f68948191dc523c912bb23",
+      "reused": true
+    },
+    "pvgis_sarah3": {
+      "url": "https://re.jrc.ec.europa.eu/api/v5_3/MRcalc",
+      "params": {
+        "horirrad": 1,
+        "raddatabase": "PVGIS-SARAH3",
+        "years": [
+          2005,
+          2023
+        ]
+      },
+      "n_points": 8115,
+      "n_missing": 0,
+      "cache_sha256": "f7760b241af0d734c31eae3aa6e2aa157b82640de0c3d4178381d7d90581d136"
+    },
+    "gwa3_cf_IEC2": {
+      "url": "https://globalwindatlas.info/api/gis/country/TUR/capacity-factor_IEC2",
+      "bytes": 65347775,
+      "sha256": "9164a71bafa7333f73370b7b3aa3ddf023133bd7db960aac0ff7debac509dcc8",
+      "retrieved_utc": "2026-10-31T11:31:43+00:00",
+      "crs": "EPSG:4326",
+      "res": [
+        0.002500000000000001,
+        0.002500000000000001
+      ]
+    },
+    "copernicus_glo90": {
+      "url_pattern": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N{lat:02d}_00_E{lon:03d}_00_DEM/Copernicus_DSM_COG_30_N{lat:02d}_00_E{lon:03d}_00_DEM.tif",
+      "tile_sha256_this_run": {},
+      "cache_sha256": "4978b094924cdb0ef671f7c958e2c6d6e7079cde3f970368c9ddc9b2dca1d594"
+    },
+    "esa_worldcover_2021_v200": {
+      "url_pattern": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_N{lat:02d}E{lon:03d}_Map.tif",
+      "read": "COG overview, mode resampling",
+      "decimation": 8,
+      "tiles": []
+    },
+    "hydrorivers_v10_eu": {
+      "url": "https://data.hydrosheds.org/file/HydroRIVERS/HydroRIVERS_v10_eu_shp.zip",
+      "bytes": 67648957,
+      "sha256": "500da7d36ceee0aa4c82dd625f5c53d80ba2f7ac14ad022cd3a6601bf55068e5",
+      "retrieved_utc": "2026-10-31T11:31:51+00:00",
+      "n_segments_used": 17177
+    },
+    "ne_10m_lakes": {
+      "url": "https://naciscdn.org/naturalearth/10m/physical/ne_10m_lakes.zip",
+      "bytes": 2349685,
+      "sha256": "0803a06f9c3cb4671d89b68c48b142aad9366ba40f665245e12a913fbc61722a",
+      "retrieved_utc": "2026-10-31T11:31:53+00:00",
+      "lakes_used": [
+        "Ataturk Barajt",
+        "Beyşehir",
+        "Buhayrat al-Assad",
+        "Eğirdir",
+        "Keban Baraji",
+        "Lake Sevan",
+        "Saksak Dagi"
+      ]
+    },
+    "ne_10m_coastline": {
+      "url": "https://naciscdn.org/naturalearth/10m/physical/ne_10m_coastline.zip",
+      "bytes": 3069451,
+      "sha256": "bfa04cdbcbef07ef90dfca1dabb48062eca29900a113df0f389303e255484017",
+      "retrieved_utc": "2026-10-31T11:31:54+00:00"
+    }
+  },
+  "versions": {
+    "python": "3.12.5",
+    "numpy": "2.1.1",
+    "pandas": "2.2.2",
+    "scipy": "1.14.1",
+    "geopandas": "1.2.0",
+    "rasterio": "1.5.2",
+    "shapely": "2.2.0",
+    "pyogrio": "0.13.0",
+    "pyproj": "3.8.0",
+    "sklearn": "1.8.0",
+    "matplotlib": "3.9.2",
+    "requests": "2.32.3"
+  }
+}

@@ -1,0 +1,160 @@
+
+\subsubsection{Land, capacity and opening constraints}
+Let $W_i^{\max}$ and $P_i^{\max}$ be the cell- or cluster-based capacity bounds
+from eligible area, $A_i^{\cap}$ and $A_i^{\cup}$ the measured intersection
+and union of the wind and PV masks, $\rho_W$ and $\rho_P$ their capacity
+densities, and $\phi$ the allowed co-use share. The land constraints are
+\begin{equation}
+\begin{aligned}
+\frac{W_i}{\rho_W}+\frac{P_i}{\rho_P}-s_i &\le A_i^{\cup},\\
+0\le s_i &\le \frac{W_i}{\rho_W},\qquad
+s_i\le \frac{P_i}{\rho_P},\qquad s_i\le \phi A_i^{\cap},\\
+0\le W_i &\le W_i^{\max},\qquad 0\le P_i\le P_i^{\max},\\
+E_i^{\min}o_i\le E_i &\le (W_i^{\max}+P_i^{\max})o_i,\\
+\textstyle\sum_{k}y_{ak}&\le 1,\qquad o_i\in\{0,1\},\qquad y_{ak}\in\{0,1\}.
+\end{aligned}
+\label{eq:s5_land_open}
+\end{equation}
+
+\subsubsection{Hourly electricity and production constraints}
+With specific electrolysis consumption $\eta$ (kWh/kg) and compression
+coefficients $\kappa_p$ and $\kappa_t$ (kWh/kg), hourly generation is allocated
+to electrolysis, compression, export and curtailment:
+\begin{equation}
+\begin{aligned}
+c^W_{idh}W_i+c^P_{idh}P_i+im_{idh}
+ &= e_{idh}+x_{idh}+u_{idh}+\kappa_p p^p_{idh}+\kappa_t p^t_{idh},\\
+p^p_{idh}+p^t_{idh} &= e_{idh}/\eta,\\
+0\le e_{idh} &\le E_i,\qquad 0\le x_{idh}\le r_xE_i,\\
+\kappa_p p^p_{idh}+\kappa_t p^t_{idh} &\le K_i,
+\end{aligned}
+\label{eq:s5_electricity}
+\end{equation}
+where $r_x$ is the export-capacity ratio. In the base and S-island cases
+$im_{idh}=0$; S-island also fixes $x_{idh}=0$. In S-grid, annual matching is
+imposed on the site-level import and export variables:
+\begin{equation}
+\sum_{i,d,h}w_d im_{idh}\le \sum_{i,d,h}w_d x_{idh}.
+\label{eq:s5_matching}
+\end{equation}
+
+\subsubsection{Transport, demand and seasonal storage}
+Daily production dispatched from each site equals its hourly pipeline and
+trailer production. Demand nodes receive a constant daily quantity; new
+pipeline flow is limited by its binary construction decision. Cavern injection
+and withdrawal are bounded by their daily design rates:
+\begin{equation}
+\begin{aligned}
+\sum_h p^p_{idh}&=\sum_{a\in\mathrm{out}(i)}f_{a,p,d},\qquad
+\sum_h p^t_{idh}=\sum_{a\in\mathrm{out}(i)}f_{a,t,d},\\
+\sum_{a\in\mathrm{in}(j),m}f_{a,m,d}&=Y_j/365,\\
+0\le f_{a,p,d}&\le \textstyle\sum_k F_k y_{ak},\\
+\sum_{a\in\mathrm{in}(g),m}f_{a,m,d}&\le R^{\mathrm{in}},\qquad
+\sum_{a\in\mathrm{out}(g),m}f_{a,m,d}\le R^{\mathrm{out}}.
+\end{aligned}
+\label{eq:s5_flow}
+\end{equation}
+For each season, inventory changes by weighted net cavern flow and is cyclic
+over the year:
+\begin{equation}
+I_{s^+}=I_s+\sum_{d\in D_s}w_d\left(
+\sum_{a\in\mathrm{in}(g),m}f_{a,m,d}-
+\sum_{a\in\mathrm{out}(g),m}f_{a,m,d}\right),\qquad
+0\le I_s\le V\le V^{\max},\quad I_{S+1}=I_1.
+\label{eq:s5_inventory}
+\end{equation}
+Here $s^+$ denotes the next season with wrap-around, $D_s$ is its set of
+representative days, and $F_k$ (864 and 222\,t/d), $R^{\mathrm{in}}$, $R^{\mathrm{out}}$ and
+$V^{\max}$ are the pipeline, injection, withdrawal and working-gas limits. Trailers leaving the
+cavern are refilled to 500\,bar on grid electricity, so
+$K_g\ge\kappa_t\sum_{a\in\mathrm{out}(g)}f_{a,t,d}/24$ for every day $d$.
+
+The robust Me-demand constraint is the crisp equivalent for the branch
+$\alpha_j\ge\lambda$; $\alpha_j$ is bounded between $\lambda$ and 1:
+\begin{equation}
+Y_j+M_j\ge d_{j2}+\frac{\alpha_j-\lambda}{1-\lambda}
+(d_{j3}-d_{j2}),\qquad \lambda\le\alpha_j\le1,\quad Y_j,M_j\ge0.
+\label{eq:s5_demand}
+\end{equation}
+Restricting $\alpha_j\ge\lambda$ means that the modal demand is always supplied. In the baseline this
+is an explicit domestic-supply mandate and imports are fixed at $M_j=0$; in the import diagnostic,
+$M_j$ is free and costs $1000\,\delta_j M_j$.
+For the full-year outage tests, the model fixes $\alpha_j=\lambda$, replaces
+this constraint by $Y_j+q_j^{\mathrm{short}}=d_{j2}$, and adds the penalty
+$1000\delta\sum_j q_j^{\mathrm{short}}$ to annual cost.
+
+\subsubsection{Robust cost and objectives}
+Let $q_k$ denote the annual activity quantities multiplying unit-cost
+coefficients $c_k$ from Supplementary Table S2. They comprise installed wind,
+PV, electrolyser and compressor capacity; weighted electrolyser MWh for stack
+replacement; weighted hydrogen output for water; pipeline-km by diameter class; fixed and
+distance-variable trailer tonne-km; the additional trailer-capacity years of long hauls; and cavern
+working gas. Grid-electricity
+quantity and export quantity are defined below. With $\mathcal K=\{W,PV,E,K,
+\mathrm{stack},\mathrm{water},\mathrm{pipe},\mathrm{tr,fix},\mathrm{tr,dist},
+\mathrm{cavern}\}$, the remaining annual quantities are
+\begin{equation}
+\begin{aligned}
+q_W&=\sum_iW_i, & q_{PV}&=\sum_iP_i, & q_E&=\sum_iE_i, & q_K&=\sum_iK_i,\\
+q_{\mathrm{stack}}&=\sum_{i,d,h}w_de_{idh}, &
+q_{\mathrm{water}}&=\sum_{i,d,h}w_de_{idh}/\eta, &
+q_{\mathrm{pipe},k}&=\sum_aL_a^py_{ak},\\
+q_{\mathrm{tr,fix}}&=\sum_{a,d}w_df_{a,t,d}, &
+q_{\mathrm{tr,dist}}&=\sum_{a,d}w_d(L_a/100)f_{a,t,d}, &
+q_{\mathrm{cavern}}&=V,\\
+q_{\mathrm{tcap}}&=\sum_{a,d}w_d\,1000\,\xi(L_a)f_{a,t,d}, & & & & \\
+\end{aligned}
+\label{eq:s5_activity_quantities}
+\end{equation}
+The grid-electricity and export quantities are
+\begin{equation}
+\begin{aligned}
+q_{\mathrm{grid}}={}&\sum_{i,d,h}w_dB_h im_{idh}
++\sum_{a,d}w_d\epsilon_r L^p_a f_{a,p,d}/1000
++\sum_{a\in\mathrm{in}(g),m,d}w_d\epsilon_g f_{a,m,d},\\
+q_{\mathrm{sell}}={}&\sum_{i,d,h}w_dB_hx_{idh},
+\end{aligned}
+\label{eq:s5_grid_quantities}
+\end{equation}
+where $B_h$ is the day-ahead price time-band factor, $\epsilon_r$ the
+pipeline-recompression energy per 1,000 km, and $\epsilon_g$ the cavern
+booster energy; trailer refilling at the cavern adds $\sum_{a\in\mathrm{out}(g),d}w_d\kappa_tf_{a,t,d}$ to
+$q_{\mathrm{grid}}$ and $K_g$ to the compressor capacity. The long-haul term uses
+$\xi(L)=\max\{0,1/n(L)-1/n_0\}$ with $n(L)=\min\{n_0,H/(2L/v+t_{lu})\}$ trips per trailer and year
+($n_0=300$, $H=6{,}000$\,h, $v=50$\,km/h, $t_{lu}=4$\,h); its unit cost is the annualised trailer
+capital and O\&M per kg of payload (Supplementary Table~S2, rows 7.2--7.3). At a cost-coefficient vertex $c$ and grid prices $p_b$ for
+imports and $p_s$ for exports, total annual cost is the linear expression
+\begin{equation}
+z(c,p_b,p_s)=\sum_{k\in\mathcal K}c_kq_k+p_bq_{\mathrm{grid}}-p_sq_{\mathrm{sell}}.
+\label{eq:s5_cost}
+\end{equation}
+For each triangular coefficient $\tilde c_k=(c_{k1},c_{k2},c_{k3})$, its Me
+expected coefficient is $\bar c_k=[(1-\lambda)c_{k1}+c_{k2}+\lambda c_{k3}]/2$;
+the day-ahead (PTF) price $\tilde p=(p_1,p_2,p_3)$ has expectation
+$\bar p=[(1-\lambda)p_1+p_2+\lambda p_3]/2$. The optimistic and pessimistic
+costs use the low-cost/high-sale and high-cost/low-sale vertices, respectively.
+The robust possibilistic objective is
+\begin{equation}
+\min f_1= z(\bar c,\bar p,\bar p)
++\gamma\big[z(c_3,p_3,p_1)-z(c_1,p_1,p_3)\big]
++1000\sum_j\frac{1-\alpha_j}{1-\lambda}\sum_{n\in N_j}\delta_{\sigma(n)}(d_{n3}-d_{n2}),
+\label{eq:s5_rpp_objective}
+\end{equation}
+where $\delta_{\sigma(n)}$ is the import parity of the facility's sector (5.63\,€/kg for ammonia,
+7.30\,€/kg for refineries, which need cracked hydrogen).
+Written out, at $\lambda=0.5$ and $\gamma=0.2$ each cost coefficient enters $f_1$ with vertex weights
+$(0.05,0.5,0.45)$ and each revenue coefficient with $(0.45,0.5,0.05)$, so the RPP objective is a
+deterministic MILP evaluated at a pessimistically shifted point estimate plus a confidence-dependent
+penalty; for $\gamma>(1-\lambda)/2$ the weight on $c_1$ becomes negative. For the second objective, annual
+hydrogen output at site $i$ and production-weighted suitability are
+\begin{equation}
+H_i=\sum_{d,h}w_de_{idh}/\eta,\qquad
+\max f_2=\sum_iQ_i^{01}H_i,\qquad
+\bar Q=f_2/\sum_iH_i.
+\label{eq:s5_suitability}
+\end{equation}
+AUGMECON2 imposes $\sum_i(Q_i^{01}-\varepsilon)H_i=S_\varepsilon$, with
+$S_\varepsilon\ge0$, and minimises $f_1-\mu S_\varepsilon$. The implementation
+uses $\mu=10^{-3}|f_{1,\min}|/R_2$, where $f_{1,\min}$ is the cost-optimal
+objective and $R_2=(\max_iQ_i^{01}-\min_iQ_i^{01})\sum_jd_{j2}$ is the range of the second objective in
+tonnes H\textsubscript{2}/yr, so that the augmentation term is of the same order as the MIP tolerance.

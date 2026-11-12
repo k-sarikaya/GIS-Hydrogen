@@ -1,0 +1,32 @@
+{
+  "run_utc": "2026-10-18T19:40:39+00:00",
+  "inputs": {
+    "sites": {
+      "path": "candidate_sites.csv",
+      "sha256": "6402c215c706574703eb7883c4b8e42865f6d5ffc4cade797a63ae232acefb99"
+    },
+    "demand": {
+      "path": "demand_inventory.csv",
+      "sha256": "9bf9be0e57176aa5d08cbd968aa3fca63903a663e00a45c6aff7b38cbb5ccd4c",
+      "rule": "rule_2040"
+    },
+    "storage": {
+      "path": "storage_nodes.csv",
+      "sha256": "d200d5e2f8718e71e06e29ae175fbc2663909c12c1903a0818dd69d23f9a0bdd"
+    }
+  },
+  "osrm": {
+    "service": "https://router.project-osrm.org/table/v1/driving/",
+    "request_url": "https://router.project-osrm.org/table/v1/driving/33.350000,36.950000;36.950000,38.550000;39.850000,37.550000;35.250000,38.450000;27.550000,41.650000;33.586500,38.096600;29.767100,40.749500;26.935300,38.813900;33.460900,39.744200;41.137700,37.878900;26.929900,38.796200;29.755600,40.757300;29.113600,40.414200;31.419600,41.260800;36.205800,36.737000;33.586500,38.096600?sources=0%3B1%3B2%3B3%3B4%3B5&destinations=6%3B7%3B8%3B9%3B10%3B11%3B12%3B13%3B14%3B15&annotations=distance%2Cduration",
+    "retrieved_utc": "2026-10-18T19:40:39+00:00",
+    "profile": "driving",
+    "note": "OSRM demo server, OpenStreetMap data at retrieval time"
+  },
+  "earth_radius_km": 6371.0088,
+  "outputs_sha256": {
+    "distance_matrix_haversine_km.csv": "e9f055f87f7fa7743dfd85de8a8591294555a0d6c47fc0fe4384bcb5d3171efa",
+    "distance_matrix_long.csv": "d646709b7611500055d0acbeebd038c6fd284687622f8da91e088bb9c0366727",
+    "distance_matrix_road_km.csv": "8eab3c93537b6b2a78455b6e2867c62d5f1f4a08ae6ae430f6153e555c2d6e69",
+    "distance_matrix_storage_long.csv": "a3ed3d7768b089179771ab67eea47d45065cd2921ff1d855cb100dd09dcc4443"
+  }
+}

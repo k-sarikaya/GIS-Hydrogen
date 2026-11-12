@@ -1,0 +1,60 @@
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.spl
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+*.toc
+*.lof
+*.lot
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Telif hakkı olan makale PDF'leri — public repoya girmemeli
+docs/literature/
+
+# Eski taslaklar ve yedekler (yalnızca yerelde saklanır)
+manuscript/archive/
+*.bak
+
+# GIS ham indirmeleri (büyük raster dosyaları)
+data/raw/**/*.tif
+data/raw/**/*.zip
+
+# GIS ham kaynak dosyaları (büyük; fetch_data.py ile yeniden indirilir, izleri sources_manifest.json içinde)
+data/raw/gis/sources/
+data/cache/
+
+# Gonderim paketleri (build_submission.py ciktisi; her biri ~30 MB arti zip)
+submissions/
+
+# Dergiye gonderilecek duz LaTeX paketi (make_package.py uretir)
+package/
+
+# Expert survey exports contain direct identifiers and free-text responses
+data/survey/expert_responses.csv
+data/survey/expert_responses_SYNTHETIC.csv
+survey/uploaded_responses/
+# Google Forms yanit disa aktarimi (kisisel veri) ve eski form kopyalari
+survey/*.csv.zip
+survey/*.csv
+survey/archive/
+
+# Telifli makale PDF'leri ve calisma artiklari (yalnizca kokte)
+/*.pdf
+/main_extracted.txt
+/extract_both.py
+/phi_batch.err
+
+# Web of Science dışa aktarımları (çalışma dosyası)
+survey/savedrecs*.bib
+# Ic notlar ve rakip incelemesi - herkese acik depoya GIRMEZ
+docs/reviews/
+docs/planning/

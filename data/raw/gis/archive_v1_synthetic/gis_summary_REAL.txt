@@ -1,0 +1,30 @@
+
+============================================================
+GIS AŞAMA I — METODOLOJİ ÖZETİ (Makaleye İşlenecek Sayılar)
+============================================================
+Analiz alanı     : Türkiye (26.0°E–44.8°E, 35.8°N–42.2°N)
+Grid çözünürlüğü : 0.1° × 0.1° (~11 km)
+Toplam piksel    : 8,132
+Uygun piksel     : 531 (%6.5)
+DBSCAN küme sayısı: 6
+Seçilen aday     : 5
+
+Kısıt Katmanları:
+  L1 Rüzgâr CF ≥ 20%              → Global Wind Atlas v3 / Karayel et al. 2023
+  L2 Güneş ≥ 1.450 kWh/m²/yr     → PVGIS-SARAH3 (JRC)
+  L3 Eğim ≤ 15°                   → NASA SRTM 30m DEM
+  L4 Koruma alanı dışı (5 km)     → WDPA / ÇKSGB
+  L5 Su kaynağına ≤ 30 km         → HydroSHEDS / DSİ
+  L6 İletim hattına ≤ 50 km       → TEİAŞ / OpenStreetMap
+
+ADAY TESİSLER:
+  S1: Kinkkale (39.621°N, 33.533°E)
+       Rüzgâr CF: 22.5%  Güneş: 1617 kWh/m²  Eğim: 8.7°  Piksel: 253
+  S2: Mus (39.004°N, 42.472°E)
+       Rüzgâr CF: 25.4%  Güneş: 1689 kWh/m²  Eğim: 9.5°  Piksel: 92
+  S3: Malatya (38.498°N, 38.336°E)
+       Rüzgâr CF: 21.4%  Güneş: 1708 kWh/m²  Eğim: 8.3°  Piksel: 73
+  S4: Denizli (38.031°N, 29.343°E)
+       Rüzgâr CF: 22.3%  Güneş: 1698 kWh/m²  Eğim: 10.1°  Piksel: 84
+  S5: Tunceli (39.150°N, 39.950°E)
+       Rüzgâr CF: 21.1%  Güneş: 1679 kWh/m²  Eğim: 8.1°  Piksel: 14

@@ -1,0 +1,256 @@
+{
+  "stage": "select",
+  "run_utc": "2026-10-18T18:11:55+00:00",
+  "input_features": {
+    "path": "grid_cells_features.csv",
+    "sha256": "5d13268f382ef8baababf4cc68f8404db5d04ba5ff883fb55cb549dc3d9e2391"
+  },
+  "param_overrides": {
+    "min_spacing_km": 200
+  },
+  "params": {
+    "grid_res_deg": 0.1,
+    "grid_bbox": [
+      25.6,
+      35.8,
+      45.0,
+      42.2
+    ],
+    "test_bbox": [
+      33.0,
+      39.0,
+      34.0,
+      40.5
+    ],
+    "pixel_res_deg": 0.0008333333333333334,
+    "tile_pad_deg": 0.05,
+    "worldcover_decimation": 8,
+    "X_elev_max_m": 2000.0,
+    "X_protected_buffer_km": 1.0,
+    "X_builtup_buffer_km": 1.0,
+    "X_airport_buffer_km": 5.0,
+    "X_water_setback_km": 0.5,
+    "X_landcover_excluded": [
+      10,
+      70,
+      95
+    ],
+    "X_water_classes": [
+      80,
+      90
+    ],
+    "X_builtup_class": 50,
+    "W_slope_max_deg": 16.7,
+    "W_cf_variants": [
+      0.2,
+      0.25,
+      0.3
+    ],
+    "PV_slope_max_deg": 5.71,
+    "PV_landcover_excluded": [
+      40
+    ],
+    "W_min_patch_km2": 10.0,
+    "PV_min_patch_km2": 3.0,
+    "PV_min_patch_alt_km2": 10.0,
+    "C_ghi_min_kwh_m2_yr": 1450.0,
+    "C_wind_cf_variant": 0.25,
+    "C_wind_area_min_km2": 10.0,
+    "C_pv_area_min_km2": 3.0,
+    "C_pv_variant": "base",
+    "C_water_max_km": 50.0,
+    "C_substation_max_km": 50.0,
+    "river_min_discharge_m3s": 1.0,
+    "lake_classes": [
+      "Lake",
+      "Reservoir"
+    ],
+    "substation_min_kv": 154,
+    "substation_line_snap_km": 1.0,
+    "dbscan_eps_deg": 0.15,
+    "dbscan_min_samples": 3,
+    "n_candidates": 5,
+    "min_spacing_km": 200,
+    "pvgis_years": [
+      2005,
+      2023
+    ]
+  },
+  "counts": {
+    "cells": 8115,
+    "eligible": 333,
+    "clusters": 29,
+    "candidates": 5
+  },
+  "layer_elimination": [
+    {
+      "stage": "Initial grid",
+      "surviving": 8115,
+      "eliminated": 0,
+      "independent_pass": 8115,
+      "pct_of_total": 100.0
+    },
+    {
+      "stage": "C1: Solar GHI",
+      "surviving": 7404,
+      "eliminated": 711,
+      "independent_pass": 7404,
+      "pct_of_total": 91.2
+    },
+    {
+      "stage": "C2: Wind-eligible area",
+      "surviving": 995,
+      "eliminated": 6409,
+      "independent_pass": 1008,
+      "pct_of_total": 12.3
+    },
+    {
+      "stage": "C3: PV-eligible area",
+      "surviving": 333,
+      "eliminated": 662,
+      "independent_pass": 1383,
+      "pct_of_total": 4.1
+    },
+    {
+      "stage": "C4: Water access",
+      "surviving": 333,
+      "eliminated": 0,
+      "independent_pass": 8115,
+      "pct_of_total": 4.1
+    },
+    {
+      "stage": "C5: Substation",
+      "surviving": 333,
+      "eliminated": 0,
+      "independent_pass": 8102,
+      "pct_of_total": 4.1
+    }
+  ],
+  "candidates": [
+    {
+      "code": "S1",
+      "cluster": 26,
+      "cell_id": "33.35_36.95",
+      "province": "Karaman",
+      "lat": 36.95,
+      "lon": 33.35,
+      "n_cells": 40,
+      "cluster_eligible_area_km2": 3712.7,
+      "cluster_wind_area_km2": 2388.2,
+      "cluster_pv_area_km2": 1324.5,
+      "cell_wind_area_km2": 97.7,
+      "cell_pv_area_km2": 66.7,
+      "cell_wind_cf_eligible_pct": 34.1,
+      "cell_ghi_kwh_m2": 1801.0,
+      "cell_elev_m": 1612.0,
+      "dist_freshwater_km": 10.9,
+      "dist_coast_km": 84.5,
+      "dist_substation_km": 11.8,
+      "cluster_provinces": "Karaman, Mersin"
+    },
+    {
+      "code": "S2",
+      "cluster": 7,
+      "cell_id": "36.95_38.55",
+      "province": "Kahramanmaraş",
+      "lat": 38.55,
+      "lon": 36.95,
+      "n_cells": 40,
+      "cluster_eligible_area_km2": 2244.0,
+      "cluster_wind_area_km2": 1801.7,
+      "cluster_pv_area_km2": 442.3,
+      "cell_wind_area_km2": 75.8,
+      "cell_pv_area_km2": 25.7,
+      "cell_wind_cf_eligible_pct": 33.6,
+      "cell_ghi_kwh_m2": 1780.0,
+      "cell_elev_m": 1839.0,
+      "dist_freshwater_km": 4.6,
+      "dist_coast_km": 197.4,
+      "dist_substation_km": 21.7,
+      "cluster_provinces": "Kahramanmaraş, Kayseri, Sivas"
+    },
+    {
+      "code": "S3",
+      "cluster": 22,
+      "cell_id": "39.85_37.55",
+      "province": "Şanlıurfa",
+      "lat": 37.55,
+      "lon": 39.85,
+      "n_cells": 23,
+      "cluster_eligible_area_km2": 1662.0,
+      "cluster_wind_area_km2": 962.0,
+      "cluster_pv_area_km2": 700.1,
+      "cell_wind_area_km2": 89.0,
+      "cell_pv_area_km2": 71.0,
+      "cell_wind_cf_eligible_pct": 27.1,
+      "cell_ghi_kwh_m2": 1830.0,
+      "cell_elev_m": 1356.0,
+      "dist_freshwater_km": 12.1,
+      "dist_coast_km": 335.2,
+      "dist_substation_km": 13.4,
+      "cluster_provinces": "Diyarbakır, Mardin, Şanlıurfa"
+    },
+    {
+      "code": "S4",
+      "cluster": 1,
+      "cell_id": "27.55_41.65",
+      "province": "Kırklareli",
+      "lat": 41.65,
+      "lon": 27.55,
+      "n_cells": 9,
+      "cluster_eligible_area_km2": 472.6,
+      "cluster_wind_area_km2": 375.1,
+      "cluster_pv_area_km2": 97.5,
+      "cell_wind_area_km2": 44.9,
+      "cell_pv_area_km2": 26.3,
+      "cell_wind_cf_eligible_pct": 33.7,
+      "cell_ghi_kwh_m2": 1544.0,
+      "cell_elev_m": 315.0,
+      "dist_freshwater_km": 4.0,
+      "dist_coast_km": 40.0,
+      "dist_substation_km": 4.0,
+      "cluster_provinces": "Kırklareli"
+    },
+    {
+      "code": "S5",
+      "cluster": 19,
+      "cell_id": "31.05_38.05",
+      "province": "Isparta",
+      "lat": 38.05,
+      "lon": 31.05,
+      "n_cells": 5,
+      "cluster_eligible_area_km2": 225.4,
+      "cluster_wind_area_km2": 190.0,
+      "cluster_pv_area_km2": 35.3,
+      "cell_wind_area_km2": 61.2,
+      "cell_pv_area_km2": 11.8,
+      "cell_wind_cf_eligible_pct": 34.1,
+      "cell_ghi_kwh_m2": 1739.0,
+      "cell_elev_m": 1689.0,
+      "dist_freshwater_km": 8.6,
+      "dist_coast_km": 132.6,
+      "dist_substation_km": 9.2,
+      "cluster_provinces": "Isparta"
+    }
+  ],
+  "output_sha256": {
+    "grid_cells_layers.csv": "81d3a4b52d165c1079a32c2f175a67d33b6d3fba94aabdf78fa3fc2df96a507e",
+    "layer_elimination.csv": "da553dd513606ec4dd159a33ff15ea5ebc307a88441de94621a25b81d518445e",
+    "clusters.csv": "7a93a6719c4cd6102091647765793b1247bf8210ff71f628aaf7dd83bb3fa992",
+    "candidate_sites.csv": "e882f7e9c03906385dadab6e4d79e3e6aba1c945c016381307e3dea5ac8b09ec"
+  },
+  "versions": {
+    "python": "3.12.5",
+    "numpy": "2.1.1",
+    "pandas": "2.2.2",
+    "scipy": "1.14.1",
+    "geopandas": "1.2.0",
+    "rasterio": "1.5.2",
+    "shapely": "2.2.0",
+    "pyogrio": "0.13.0",
+    "pyproj": "3.8.0",
+    "sklearn": "1.8.0",
+    "matplotlib": "3.9.2",
+    "requests": "2.32.3"
+  }
+}

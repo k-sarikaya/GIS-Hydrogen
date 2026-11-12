@@ -1,0 +1,132 @@
+{
+  "lcoh_base": 9.96,
+  "lcoh_deterministic": 8.75,
+  "lcoh_land_cluster": 8.64,
+  "lcoh_phi0_5": 10.22,
+  "lcoh_phi0_0": 10.62,
+  "lcoh_island": 10.53,
+  "lcoh_grid": 8.07,
+  "lcoh_sec48": 8.95,
+  "lcoh_sec57_5": 10.35,
+  "lcoh_trailer_h4400": 10.02,
+  "lcoh_trailer_h8000": 9.94,
+  "lcoh_pipe_geo_cap": 9.72,
+  "lcoh_pipe12_cap311": 9.96,
+  "lcoh_pipe12_dea": 10.09,
+  "lcoh_pipe_capex135": 10.45,
+  "lcoh_demand_upper": 9.6,
+  "lcoh_gamma0": 9.96,
+  "lcoh_gamma0_25": 9.97,
+  "lcoh_lambda0_25": 8.3,
+  "lcoh_lambda0_75": 11.63,
+  "lcoh_delta10": 9.96,
+  "lcoh_delta12_5": 9.57,
+  "lcoh_delta15": 9.63,
+  "lcoh_delta20": 9.86,
+  "max_mip_gap_singles": 0.001,
+  "cf_base": {
+    "lcoh": 9.96,
+    "qbar": 0.5225,
+    "f1_MEUR": 1813.5
+  },
+  "cf_deterministic": {
+    "lcoh": 8.75,
+    "qbar": 0.5226,
+    "f1_MEUR": 920.6
+  },
+  "cf_cf_top3_rpp": {
+    "lcoh": 11.07,
+    "qbar": 0.5362,
+    "f1_MEUR": 1946.7
+  },
+  "cf_cf_top3_det": {
+    "lcoh": 9.72,
+    "qbar": 0.5363,
+    "f1_MEUR": 1022.1
+  },
+  "mc_deterministic": {
+    "cost_mean": 1092.7568,
+    "cost_p95": 1336.1625,
+    "p_shortfall_system": 0.7704,
+    "p_shortfall_any_node": 0.8362,
+    "shortfall_mean_t": 18893.6902,
+    "lcoh_mean_eur_kg": 10.3881,
+    "mean_triangular_MEUR": 1090.7975,
+    "E_Me_MEUR": 920.5737
+  },
+  "mc_base": {
+    "cost_mean": 1092.5274,
+    "cost_p95": 1334.4677,
+    "p_shortfall_system": 0.7704,
+    "p_shortfall_any_node": 0.8362,
+    "shortfall_mean_t": 18893.6902,
+    "lcoh_mean_eur_kg": 10.3859,
+    "mean_triangular_MEUR": 1090.5902,
+    "E_Me_MEUR": 1048.1513
+  },
+  "mc_delta12_5": {
+    "cost_mean": 1558.5913,
+    "cost_p95": 1930.3947,
+    "p_shortfall_system": 0.0696,
+    "p_shortfall_any_node": 0.8362,
+    "shortfall_mean_t": 4526.2517,
+    "lcoh_mean_eur_kg": 9.9901,
+    "mean_triangular_MEUR": 1555.9421,
+    "E_Me_MEUR": 1492.6891
+  },
+  "mc_delta15": {
+    "cost_mean": 1655.6414,
+    "cost_p95": 2055.1178,
+    "p_shortfall_system": 0.0233,
+    "p_shortfall_any_node": 0.6839,
+    "shortfall_mean_t": 2850.3709,
+    "lcoh_mean_eur_kg": 10.0524,
+    "mean_triangular_MEUR": 1652.9033,
+    "E_Me_MEUR": 1585.3799
+  },
+  "mc_delta20": {
+    "cost_mean": 1820.1602,
+    "cost_p95": 2244.1734,
+    "p_shortfall_system": 0.0,
+    "p_shortfall_any_node": 0.0,
+    "shortfall_mean_t": 0.0,
+    "lcoh_mean_eur_kg": 10.2805,
+    "mean_triangular_MEUR": 1816.6747,
+    "E_Me_MEUR": 1744.9742
+  },
+  "mc_cf_top3_det": {
+    "cost_mean": 1212.502,
+    "cost_p95": 1491.5968,
+    "p_shortfall_system": 0.7704,
+    "p_shortfall_any_node": 0.8362,
+    "shortfall_mean_t": 18893.6902,
+    "lcoh_mean_eur_kg": 11.5265,
+    "mean_triangular_MEUR": 1210.5834,
+    "E_Me_MEUR": 1022.1382
+  },
+  "mc_phi0_5": {
+    "cost_mean": 1119.8224,
+    "cost_p95": 1362.006,
+    "p_shortfall_system": 0.7704,
+    "p_shortfall_any_node": 0.8362,
+    "shortfall_mean_t": 18893.6902,
+    "lcoh_mean_eur_kg": 10.6454,
+    "mean_triangular_MEUR": 1117.8169,
+    "E_Me_MEUR": 1075.3787
+  },
+  "mc_phi0_0": {
+    "cost_mean": 1162.6882,
+    "cost_p95": 1415.4228,
+    "p_shortfall_system": 0.7704,
+    "p_shortfall_any_node": 0.8362,
+    "shortfall_mean_t": 18893.6902,
+    "lcoh_mean_eur_kg": 11.0529,
+    "mean_triangular_MEUR": 1160.482,
+    "E_Me_MEUR": 1117.1124
+  },
+  "mc_breakeven": {
+    "delta12_5": 32.4,
+    "delta15": 35.1,
+    "delta20": 38.5
+  }
+}

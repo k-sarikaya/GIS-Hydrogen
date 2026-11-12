@@ -1,0 +1,6 @@
+code,province,K1_substation_km,K2_water_stress_score,K2_bws_raw,K2_bws_label,K2_pfaf_id,K3_protected_km,K4_pga_g
+S1,Karaman,11.8,5.0,2.0941,Extremely High (>80%),221005,18.0,0.0925
+S2,Kahramanmaraş,21.7,4.861,1.4531,Extremely High (>80%),211032,39.64,0.1289
+S3,Şanlıurfa,13.4,5.0,2.7358,Extremely High (>80%),294968,44.71,0.0915
+S4,Kayseri,5.4,5.0,2.1854,Extremely High (>80%),221400,34.6,0.1564
+S5,Kırklareli,4.0,2.089,0.2128,Medium - High (20-40%),213022,30.49,0.0919

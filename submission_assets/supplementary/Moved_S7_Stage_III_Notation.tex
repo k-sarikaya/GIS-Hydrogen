@@ -1,0 +1,27 @@
+The full algebraic formulation of Stage~III follows. Sets are candidate sites $i\in I$,
+industrial demand nodes $j\in J$, directed transport arcs $a=(u,v)\in A$,
+representative days $d\in D$, hours $h\in H$, seasons $s\in S$, and transport
+modes $m\in\{p,t\}$ for pipeline and tube trailer, and pipeline diameter classes
+$k\in K=\{20'',12''\}$. The salt-cavern node is $g$. Facilities less than 2\,km apart
+(Aliağa--STAR and İzmit--İGSAŞ) form one delivery node each, so $J$ has five elements. The representative-day weight $w_d$ is measured in days per year;
+$c^W_{idh}$ and $c^P_{idh}$ are the wind and PV capacity factors, $L_a$ is
+road distance, and $L^p_a$ is the pipeline route-length proxy. The fuzzy
+renewable-demand requirement at node $j$ is
+$\tilde d_j=(d_{j1},d_{j2},d_{j3})=\sum_{n\in N_j}\tilde\theta_{\sigma(n)} D_n^{\mathrm{op}}$, where $N_j$
+are the facilities at node $j$, $D_n^{\mathrm{op}}$ is their on-purpose hydrogen demand and
+$\tilde\theta_{\sigma(n)}$ is the renewable share of the facility's sector (ammonia or refinery). All costs are annual EUR
+unless stated otherwise.
+\textbf{Decision variables.} Installed capacities are $W_i$, $P_i$, $E_i$
+and $K_i$ (MW for wind, PV, electrolysis and compression), $K_g$ (MW, trailer-refill
+compression at the cavern) and $V$ (tonnes of cavern working gas). The binary variables $o_i$ and
+$y_{ak}$ indicate an open site and a built pipeline of diameter class $k$. Hourly variables are electrolyser load $e_{idh}$,
+electricity export $x_{idh}$, curtailment $u_{idh}$, grid import $im_{idh}$,
+and hydrogen dispatch rates $p^p_{idh}$ and $p^t_{idh}$ (tonnes per hour).
+Daily arc flows are $f_{a,m,d}$ (tonnes per day), annual delivery is $Y_j$
+(tonnes per year), seasonal cavern inventory is $I_s$, and $\alpha_j$ is the
+Me-confidence decision variable. The auxiliary $s_i$ is jointly used wind--PV
+area (km$^2$); it is distinct from the spherical-fuzzy notation elsewhere.
+
+\textbf{Unit conventions.} The factor 1{,}000 converts tonnes to kilograms; $q_j^{\mathrm{short}}$
+is in tonnes and $\delta$ in EUR/kg. All continuous variables are non-negative except where bounds are stated;
+$o_i$ and $y_{ak}$ are binary. Unit costs in €/kg are multiplied by 1{,}000 to apply to flows in tonnes.

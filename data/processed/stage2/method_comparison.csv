@@ -1,0 +1,31 @@
+method,site,Q01,rank
+"SF-WASPAS wide-range mapping, CRITIC unnormalised",S1,0.474535,5
+"SF-WASPAS wide-range mapping, CRITIC unnormalised",S2,0.485102,4
+"SF-WASPAS wide-range mapping, CRITIC unnormalised",S3,0.499198,2
+"SF-WASPAS wide-range mapping, CRITIC unnormalised",S4,0.491658,3
+"SF-WASPAS wide-range mapping, CRITIC unnormalised",S5,0.594547,1
+SF-WASPAS matched data scale,S1,0.485477,5
+SF-WASPAS matched data scale,S2,0.499988,4
+SF-WASPAS matched data scale,S3,0.504561,3
+SF-WASPAS matched data scale,S4,0.506401,2
+SF-WASPAS matched data scale,S5,0.57475,1
+"SF-WASPAS wide-range mapping, CRITIC min-max",S1,0.501224,5
+"SF-WASPAS wide-range mapping, CRITIC min-max",S2,0.517138,4
+"SF-WASPAS wide-range mapping, CRITIC min-max",S3,0.51969,3
+"SF-WASPAS wide-range mapping, CRITIC min-max",S4,0.522057,2
+"SF-WASPAS wide-range mapping, CRITIC min-max",S5,0.584486,1
+"SF-WASPAS scale-matched mapping, CRITIC min-max",S1,0.504359,5
+"SF-WASPAS scale-matched mapping, CRITIC min-max",S2,0.523364,3
+"SF-WASPAS scale-matched mapping, CRITIC min-max",S3,0.518001,4
+"SF-WASPAS scale-matched mapping, CRITIC min-max",S4,0.528393,2
+"SF-WASPAS scale-matched mapping, CRITIC min-max",S5,0.568435,1
+Crisp WSM (defuzzified matrix and weights used here),S1,0.50633,5
+Crisp WSM (defuzzified matrix and weights used here),S2,0.514599,4
+Crisp WSM (defuzzified matrix and weights used here),S3,0.534506,2
+Crisp WSM (defuzzified matrix and weights used here),S4,0.521994,3
+Crisp WSM (defuzzified matrix and weights used here),S5,0.594423,1
+Crisp WASPAS (defuzzified matrix and weights used here),S1,0.482011,5
+Crisp WASPAS (defuzzified matrix and weights used here),S2,0.500619,4
+Crisp WASPAS (defuzzified matrix and weights used here),S3,0.515372,2
+Crisp WASPAS (defuzzified matrix and weights used here),S4,0.503975,3
+Crisp WASPAS (defuzzified matrix and weights used here),S5,0.585858,1

@@ -1,0 +1,6 @@
+code,cluster,cell_id,province,lat,lon,n_cells,cluster_eligible_area_km2,cluster_wind_area_km2,cluster_pv_area_km2,cell_wind_area_km2,cell_pv_area_km2,cell_wind_cf_eligible_pct,cell_ghi_kwh_m2,cell_elev_m,dist_freshwater_km,dist_coast_km,dist_substation_km,cluster_provinces
+S1,7,33.35_36.95,Karaman,36.95,33.35,29,2539.7,1554.7,984.9,93.0,66.7,34.1,1801.0,1612.0,10.9,84.5,11.8,"Karaman, Mersin"
+S2,4,36.95_38.55,Kahramanmaraş,38.55,36.95,11,486.5,320.2,166.2,58.5,25.7,33.6,1780.0,1839.0,4.6,197.4,21.7,"Kahramanmaraş, Kayseri, Sivas"
+S3,0,27.45_41.75,Kırklareli,41.75,27.45,8,338.7,249.3,89.5,45.4,18.9,33.4,1552.0,354.0,8.6,44.1,2.9,Kırklareli
+S4,6,39.95_37.45,Mardin,37.45,39.95,3,191.4,100.8,90.5,26.3,44.9,30.7,1834.0,890.0,16.2,341.4,3.8,"Mardin, Şanlıurfa"
+S5,2,38.35_39.15,Erzincan,39.15,38.35,3,164.5,152.0,12.5,67.0,3.5,40.3,1690.0,1733.0,7.4,196.3,21.8,Erzincan

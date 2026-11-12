@@ -1,0 +1,6 @@
+code,lat,lon,pga_gem_v2023_1_g,pga_afad_tdth_g,source_note
+S1,36.95,33.35,0.0925,0.102,AFAD TDTH interactive map (tdth.afad.gov.tr) PGA 475; read by the author 2026-11-10
+S2,38.55,36.95,0.1289,0.164,same
+S3,37.55,39.85,0.0915,0.115,same
+S4,38.45,35.25,0.1564,0.172,same
+S5,41.65,27.55,0.0919,0.181,same

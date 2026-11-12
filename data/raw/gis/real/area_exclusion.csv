@@ -1,0 +1,15 @@
+step,excluded_alone_km2,remaining_km2,remaining_pct
+Land area (Türkiye),0.0,776242.9,100.0
+X1 Elevation > 2000 m,83701.3,692541.6,89.2
+X2 Protected areas + 1 km,34475.8,662923.2,85.4
+X3 Built-up + 1 km,218128.1,456597.0,58.8
+X4 Airports + 5 km,6181.8,455279.7,58.7
+X5 Military areas,856.7,455200.1,58.6
+X6 Water bodies/wetlands + 0.5 km,42479.1,432804.8,55.8
+"X7 Forest, snow/ice",194082.8,300540.7,38.7
+Wind: slope ≤ 30%,,259807.2,33.5
+Wind: gross CF ≥ 25%,,52114.2,6.7
+Wind: contiguous patches ≥ 10 km²,,35132.4,4.5
+PV/ELZ: slope ≤ 10%,,149680.6,19.3
+PV/ELZ: not cropland,,52305.0,6.7
+PV/ELZ: contiguous patches ≥ 3 km²,,19088.9,2.5

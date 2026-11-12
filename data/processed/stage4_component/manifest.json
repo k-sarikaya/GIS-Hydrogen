@@ -1,0 +1,17 @@
+{
+  "run_utc": "2026-11-10T15:06:47+00:00",
+  "seed": 20261018,
+  "n": 10000,
+  "sigma_rel": [
+    0.05,
+    0.1,
+    0.15,
+    0.2
+  ],
+  "designs": [
+    "base",
+    "deterministic"
+  ],
+  "sampling": "component",
+  "params_sha256": "1b7d9a1a23f57cbe60b57a5cd1f6b33860944609f263946f6ab972e5930d5880"
+}

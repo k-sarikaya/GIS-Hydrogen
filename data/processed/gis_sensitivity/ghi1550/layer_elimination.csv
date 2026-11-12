@@ -1,0 +1,7 @@
+stage,surviving,eliminated,independent_pass,pct_of_total
+Initial grid,8115,0,8115,100.0
+C1: Solar GHI,6374,1741,6374,78.5
+C2: Wind-eligible area,944,5430,1008,11.6
+C3: PV-eligible area,318,626,1383,3.9
+C4: Water access,318,0,8115,3.9
+C5: Substation,318,0,8102,3.9

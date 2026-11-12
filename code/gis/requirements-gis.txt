@@ -1,0 +1,11 @@
+# gis_pipeline_real.py için test edilmiş paket sürümleri (yerel test: Python 3.12.5, 16.10.2026)
+numpy==2.1.1
+pandas==2.2.2
+geopandas==1.2.0
+shapely==2.2.0
+pyogrio==0.13.0
+pyproj==3.8.0
+rasterio==1.5.2
+scikit-learn==1.8.0
+matplotlib==3.9.2
+requests==2.32.3

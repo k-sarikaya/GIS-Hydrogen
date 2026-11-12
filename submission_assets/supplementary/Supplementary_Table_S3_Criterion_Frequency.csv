@@ -1,0 +1,41 @@
+﻿ID,RES,TER,GRID,ROAD,INF,WAT,WST,ECO,LAND,SET,SOC,SEC,COST,DEM,HAZ,POL,GEO
+S01,Q,Q,Q,X,,X,,,X,,,,,Q,,,
+S02,Q,Q,Q,Q,,Q,,Q,Q,Q,,,,,,,
+S03,Q,,,Q,,Q,,d,d,,,,,,,,
+S04,Q,,,,,Q,,,,,,,Q,,,,
+S05,Q,Q,,Q,,Q,d,Q,Q,,,Q,,,,Q,
+S06,Q,Q,Q,Q,,,,X,,Q,,,,,,,
+S07,Q,,,,,,Q,X,X,X,,Q,Q,,,,
+S08,,,J,J,,J,,J,J,,J,,J,J,,J,
+S09,H,d,,,,,,,,,d,,H,,,,
+S10,Q,,,,,,,,,,,d,Q,,d,,
+S11,d,,,,d,,,d,,,,d,,d,,,
+S12,Q,,Q,,,Q,,,Q,,,,,Q,,,
+S13,Q,,Q,Q,Q,Q,Q,,,,,,,Q,,Q,
+S14,Q,Q,,Q,,Q,Q,,Q,,,,,,,,
+S15,Q,d,,,,,,,,,,,,d,,,
+S16,Q,,,d,,Q,,,,Q,,,,,,,
+S17,d,d,,d,,,,d,,,,,,,,,
+S18,J,,,,,,,J,,,J,,J,,J,,
+S19,Q,Q,Q,Q,,,,Q,Q,Q,,,,,Q,,
+S20,Q,Q,Q,Q,,Q,,,,Q,,,,,,,
+S21,Q,,,,,,,,,,,,,Q,Q,,Q
+S22,,,,,J,,,,,,J,J,J,,J,J,J
+Code,Criterion
+RES,"Renewable resource (GHI, wind speed or CF, H₂ potential)"
+TER,"Slope, elevation or terrain"
+GRID,Proximity to transmission or substation
+ROAD,Road or transport access
+INF,"Ports, pipelines or other infrastructure"
+WAT,Proximity to or availability of water
+WST,Water stress or sustainable abstraction
+ECO,Protected areas or ecological sensitivity
+LAND,Land-use or land-cover conflict
+SET,Distance to settlements or population
+SOC,Social or public acceptance
+SEC,"Socio-economic (HDI, workforce, jobs)"
+COST,"LCOH, LCOE or CAPEX/OPEX"
+DEM,Hydrogen demand or proximity to off-takers
+HAZ,"Natural hazard, seismic or risk"
+POL,"Policy, regulation, legal or geopolitical"
+GEO,Geological storage

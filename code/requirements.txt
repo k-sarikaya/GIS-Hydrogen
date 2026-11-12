@@ -1,0 +1,11 @@
+# Stage II-IV and reporting scripts (tested with Python 3.12; Stage I uses code/gis/requirements-gis.txt)
+numpy==2.1.1
+pandas==2.2.2
+scipy==1.14.1
+PyYAML==6.0.2
+pyomo==6.10.1
+highspy==1.15.1
+matplotlib==3.9.2
+scikit-learn==1.8.0
+requests==2.32.3
+windpowerlib==0.2.2

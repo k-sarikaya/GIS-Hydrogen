@@ -1,0 +1,17 @@
+delta_eval_eur_kg,design,total_mean_MEUR,total_p95_MEUR
+5.63,base,1112.22,1377.02
+5.63,deterministic,1112.12,1377.87
+7.3,base,1143.48,1451.86
+7.3,deterministic,1143.38,1452.11
+10.0,base,1194.02,1577.44
+10.0,deterministic,1193.92,1577.88
+15.0,base,1287.61,1829.11
+15.0,deterministic,1287.51,1829.23
+20.0,base,1381.21,2087.62
+20.0,deterministic,1381.11,2087.72
+30.0,base,1568.39,2615.14
+30.0,deterministic,1568.29,2614.37
+40.0,base,1755.58,3142.65
+40.0,deterministic,1755.48,3143.12
+50.0,base,1942.76,3667.52
+50.0,deterministic,1942.66,3668.35

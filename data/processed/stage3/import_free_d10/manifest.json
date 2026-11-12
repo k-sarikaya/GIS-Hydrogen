@@ -1,0 +1,184 @@
+{
+  "run_utc": "2026-11-10T13:18:08+00:00",
+  "scenario": "base",
+  "overrides": [
+    "rpp.import_mandate=false",
+    "rpp.delta_eur_per_kg_by_sector={\"ammonia\": 10, \"refinery\": 10}"
+  ],
+  "disruption": "none",
+  "payoff": null,
+  "demand_tfn_t": {
+    "TR_HUB_KORFEZ": [
+      33429.200000000004,
+      41783.4,
+      66694.8
+    ],
+    "TR_HUB_ALIAGA": [
+      21673.4,
+      27084.9,
+      54169.8
+    ],
+    "TR_REF_KIRIKKALE": [
+      4746.0,
+      5931.0,
+      11862.0
+    ],
+    "TR_REF_BATMAN": [
+      1265.6000000000001,
+      1581.6,
+      3163.2
+    ],
+    "TR_NH3_GEMLIK": [
+      23049.600000000002,
+      28812.0,
+      41160.0
+    ]
+  },
+  "coefficients_tfn": {
+    "wind_MW": [
+      89598.30367104131,
+      136295.29870357926,
+      246836.16980079972
+    ],
+    "pv_MW": [
+      40404.71265526746,
+      85078.74270694346,
+      140734.9711982704
+    ],
+    "ely_MW": [
+      92948.05736166416,
+      175069.92216533597,
+      427538.70362892473
+    ],
+    "stack_MWh": [
+      1.221,
+      5.620500000000001,
+      28.158750000000005
+    ],
+    "water_t": [
+      2.9502,
+      19.6,
+      68.10499999999999
+    ],
+    "comp_MW": [
+      235297.03098702407,
+      535362.7242266556,
+      1318722.4056305198
+    ],
+    "cavern_t": [
+      840.607780805564,
+      2029.8758968674058,
+      4932.751279193785
+    ],
+    "pipe_km": [
+      119101.37432595242,
+      166889.12162155428,
+      241458.5835934977
+    ],
+    "pipe_km_S": [
+      88900.66869330018,
+      124610.54414409386,
+      180289.07574981166
+    ],
+    "trailer_cap_kgpl": [
+      104.90889266299142,
+      174.39629958876463,
+      278.5095694241286
+    ],
+    "truck_t_fix": [
+      430.0,
+      740.0,
+      900.0
+    ],
+    "truck_t_100km": [
+      140.0,
+      350.0,
+      580.0
+    ],
+    "ptf_MWh": [
+      58.4,
+      60.6,
+      62.8
+    ]
+  },
+  "Q": {
+    "S1": 0.504359,
+    "S2": 0.523364,
+    "S3": 0.518001,
+    "S4": 0.528393,
+    "S5": 0.568435
+  },
+  "Wmax_MW": {
+    "S1": 293.1,
+    "S2": 227.39999999999998,
+    "S3": 267.0,
+    "S4": 165.89999999999998,
+    "S5": 134.7
+  },
+  "Pmax_MW": {
+    "S1": 2067.7000000000003,
+    "S2": 796.6999999999999,
+    "S3": 2201.0,
+    "S4": 1537.6000000000001,
+    "S5": 815.3000000000001
+  },
+  "land_co_use_share": 1.0,
+  "land_overlap_km2": {
+    "S1": 66.7,
+    "S2": 25.7,
+    "S3": 69.4,
+    "S4": 37.9,
+    "S5": 26.3
+  },
+  "land_union_km2": {
+    "S1": 97.7,
+    "S2": 75.8,
+    "S3": 90.6,
+    "S4": 67.0,
+    "S5": 44.900000000000006
+  },
+  "land_overlap_measured": true,
+  "pipeline_route_rule": "road_proxy",
+  "demand_nodes_members": {
+    "TR_HUB_KORFEZ": [
+      "TR_REF_IZMIT",
+      "TR_NH3_IGSAS"
+    ],
+    "TR_HUB_ALIAGA": [
+      "TR_REF_IZMIR",
+      "TR_REF_STAR"
+    ],
+    "TR_REF_KIRIKKALE": [
+      "TR_REF_KIRIKKALE"
+    ],
+    "TR_REF_BATMAN": [
+      "TR_REF_BATMAN"
+    ],
+    "TR_NH3_GEMLIK": [
+      "TR_NH3_GEMLIK"
+    ]
+  },
+  "delta_node_eur_per_kg": {
+    "TR_HUB_KORFEZ": 10.0,
+    "TR_HUB_ALIAGA": 10.0,
+    "TR_REF_KIRIKKALE": 10.0,
+    "TR_REF_BATMAN": 10.0,
+    "TR_NH3_GEMLIK": 10.0
+  },
+  "sites_restricted_to": null,
+  "fail_arc": null,
+  "pipeline_distance_tau": 1.2,
+  "inputs_sha256": {
+    "params.yaml": "1b7d9a1a23f57cbe60b57a5cd1f6b33860944609f263946f6ab972e5930d5880",
+    "candidate_sites.csv": "425efeb75876fceb17c43b9ab5dc61bd233c051b528656824972ad5ecf1951f6",
+    "demand_inventory.csv": "b33a35e28b5d114aae4c6af2f57aabdaef703aa6c8ec786b3e9dd0e48478eda8",
+    "distance_matrix_long.csv": "d646709b7611500055d0acbeebd038c6fd284687622f8da91e088bb9c0366727",
+    "distance_matrix_storage_long.csv": "a3ed3d7768b089179771ab67eea47d45065cd2921ff1d855cb100dd09dcc4443",
+    "storage_nodes.csv": "8a307e7eb14f83680ec2cb4daea24d915ea615d8274a465edeeb0814af749997",
+    "representative_days_2023_k6.csv": "bb7caace978ed2067fe628fda9ae26669b28bf33aacb55391b9362c89bb15982",
+    "stage2_scores.csv": "4a7d032ff2b7a178d25492d2f4190e8805feedf398f90d5463509c379a49a9d2"
+  },
+  "solver": "HiGHS via pyomo appsi",
+  "pyomo": "6.10.1",
+  "highspy": "n/a"
+}

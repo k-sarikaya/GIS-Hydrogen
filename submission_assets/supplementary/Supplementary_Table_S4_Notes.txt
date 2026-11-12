@@ -1,0 +1,58 @@
+## S4a. Pixel-level exclusion of Türkiye's land area
+
+"Excluded alone" is the area removed by a criterion applied by itself; "Remaining" is the area left after applying all criteria up to and including the row.
+
+| Step | Excluded alone (km2) | Remaining (km2) | Remaining (%) |
+|---|---|---|---|
+| Land area of Türkiye | - | 776,243 | 100.0 |
+| X1 Elevation > 2000 m | 83,701 | 692,542 | 89.2 |
+| X2 Protected areas + 1 km | 34,476 | 662,923 | 85.4 |
+| X3 Built-up areas + 1 km | 218,128 | 456,597 | 58.8 |
+| X4 Airports + 5 km | 6,182 | 455,280 | 58.7 |
+| X5 Military areas | 857 | 455,200 | 58.6 |
+| X6 Water bodies and wetlands + 0.5 km | 42,479 | 432,805 | 55.8 |
+| X7 Tree cover, snow and ice | 194,083 | 300,541 | 38.7 |
+| Wind: slope <= 30 % | | 259,807 | 33.5 |
+| Wind: gross CF >= 25 % | | 52,114 | 6.7 |
+| Wind: contiguous patches >= 10 km2 | | 35,132 | 4.5 |
+| PV/electrolyser: slope <= 10 % | | 149,681 | 19.3 |
+| PV/electrolyser: outside cropland | | 52,305 | 6.7 |
+| PV/electrolyser: contiguous patches >= 3 km2 | | 19,089 | 2.5 |
+
+The three wind rows and the three PV/electrolyser rows are applied to the land remaining after X1-X7, independently of each other.
+
+## S4b. Cell-level suitability constraints (0.1 degree grid)
+
+"Passing alone" counts the cells that satisfy a constraint by itself.
+
+| Constraint | Remaining cells | Eliminated | Passing alone |
+|---|---|---|---|
+| Grid cells in Türkiye | 8,115 | - | - |
+| C1 GHI >= 1450 kWh/m2/yr | 7,404 | 711 | 7,404 |
+| C2 Wind-eligible area >= 10 km2 | 995 | 6,409 | 1,008 |
+| C3 PV-eligible area >= 3 km2 | 333 | 662 | 1,383 |
+| C4 Water within 50 km | 333 | 0 | 8,115 |
+| C5 Substation within 50 km | 333 | 0 | 8,102 |
+
+C2 and C3 are the binding constraints. C4 and C5 eliminate no further cells, because every cell that already satisfies C1-C3 lies within 50 km of both a water body and a substation.
+
+## S4c. Threshold sensitivity of the Stage I selection step
+
+The selection step is re-run on the frozen feature table, so no raster or vector layer is re-read. A base-case candidate counts as reselected if a candidate of the scenario lies within 0.3 degrees of it.
+
+| Scenario | Suitable cells | Clusters | Base-case candidates reselected |
+|---|---|---|---|
+| Base case | 333 | 29 | S1, S2, S3, S4, S5 |
+| Gross CF >= 20 % | 713 | 43 | S1, S2, S3 |
+| Gross CF >= 30 % | 131 | 10 | S1, S2, S3, S5 |
+| PV patch >= 10 km2 | 114 | 7 | S1, S2, S3, S5 |
+| PV allowed on cropland | 821 | 47 | S1, S3, S5 |
+| GHI >= 1550 kWh/m2/yr | 318 | 28 | S1, S2, S3, S4 |
+| Water within 30 km | 330 | 28 | S1, S2, S3, S4, S5 |
+| Substation within 30 km | 294 | 30 | S1, S3, S4, S5 |
+| No spacing rule | 333 | 29 | S1, S2, S3, S4 |
+| Spacing >= 50 km | 333 | 29 | S1, S2, S3, S4 |
+| Spacing >= 150 km | 333 | 29 | S1, S2, S3, S5 |
+| Spacing >= 200 km | 333 | 29 | S1, S2, S3, S5 |
+
+Times reselected over the twelve scenarios: S1 12, S3 12, S2 10, S5 8, S4 6.

@@ -1,0 +1,26 @@
+{
+  "stage1": {
+    "sha256_identical": {
+      "grid_cells_layers.csv": true,
+      "layer_elimination.csv": true,
+      "clusters.csv": true,
+      "candidate_sites.csv": true
+    },
+    "candidate_table_equal": true,
+    "candidate_shared_columns_equal": true,
+    "candidate_columns_added": [],
+    "candidate_columns_removed": []
+  },
+  "stage2": {
+    "max_abs_diff_Q01": 4.953979551580723e-07,
+    "ranking_equal": true,
+    "ok": true
+  },
+  "stage3_base": {
+    "f1_stored": 2543098136.6822786,
+    "f1_rerun": 2543098136.6822786,
+    "rel_diff": 0.0,
+    "sites_equal": true,
+    "ok": true
+  }
+}

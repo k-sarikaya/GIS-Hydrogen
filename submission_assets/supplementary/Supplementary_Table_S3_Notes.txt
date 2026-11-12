@@ -1,0 +1,151 @@
+Supplementary Table S3 - notes
+
+Coding of the siting studies reviewed for Stage II criterion selection.
+
+--- Mode codes and criterion key ---
+Mode codes: **Q** quantitative/GIS/data; **J** expert-judged/linguistic; **H** hybrid; **d** dimension named, indicator not verified; **X** exclusion-only (not counted). J\* means expert rating is inferred from the method (FAHP-TOPSIS on expert scores).
+
+
+**Column key.**
+
+| Code | Criterion |
+| RES | Renewable resource (GHI, wind speed or CF, H₂ potential) |
+| TER | Slope, elevation or terrain |
+| GRID | Proximity to transmission or substation |
+| ROAD | Road or transport access |
+| INF | Ports, pipelines or other infrastructure |
+| WAT | Proximity to or availability of water |
+| WST | Water stress or sustainable abstraction |
+| ECO | Protected areas or ecological sensitivity |
+| LAND | Land-use or land-cover conflict |
+| SET | Distance to settlements or population |
+| SOC | Social or public acceptance |
+| SEC | Socio-economic (HDI, workforce, jobs) |
+| COST | LCOH, LCOE or CAPEX/OPEX |
+| DEM | Hydrogen demand or proximity to off-takers |
+| HAZ | Natural hazard, seismic or risk |
+| POL | Policy, regulation, legal or geopolitical |
+| GEO | Geological storage |
+
+--- Frequency summary ---
+| Criterion family | Dimension | All (n = 22) | H₂ production (n = 17) | Dominant mode | Typical direction |
+|---|---|---|---|---|---|
+| RES renewable resource | Technical | **20** | **16** | Q | Benefit |
+| ROAD transport access | Technical/economic | 11 | 9 | Q | Cost (distance) |
+| TER slope/elevation | Technical | 10 | 8 | Q (often also X) | Cost |
+| WAT water proximity/availability | Technical/environmental | 10 | 9 | Q (often also X) | Cost (distance) / benefit (volume) |
+| GRID transmission proximity | Technical/economic | 8 | 6 | Q | Cost (distance) |
+| ECO protected/ecological | Environmental | 8 | 6 | Q (often also X) | Benefit (distance) |
+| LAND land-use conflict | Environmental | 7 | 6 | Q (often also X) | Benefit (suitable class) |
+| COST LCOH/CAPEX | Economic | 7 | 5 | Q (J in fuzzy studies) | Cost |
+| DEM demand proximity | Economic/supply chain | 7 | 6 | Q | Cost (distance) |
+| SET settlements | Social | 5 | 3 | Q | Ambiguous (labour vs. nuisance) |
+| SEC socio-economic | Social | 5 | 4 | Q/d | Benefit |
+| HAZ hazard/risk | Risk | 5 | 1 | Q or J | Cost |
+| SOC social acceptance | Social | 4 | 2 | **J** | Benefit |
+| WST water stress | Environmental | 4 | 4 | Q | Cost |
+| POL policy/regulation | Policy | 4 | 3 | Q/J | Benefit |
+| INF ports/pipelines | Infrastructure | 3 | 2 | Q/d | Cost (distance) |
+| GEO geological storage | Technical | 2 | **0** | Q or J | Benefit |
+
+**Cross-check with an independent review.** Zun & McLellan [38] reviewed 32 studies with 248 unique criteria. By category these were economic 33, environmental 31, technical 29, social 14 and risk & safety 9. Weighting the criteria by how often they occur in the literature gives resource potential ≈34%, H₂ demand 10%, DEM 10% and distance to main road 9%. Our ordering matches this. Both reviews also find that **risk/safety and social criteria are under-represented** relative to their practical importance [38]. Mirsane et al. [39] and Pineda Serna et al. [40] likewise list resource, slope, grid, transport, demand and land-use as the most frequent criteria, with public acceptance as a recurring soft criterion.
+
+**Patterns relevant to this study**
+
+1. Physical and spatial criteria are almost always measured (Q). Expert-judged decision matrices (J) are used mainly for criteria without data, such as social acceptance, policy, risk and, in fuzzy studies, cost.
+2. Recent fuzzy hydrogen-siting studies [9, 10] use a **hybrid** matrix: data for measurable criteria and linguistic expert judgement for the rest.
+3. No hydrogen-*production* siting study in the sample uses geological storage as a ranking criterion. It appears only in UHS siting [21, 22, 27].
+4. Water *stress* (as opposed to distance to water) is an emerging criterion [5, 7, 13, 14], strongly motivated by Tonelli et al. [41].
+
+---
+
+--- Criteria considered and not retained ---
+| Criterion | Reason |
+|---|---|
+| C1a wind CF, C1b GHI (as separate criteria) | Causally embedded in T1. Keeping them with T1 double counts. Retain as reported descriptors and as a robustness variant ("CF + GHI instead of LCOH") |
+| C8 CO₂ abatement | An outcome of Stage III allocation, not a site attribute. Excluded as an optimisation output in [38]. Report it as a Stage III result |
+| C10 incentive-zone rating | See below |
+| Slope, elevation, contiguous area, cropland | Fully handled as Stage I hard constraints; little residual variance among the 5 candidates |
+| Distance to settlements | Covered by the Stage I built-up buffer and by S1. Direction is ambiguous in the literature (labour access vs. nuisance) |
+| Road access, port access | Low discrimination at this scale. Captured in E1 and E2 |
+
+**Why C10 is dropped:**
+- Its legal basis, Decree 2012/3305, was repealed by Decree 9903 (Art. 34) [G1].
+- Decree 9903 keeps six regions (Annex 2). The Ministry's presentation lists Denizli 2, Kırıkkale 3, Malatya 4, Tunceli 5 and Muş 6 [G2]; the Official Gazette text of Annex 2 was not consulted directly.
+- Temporary Art. 3 grants Region-6 supports to districts affected by the 6 February 2023 earthquakes for applications until 31/12/2026. Whether this applies to the candidate districts was not established.
+- Arts. 9–10 withhold some supports (tax reduction, interest support) from electricity-generation investments, so zone rank is not a monotone proxy for GH₂ attractiveness.
+- The zone is therefore time-varying and weakly relevant to the siting decision.
+
+---
+
+--- References for the coded studies ---
+Format: Authors (year). Title. *Journal* volume(issue):pages. DOI — evidence level.
+
+1. Messaoudi D, Settou N, Negrou B, Settou B (2019). GIS based multi-criteria decision making for solar hydrogen production sites selection in Algeria. *Int J Hydrogen Energy* 44(60):31808–31831. https://doi.org/10.1016/j.ijhydene.2019.10.099 — A
+2. Ali F, Bennui A, Chowdhury S, Techato K (2022). Suitable site selection for solar-based green hydrogen in southern Thailand using GIS-MCDM approach. *Sustainability* 14(11):6597. https://doi.org/10.3390/su14116597 — F
+3. Karipoğlu F, Genç MS, Akarsu B (2022). GIS-based optimal site selection for the solar-powered hydrogen fuel charge stations. *Fuel* 324:124626. https://doi.org/10.1016/j.fuel.2022.124626 — A
+4. Keskin S, İpekli Z, Genç MS, Genç G (2024). Determination of hydrogen fuel production from GIS-based selected ponds using hybrid renewable energy systems in Kayseri. *Process Saf Environ Prot* 191:2623–2633. https://doi.org/10.1016/j.psep.2024.10.005 — A
+5. Pinto MC, Gaeta M, Arco E, Boccardo P, Corgnati SP (2025). Mapping the suitability of North Africa for green hydrogen production: a multi-criteria spatial decision support system combining GIS and AHP for Tunisia. *Energy Sustain Soc* 15(1). https://doi.org/10.1186/s13705-025-00512-4 — F
+6. Flora FMI (2024). A GIS-based application of Monte Carlo and multi-criteria decision-making approach for site suitability analysis of solar-hydrogen production: Case of Cameroon. *Heliyon* 11(1):e41541. https://doi.org/10.1016/j.heliyon.2024.e41541 — A
+7. Ishmam S, Heinrichs H, Winkler C, Bayat B, Lahnaoui A, Agbo SN, et al. (2024). Mapping local green hydrogen cost-potentials by a multidisciplinary approach. *Int J Hydrogen Energy*. https://doi.org/10.1016/j.ijhydene.2024.08.501 — F (partial)
+8. Wang C-N, Hsueh M-H, Lin D-F (2019). Hydrogen power plant site selection under fuzzy multicriteria decision-making (FMCDM) environment conditions. *Symmetry* 11(4):596. https://doi.org/10.3390/sym11040596 — F (partial)
+9. Du Y, Dong Y, Chen X, Sun L, Wu Y, Lü Q (2025). Site selection of wind-photovoltaic coupling hydrogen production project with the assistant of GIS: an MCDM study under the hybrid fuzzy environment. *Energy Rep* 13:6089–6100. https://doi.org/10.1016/j.egyr.2025.05.054 — A
+10. Ali T, Aytekin AH, Demidionov M (2026). Optimal siting of wind powered green hydrogen production in Bangladesh using interval-valued T-spherical fuzzy multi-criteria decision-making method. *Int J Hydrogen Energy*. https://doi.org/10.1016/j.ijhydene.2026.153931 — A
+11. Gül M, Akyüz E (2026). Consensus-based GIS–MCDM model for hydrogen infrastructure in Southern Marmara, Türkiye. *Int J Hydrogen Energy* 202. https://doi.org/10.1016/j.ijhydene.2025.152954 — M + S (criteria dimensions from Balıkesir University news release, 15 Apr 2026)
+12. IIT-Comillas (2026). A comparative objective weighting MCDM-GIS approach to renewable hydrogen production site selection: a Spanish case study. Working Paper IIT-26-073WP, Comillas Pontifical University. No DOI. — G
+13. WRI India (2026). Site suitability assessment of green hydrogen hubs in India. World Resources Institute India report. No DOI. — G
+14. El-Aassar AM, Hagagg KH, Hussien RA (2026). Multicriteria site suitability for solar-powered green hydrogen production plants along the Northwestern coast of Egypt. PMC13079861 (journal/DOI not captured). — F (partial)
+15. Canat AN, Özkan C (2024). Supplying hydrogen for green steel through renewable energy sources: a case study of Turkiye. *J Clean Prod* 450:141961. https://doi.org/10.1016/j.jclepro.2024.141961 — A
+16. Aziz MT, Haque A, Islam MR, Hosen MB, Kader Z, Aziz MA, et al. (2025). Site suitability assessment for solar powered green hydrogen production plants: a GIS based AHP and Fuzzy AHP approach for Bangladesh. *Renew Energy* 254:123675. https://doi.org/10.1016/j.renene.2025.123675 — A
+17. Rekik S, El Alimi S (2024). A spatial ranking of optimal sites for solar-driven green hydrogen production using GIS and MCDM: a case of Tunisia. *Energy Explor Exploit* 42(6):2150–2190. https://doi.org/10.1177/01445987241268072 — A
+18. Zhao H, Ge Y, Wang W (2022). A study on offshore wind farm site selection based on CRITIC and CPT-TOPSIS: a case study of China. *Kybernetes*. https://doi.org/10.1108/K-09-2022-1267 — A
+19. Yaman A (2024). A GIS-based multi-criteria decision-making approach (GIS-MCDM) for wind farm site selection, Adana, Türkiye (full title truncated in the retrieved record; verify). *Clean Technol Environ Policy*. https://doi.org/10.1007/s10098-024-02866-3 — F (partial)
+20. Öztaş Ö, Ervural B (2025). Integrating GIS and fuzzy BWM for solar PV power plant site selection: a case study of Konya, Turkey. *Celal Bayar Univ J Sci* 21(1). https://doi.org/10.18466/cbayarfbe.1589809 — A
+21. Harati S, Rezaei Gomari S, Ramegowda M, Pak T (2023). Multi-criteria site selection workflow for geological storage of hydrogen in depleted gas fields: a case for the UK. *Int J Hydrogen Energy*. https://doi.org/10.1016/j.ijhydene.2023.10.345 — A
+22. Jahanianfard D, Nemati B, Mapar M, Davarazar P, Zandi S, Davarazar M, et al. (2020). A sustainable approach for site selection of underground hydrogen storage facilities using fuzzy-Delphi methodology. *J Settl Spat Plan*. https://doi.org/10.24193/jsspsi.2020.6.02 — F (partial)
+23. Yılmaz T, Uyan M (2025). Optimal site selection for green hydrogen production plants based on solar energy in Konya/Türkiye. *Int J Hydrogen Energy* 115:252–264. https://doi.org/10.1016/j.ijhydene.2025.03.025 — M
+24. Taoufik M, Fekri A (2023). A GIS-based MCDM approach for site suitability analysis of solar-powered hydrogen production in the Souss-Massa Region, Morocco. *Renew Energy Focus* 46:385–401. https://doi.org/10.1016/j.ref.2023.08.004 — A (SSRN abstract)
+25. Wu Y, Deng Z, Tao Y, Wang L, Liu F, Zhou J (2021). Site selection decision framework for photovoltaic hydrogen production project using BWM-CRITIC-MABAC: a case study in Zhangjiakou. *J Clean Prod* 324:129233. https://doi.org/10.1016/j.jclepro.2021.129233 — M
+26. Şeker Ş, Aydın N (2020). Hydrogen production facility location selection for Black Sea using entropy based TOPSIS under IVPF environment. *Int J Hydrogen Energy* 45:15855–15868. https://doi.org/10.1016/j.ijhydene.2019.12.183 — A
+27. Deveci M (2018). Site selection for hydrogen underground storage using interval type-2 hesitant fuzzy sets. *Int J Hydrogen Energy* 43(19):9353–9368. https://doi.org/10.1016/j.ijhydene.2018.03.127 — A
+28. Thekkethil R, Ananthakumar MR, Kumar D, Srinivasan V, Kalshetty M (2024). Green hydrogen hubs in India: a first order AHP for site selection across states. *Int J Hydrogen Energy* 63:767–774. https://doi.org/10.1016/j.ijhydene.2024.02.268 — M + S
+29. Leal JI, Tofoli FL, Melo FDC, Leão RPS (2024). Site suitability analysis for green hydrogen production using MCDM methods: a case study in the state of Ceará, Brazil. *Int J Hydrogen Energy* 97:406–418. https://doi.org/10.1016/j.ijhydene.2024.11.427 — M + S
+30. Amjad F, Agyekum EB, Wassan NA (2024). Identification of appropriate sites for solar-based green hydrogen production using density-based clustering, BWM and spatial GIS. *Int J Hydrogen Energy*. https://doi.org/10.1016/j.ijhydene.2024.04.310 — M
+31. Hosseini Dehshiri SS, Hosseini Dehshiri SJ (2022). Locating wind farm for power and hydrogen production based on GIS and MCDM: an application. *Int J Hydrogen Energy* 47(58):24569–24583. https://doi.org/10.1016/j.ijhydene.2022.03.083 — M
+32. Guleria A, Bajaj RK (2020). A robust decision making approach for hydrogen power plant site selection utilizing (R,S)-norm Pythagorean fuzzy information measures based on VIKOR and TOPSIS. *Int J Hydrogen Energy* 45(38):18802–18816. https://doi.org/10.1016/j.ijhydene.2020.05.091 — M
+33. Monika, Sharma A, Bajaj RK (2024). On identifying suitable hydrogen power plant location under T-spherical fuzzy hypersoft matrix structures. *Int J Hydrogen Energy*. https://doi.org/10.1016/j.ijhydene.2024.04.221 — M
+34. Dong F, Wang P, Li W (2025). Suitability assessment of wind-photovoltaic-hydrogen-ammonia-alcohol integration project based on spherical fuzzy set and hybrid multi-attribute decision making. *Int J Hydrogen Energy*. https://doi.org/10.1016/j.ijhydene.2025.151677 — M
+35. Zhao H, Hao XW (2024). Risk assessment of offshore wind power hydrogen production based on spherical fuzzy set and cumulative prospect theory-TOPSIS. *Int J Hydrogen Energy* 73:475–489. https://doi.org/10.1016/j.ijhydene.2024.06.015 — M
+36. Wang C-N, Nguyen N-A-T, Dang T-T (2022). Offshore wind power station (OWPS) site selection using a two-stage MCDM-based spherical fuzzy set approach. *Sci Rep* 12. https://doi.org/10.1038/s41598-022-08257-2 — F (partial)
+37. Uguz YF, Bilgili A, Uzar M (2026). Toward improved siting of wind–solar hybrid farms: a novel framework integrating multi-criteria decision making, machine learning–driven feature selection, and spatial clustering. *Appl Energy* 127609. https://doi.org/10.1016/j.apenergy.2026.127609 — A
+38. Zun MT, McLellan BC (2026). Where in the world should we produce green hydrogen? An objective first-pass site selection. *Hydrogen* 7(1):11. https://doi.org/10.3390/hydrogen7010011 — F
+39. Mirsane RS, Etemad-Shahidi A, Sanjari MJ, Stewart RA (2026). Site selection of onshore wind and solar farms with hydrogen energy storage: a review. *Energy Storage*. https://doi.org/10.1002/est2.70342 — A
+40. Pineda Serna S, Gerres T, Cossent R (2023). Multi-criteria decision-making for renewable hydrogen production site selection: a systematic literature review. *Curr Sustain Renew Energy Rep*. https://doi.org/10.1007/s40518-023-00219-0 — A
+41. Tonelli D, Rosa L, Gabrielli P, Caldeira K, Parente A, Contino F (2023). Global land and water limits to electrolytic hydrogen production using wind and solar resources. *Nat Commun* 14. https://doi.org/10.1038/s41467-023-41107-x — F (partial)
+42. Sharaf IM (2023). A new approach for spherical fuzzy TOPSIS and spherical fuzzy VIKOR applied to the evaluation of hydrogen storage systems. *Soft Comput*. https://doi.org/10.1007/s00500-022-07749-7 — F (partial)
+43. Sitorus F, Brito-Parada PR (2022). The selection of renewable energy technologies using a hybrid subjective and objective multiple criteria decision making method. *Expert Syst Appl* 117839. https://doi.org/10.1016/j.eswa.2022.117839 — A
+44. Kutlu Gündoğdu F, Kahraman C (2019). Extension of WASPAS with spherical fuzzy sets. *Informatica* 30(2):269–292. https://doi.org/10.15388/Informatica.2019.206 — A
+45. Kutlu Gündoğdu F, Kahraman C (2020). A novel spherical fuzzy analytic hierarchy process and its renewable energy application. *Soft Comput* 24(6):4607–4621. https://doi.org/10.1007/s00500-019-04222-w — A
+46. Kutlu Gündoğdu F, Kahraman C (2019). Spherical fuzzy sets and spherical fuzzy TOPSIS method. *J Intell Fuzzy Syst* 36(1):337–352. https://doi.org/10.3233/JIFS-181401 — M
+47. Diakoulaki D, Mavrotas G, Papayannakis L (1995). Determining objective weights in multiple criteria problems: the CRITIC method. *Comput Oper Res* 22(7):763–770. https://doi.org/10.1016/0305-0548(94)00059-H — M
+48. Ma J, Fan Z-P, Huang L (1999). A subjective and objective integrated approach to determine attribute weights. *Eur J Oper Res* 112(2):397–404. https://doi.org/10.1016/S0377-2217(98)00141-6 — M
+49. Li Y, Sun Y, Kang Y, Zhang F, Zhang J (2023). An optimal site selection framework for near-zero carbon emission power plants based on multiple stakeholders. *Energies* 16(2):797. https://doi.org/10.3390/en16020797 — F (partial)
+50. Tripathi DK, Nigam SK, Cavallaro F, Rani P, Mishra AR (2023). A novel CRITIC-RS-VIKOR group method with intuitionistic fuzzy information for renewable energy sources assessment. *Group Decis Negot*. https://doi.org/10.1007/s10726-023-09849-7 — A
+51. Alkan N (2024). Evaluation of sustainable development and utilization-oriented renewable energy systems based on CRITIC-SWARA-CODAS using interval valued picture fuzzy sets. *Sustain Energy Grids Netw* 101263. https://doi.org/10.1016/j.segan.2023.101263 — M
+52. Emodi NV, Lovell H, Levitt CJ, Franklin E (2021). A systematic literature review of societal acceptance and stakeholders' perception of hydrogen technologies. *Int J Hydrogen Energy* 46(60):30669–30697. https://doi.org/10.1016/j.ijhydene.2021.06.212 — A
+53. Steller RS, Recklies EA, Schweizer-Ries P (2024). Shaping transformation: discourse analysis and systematic review of socio-psychological factors in hydrogen technology acceptance. *Int J Hydrogen Energy*. https://doi.org/10.1016/j.ijhydene.2024.06.422 — A
+54. De-León Almaraz S, Kocsis T, Azzaro-Pantel C, Szántó Z (2023). Identifying social aspects related to the hydrogen economy: review, synthesis, and research perspectives. *Int J Hydrogen Energy*. https://doi.org/10.1016/j.ijhydene.2023.10.043 — A
+55. Maketo L, Ashworth P (2025). Social acceptance of green hydrogen in European Union and the United Kingdom: a systematic review. *Renew Sustain Energy Rev* 115827. https://doi.org/10.1016/j.rser.2025.115827 — A
+56. Kuzma S, Bierkens MFP, Lakshman S, Luo T, Saccoccia L, Sutanudjaja EH, Van Beek R (2023). Aqueduct 4.0: updated decision-relevant global water risk indicators. Technical Note, World Resources Institute. https://doi.org/10.46830/writn.23.00061 — G
+57. Özdemir A, Pınarlık M (2023). Examination of the relationship between the location of wind plants and the earthquake risk: case study Türkiye. *Gazi Univ J Sci Part C*. https://doi.org/10.29109/gujsc.1328735 — A
+58. Tuncer B, Akkaya AD, Yücemen MS (2024). Multicriteria decision making in site selection for nuclear power plants. *Nucl Technol*. https://doi.org/10.1080/00295450.2023.2299078 — A
+59. Emre Ö, Duman TY, Özalp S, Şaroğlu F, Olgun Ş, Elmacı H, et al. (2018). Active fault database of Turkey. *Bull Earthq Eng* 16(8):3229–3275. https://doi.org/10.1007/s10518-016-0041-2 — M
+60. Özarslan A (2012). Large-scale hydrogen energy storage in salt caverns. *Int J Hydrogen Energy* 37(19):14265–14277. https://doi.org/10.1016/j.ijhydene.2012.07.111 — A
+61. Shao M, Han Z, Sun J, Xiao C, Zhang S, Zhao Y (2020). A review of multi-criteria decision making applications for renewable energy site selection. *Renew Energy* 157:377–403. https://doi.org/10.1016/j.renene.2020.04.137 — M
+62. Spyridonidou S, Vagiona DG (2023). A systematic review of site-selection procedures of PV and CSP technologies. *Energy Rep* 9:2947–2979. https://doi.org/10.1016/j.egyr.2023.01.132 — M
+63. Chang P-L, Hsu C-W, Chang P-C (2011). Fuzzy Delphi method for evaluating hydrogen production technologies. *Int J Hydrogen Energy*. https://doi.org/10.1016/j.ijhydene.2011.05.045 — M
+
+**Legal and official sources**
+
+- G1. Yatırımlarda Devlet Yardımları Hakkında Karar, Karar Sayısı 9903, Resmî Gazete 30 Mayıs 2025 (Arts. 3, 9–10, 34; Temporary Art. 3). Ministry of Industry and Technology PDF. — G
+- G2. T.C. Sanayi ve Teknoloji Bakanlığı, "Teşvik Tanıtım Sunumu" (regional table under Decree 9903), yatirimadestek.gov.tr. — G.

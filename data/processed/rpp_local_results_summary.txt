@@ -1,0 +1,18 @@
+=== RPP MODELI YEREL ÇÖZÜM ÖZETİ (HiGHS / Pyomo) ===
+
+theta=0.75 | Tesisler: S1, S2, S3         | Kapasite: 24,500 t/yil | E[Maliyet]: $167.49M
+theta=0.80 | Tesisler: S1, S2, S3         | Kapasite: 24,500 t/yil | E[Maliyet]: $169.22M
+theta=0.85 | Tesisler: S1, S2, S3         | Kapasite: 24,500 t/yil | E[Maliyet]: $170.95M
+theta=0.90 | Tesisler: S1, S2, S3         | Kapasite: 24,500 t/yil | E[Maliyet]: $172.67M
+theta=0.95 | Tesisler: S1, S2, S3         | Kapasite: 24,500 t/yil | E[Maliyet]: $174.40M
+
+--- theta = 0.85 Akis Detaylari ---
+S1 -> D1: 1945.0 t/yil
+S1 -> D4: 2565.0 t/yil
+S1 -> D5: 3990.0 t/yil
+S2 -> D2: 3035.0 t/yil
+S2 -> D6: 1325.0 t/yil
+S2 -> D7: 840.0 t/yil
+S3 -> D1: 2830.0 t/yil
+S3 -> D3: 1795.0 t/yil
+S3 -> D8: 1510.0 t/yil

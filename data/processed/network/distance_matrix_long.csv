@@ -1,0 +1,46 @@
+site,site_province,node_id,node_name,haversine_km,road_km,road_duration_h,snap_site_m,snap_node_m,road_to_haversine
+S1,Karaman,TR_REF_IZMIT,İzmit Refinery,524.07,760.32,8.65,2015.0,219.0,1.451
+S1,Karaman,TR_REF_IZMIR,İzmir (Aliağa) Refinery,599.75,734.16,9.61,2015.0,55.0,1.224
+S1,Karaman,TR_REF_KIRIKKALE,Kırıkkale Refinery,310.85,382.2,5.16,2015.0,487.0,1.23
+S1,Karaman,TR_REF_BATMAN,Batman Refinery,695.29,928.76,10.55,2015.0,25.0,1.336
+S1,Karaman,TR_REF_STAR,STAR Refinery,599.58,731.01,9.59,2015.0,132.0,1.219
+S1,Karaman,TR_NH3_IGSAS,İGSAŞ Kocaeli fertiliser complex,525.34,759.68,8.61,2015.0,166.0,1.446
+S1,Karaman,TR_NH3_GEMLIK,Gemlik Gübre,532.41,660.36,8.77,2015.0,49.0,1.24
+S1,Karaman,TR_STL_ERDEMIR,Erdemir Ereğli,507.42,701.47,8.36,2015.0,121.0,1.382
+S1,Karaman,TR_STL_ISDEMIR,İsdemir,255.22,422.41,5.22,2015.0,92.0,1.655
+S2,Kahramanmaraş,TR_REF_IZMIT,İzmit Refinery,661.56,881.32,9.81,118.0,219.0,1.332
+S2,Kahramanmaraş,TR_REF_IZMIR,İzmir (Aliağa) Refinery,869.36,1065.84,13.56,118.0,55.0,1.226
+S2,Kahramanmaraş,TR_REF_KIRIKKALE,Kırıkkale Refinery,328.85,421.33,5.64,118.0,487.0,1.281
+S2,Kahramanmaraş,TR_REF_BATMAN,Batman Refinery,373.36,508.0,7.22,118.0,25.0,1.361
+S2,Kahramanmaraş,TR_REF_STAR,STAR Refinery,869.87,1062.68,13.54,118.0,132.0,1.222
+S2,Kahramanmaraş,TR_NH3_IGSAS,İGSAŞ Kocaeli fertiliser complex,662.76,880.68,9.76,118.0,166.0,1.329
+S2,Kahramanmaraş,TR_NH3_GEMLIK,Gemlik Gübre,703.47,966.83,10.67,118.0,49.0,1.374
+S2,Kahramanmaraş,TR_STL_ERDEMIR,Erdemir Ereğli,559.64,822.47,9.52,118.0,121.0,1.47
+S2,Kahramanmaraş,TR_STL_ISDEMIR,İsdemir,211.98,324.84,4.61,118.0,92.0,1.532
+S3,Şanlıurfa,TR_REF_IZMIT,İzmit Refinery,938.71,1334.01,13.33,895.0,219.0,1.421
+S3,Şanlıurfa,TR_REF_IZMIR,İzmir (Aliağa) Refinery,1136.55,1421.33,16.26,895.0,55.0,1.251
+S3,Şanlıurfa,TR_REF_KIRIKKALE,Kırıkkale Refinery,605.94,938.72,9.85,895.0,487.0,1.549
+S3,Şanlıurfa,TR_REF_BATMAN,Batman Refinery,119.03,143.71,1.97,895.0,25.0,1.207
+S3,Şanlıurfa,TR_REF_STAR,STAR Refinery,1136.92,1418.18,16.23,895.0,132.0,1.247
+S3,Şanlıurfa,TR_NH3_IGSAS,İGSAŞ Kocaeli fertiliser complex,939.91,1333.37,13.29,895.0,166.0,1.419
+S3,Şanlıurfa,TR_NH3_GEMLIK,Gemlik Gübre,980.37,1419.52,14.19,895.0,49.0,1.448
+S3,Şanlıurfa,TR_STL_ERDEMIR,Erdemir Ereğli,833.04,1275.16,13.05,895.0,121.0,1.531
+S3,Şanlıurfa,TR_STL_ISDEMIR,İsdemir,335.39,454.08,5.1,895.0,92.0,1.354
+S4,Kayseri,TR_REF_IZMIT,İzmit Refinery,534.69,703.14,7.52,1395.0,219.0,1.315
+S4,Kayseri,TR_REF_IZMIR,İzmir (Aliağa) Refinery,723.12,860.91,11.02,1395.0,55.0,1.191
+S4,Kayseri,TR_REF_KIRIKKALE,Kırıkkale Refinery,211.05,267.67,3.48,1395.0,487.0,1.268
+S4,Kayseri,TR_REF_BATMAN,Batman Refinery,518.55,722.54,9.12,1395.0,25.0,1.393
+S4,Kayseri,TR_REF_STAR,STAR Refinery,723.57,857.76,10.99,1395.0,132.0,1.185
+S4,Kayseri,TR_NH3_IGSAS,İGSAŞ Kocaeli fertiliser complex,535.95,702.5,7.47,1395.0,166.0,1.311
+S4,Kayseri,TR_NH3_GEMLIK,Gemlik Gübre,570.32,788.65,8.38,1395.0,49.0,1.383
+S4,Kayseri,TR_STL_ERDEMIR,Erdemir Ereğli,452.23,644.29,7.23,1395.0,121.0,1.425
+S4,Kayseri,TR_STL_ISDEMIR,İsdemir,208.26,369.15,4.23,1395.0,92.0,1.773
+S5,Kırklareli,TR_REF_IZMIT,İzmit Refinery,210.78,267.59,3.49,235.0,219.0,1.27
+S5,Kırklareli,TR_REF_IZMIR,İzmir (Aliağa) Refinery,319.65,613.27,7.02,235.0,55.0,1.919
+S5,Kırklareli,TR_REF_KIRIKKALE,Kırıkkale Refinery,541.35,712.68,7.95,235.0,487.0,1.316
+S5,Kırklareli,TR_REF_BATMAN,Batman Refinery,1233.11,1722.1,17.84,235.0,25.0,1.397
+S5,Kırklareli,TR_REF_STAR,STAR Refinery,321.66,612.49,7.03,235.0,132.0,1.904
+S5,Kırklareli,TR_NH3_IGSAS,İGSAŞ Kocaeli fertiliser complex,209.52,266.95,3.45,235.0,166.0,1.274
+S5,Kırklareli,TR_NH3_GEMLIK,Gemlik Gübre,189.95,303.61,3.87,235.0,49.0,1.598
+S5,Kırklareli,TR_STL_ERDEMIR,Erdemir Ereğli,325.35,471.85,5.65,235.0,121.0,1.45
+S5,Kırklareli,TR_STL_ISDEMIR,İsdemir,923.81,1215.75,12.5,235.0,92.0,1.316

@@ -1,0 +1,1610 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{amsmath,booktabs,longtable,array,tabularx,pdflscape,url,eurosym,amssymb}
+\usepackage{ragged2e}
+\usepackage[hidelinks]{hyperref}
+\usepackage{textcomp}
+% Uzun kaynak adresleri satir sonunda her karakterden bolunebilsin.
+\Urlmuskip=0mu plus 1mu\relax
+\def\UrlBreaks{\do\/\do\-\do\_\do\.\do\:\do\?\do\=\do\&\do\%\do\~\do\+\do\,%
+\do\;\do\#\do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m%
+\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B%
+\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M\do\N\do\O\do\P\do\Q%
+\do\R\do\S\do\T\do\U\do\V\do\W\do\X\do\Y\do\Z\do\0\do\1\do\2\do\3\do\4\do\5%
+\do\6\do\7\do\8\do\9}
+\urlstyle{same}
+% pdflscape sayfayi dondurur ama \textwidth'i degistirmez; genis tablolarin
+% dogru olculmesi icin landscape icinde metin alanini elle genisletiyoruz.
+\newcommand{\genisle}{%
+  \setlength{\textwidth}{25.3cm}\hsize=\textwidth
+  \linewidth=\textwidth \columnwidth=\textwidth
+  \setlength{\LTcapwidth}{\textwidth}}
+\setlength{\LTcapwidth}{\textwidth}
+\renewcommand{\arraystretch}{1.12}
+\setcounter{secnumdepth}{0}
+\title{Supplementary material\\[2mm]
+\large From Land Eligibility to Pipeline Corridors: An Integrated
+GIS--Spherical-Fuzzy--Robust-Possibilistic Design of T\"urkiye's Green
+Hydrogen Supply Chain}
+\author{Kadir Sarıkaya}
+\date{}
+\begin{document}
+\maketitle
+\noindent This document provides supporting material for the main-text model:
+the industrial hydrogen demand inventory (Table~S1), the techno-economic
+parameter set and derivations (Table~S2), the siting studies coded for Stage~II
+criterion selection (Table~S3), Stage~I screening detail (Table~S4), the Stage~II method comparison (Table~S5),
+the register of Stage~III runs (Table~S6) and the Stage~II weight-blend sensitivity (Table~S13).
+\tableofcontents
+\newpage
+
+
+\section{Supplementary Table S1. Demand node inventory}
+
+Inventory of Turkish facilities considered as current or prospective industrial hydrogen demand nodes. Facility-level data are presented in Tables S1a--S1c and are also available as a machine-readable CSV in the project GitHub repository. Source identifiers and hydrogen-demand estimation assumptions are documented in the accompanying notes to Table S1; the source-notes file is also available in the repository.
+
+\begin{landscape}\genisle
+
+{\scriptsize
+\begin{longtable}{>{\raggedright\arraybackslash}p{2.95cm}>{\raggedright\arraybackslash}p{3.15cm}>{\raggedright\arraybackslash}p{5.26cm}>{\raggedright\arraybackslash}p{2.78cm}>{\raggedright\arraybackslash}p{1.45cm}>{\raggedright\arraybackslash}p{1.59cm}>{\raggedright\arraybackslash}p{1.46cm}>{\raggedright\arraybackslash}p{1.46cm}>{\raggedright\arraybackslash}p{1.33cm}}
+\caption{Supplementary Table S1a. Demand nodes: identity, location and capacity.}\label{tab:s1a}\\
+\toprule
+\textbf{node\_\allowbreak{}id} & \textbf{name} & \textbf{operator} & \textbf{sector} & \textbf{province} & \textbf{district} & \textbf{lat} & \textbf{lon} & \textbf{size\_\allowbreak{}value} \\
+\midrule
+\endfirsthead
+\multicolumn{9}{l}{\footnotesize\itshape Supplementary Table S1a (continued)}\\
+\toprule
+\textbf{node\_\allowbreak{}id} & \textbf{name} & \textbf{operator} & \textbf{sector} & \textbf{province} & \textbf{district} & \textbf{lat} & \textbf{lon} & \textbf{size\_\allowbreak{}value} \\
+\midrule
+\endhead
+\midrule\multicolumn{9}{r}{\footnotesize\itshape continued on next page}\\
+\endfoot
+\bottomrule
+\endlastfoot
+TR\_\allowbreak{}REF\_\allowbreak{}IZMIT & İzmit Refinery & Tüpraş & refinery & Kocaeli & Körfez & 40.7495 & 29.7671 & 11.3 \\
+TR\_\allowbreak{}REF\_\allowbreak{}IZMIR & İzmir (Aliağa) Refinery & Tüpraş & refinery & İzmir & Aliağa & 38.8139 & 26.9353 & 11.9 \\
+TR\_\allowbreak{}REF\_\allowbreak{}KIRIKKALE & Kırıkkale Refinery & Tüpraş & refinery & Kırıkkale & Hacılar & 39.7442 & 33.4609 & 5.4 \\
+TR\_\allowbreak{}REF\_\allowbreak{}BATMAN & Batman Refinery & Tüpraş & refinery & Batman & Merkez & 37.8789 & 41.1377 & 1.4 \\
+TR\_\allowbreak{}REF\_\allowbreak{}STAR & STAR Refinery & SOCAR Türkiye & refinery & İzmir & Aliağa & 38.7962 & 26.9299 & 13.0 \\
+TR\_\allowbreak{}NH3\_\allowbreak{}IGSAS & İGSAŞ Kocaeli fertiliser complex & İGSAŞ (Yıldızlar Yatırım Holding) & ammonia (on-site synthesis) & Kocaeli & Körfez & 40.7573 & 29.7556 & 396000 \\
+TR\_\allowbreak{}NH3\_\allowbreak{}GEMLIK & Gemlik Gübre & Gemlik Gübre Sanayii A.Ş. (YILFERT) & ammonia (on-site synthesis) & Bursa & Gemlik & 40.4142 & 29.1136 & 386400 \\
+TR\_\allowbreak{}NH3\_\allowbreak{}TOROS\_\allowbreak{}MERSIN & Toros Mersin plant & Toros Tarım (Tekfen) & fertiliser (imported NH3) & Mersin & Akdeniz & 36.8153 & 34.6780 & 660000 \\
+TR\_\allowbreak{}NH3\_\allowbreak{}TOROS\_\allowbreak{}SAMSUN & Toros Samsun plant & Toros Tarım & fertiliser (imported NH3) & Samsun & Tekkeköy &  &  & 575000 \\
+TR\_\allowbreak{}NH3\_\allowbreak{}TOROS\_\allowbreak{}CEYHAN & Toros Ceyhan plant & Toros Tarım & fertiliser (imported NH3) & Adana & Ceyhan &  &  &  \\
+TR\_\allowbreak{}NH3\_\allowbreak{}BAGFAS & BAGFAŞ Bandırma & BAGFAŞ & fertiliser (imported NH3) & Balıkesir & Bandırma & 40.3797 & 27.9095 & 800 \\
+TR\_\allowbreak{}NH3\_\allowbreak{}GUBRETAS & Gübretaş Yarımca & Gübretaş & fertiliser (imported NH3) & Kocaeli & Körfez & 40.7735 & 29.7187 &  \\
+TR\_\allowbreak{}NH3\_\allowbreak{}EGE & Ege Gübre Aliağa & Ege Gübre & fertiliser (imported NH3) & İzmir & Aliağa &  &  &  \\
+TR\_\allowbreak{}PCH\_\allowbreak{}PETKIM & Petkim complex & SOCAR Türkiye & petrochemicals & İzmir & Aliağa & 38.7874 & 26.9364 & 3.6 \\
+TR\_\allowbreak{}STL\_\allowbreak{}ERDEMIR & Erdemir Ereğli & Erdemir (OYAK MMC) & steel (BF-BOF) & Zonguldak & Ereğli & 41.2608 & 31.4196 & 4.0 \\
+TR\_\allowbreak{}STL\_\allowbreak{}ISDEMIR & İsdemir & İsdemir (OYAK MMC) & steel (BF-BOF) & Hatay & Payas & 36.7370 & 36.2058 & 5.8 \\
+TR\_\allowbreak{}STL\_\allowbreak{}KARDEMIR & Kardemir & Kardemir A.Ş. & steel (BF-BOF) & Karabük & Merkez & 41.1816 & 32.6354 & 2.51 \\
+TR\_\allowbreak{}STL\_\allowbreak{}TOSYALI & Tosyalı İskenderun & Tosyalı Holding & steel (EAF) & Hatay & İskenderun & 36.6966 & 36.2033 &  \\
+TR\_\allowbreak{}STL\_\allowbreak{}HABAS & Habaş Aliağa & Habaş & steel (EAF) + industrial gases & İzmir & Aliağa & 38.7397 & 26.9481 & 4.5 \\
+TR\_\allowbreak{}HUB\_\allowbreak{}HYSOUTHMARMARA & HySouthMarmara hydrogen valley & GMKA, Enerjisa, Şişecam, Kale, Eti Maden, Linde, HPAŞ & hydrogen valley (project) & Balıkesir & Bandırma & 40.2960 & 27.7645 & 4 \\
+\end{longtable}
+}
+
+{\scriptsize
+\begin{longtable}{>{\raggedright\arraybackslash}p{3.86cm}>{\raggedright\arraybackslash}p{2.01cm}>{\raggedright\arraybackslash}p{1.73cm}>{\raggedright\arraybackslash}p{2.26cm}>{\raggedright\arraybackslash}p{1.75cm}>{\raggedright\arraybackslash}p{2.38cm}>{\raggedright\arraybackslash}p{2.51cm}>{\raggedright\arraybackslash}p{1.39cm}>{\raggedright\arraybackslash}p{1.71cm}>{\raggedright\arraybackslash}p{1.41cm}}
+\caption{Supplementary Table S1b. Demand nodes: estimated hydrogen demand, status and selection flags.}\label{tab:s1b}\\
+\toprule
+\textbf{node\_\allowbreak{}id} & \textbf{h2\_\allowbreak{}onsite\_\allowbreak{}today} & \textbf{h2\_\allowbreak{}total\_\allowbreak{}t\_\allowbreak{}yr} & \textbf{h2\_\allowbreak{}onpurpose\_\allowbreak{}t\_\allowbreak{}yr} & \textbf{h2\_\allowbreak{}value\_\allowbreak{}type} & \textbf{future\_\allowbreak{}h2\_\allowbreak{}t\_\allowbreak{}yr\_\allowbreak{}low} & \textbf{future\_\allowbreak{}h2\_\allowbreak{}t\_\allowbreak{}yr\_\allowbreak{}high} & \textbf{status} & \textbf{rule\_\allowbreak{}baseline} & \textbf{rule\_\allowbreak{}2040} \\
+\midrule
+\endfirsthead
+\multicolumn{10}{l}{\footnotesize\itshape Supplementary Table S1b (continued)}\\
+\toprule
+\textbf{node\_\allowbreak{}id} & \textbf{h2\_\allowbreak{}onsite\_\allowbreak{}today} & \textbf{h2\_\allowbreak{}total\_\allowbreak{}t\_\allowbreak{}yr} & \textbf{h2\_\allowbreak{}onpurpose\_\allowbreak{}t\_\allowbreak{}yr} & \textbf{h2\_\allowbreak{}value\_\allowbreak{}type} & \textbf{future\_\allowbreak{}h2\_\allowbreak{}t\_\allowbreak{}yr\_\allowbreak{}low} & \textbf{future\_\allowbreak{}h2\_\allowbreak{}t\_\allowbreak{}yr\_\allowbreak{}high} & \textbf{status} & \textbf{rule\_\allowbreak{}baseline} & \textbf{rule\_\allowbreak{}2040} \\
+\midrule
+\endhead
+\midrule\multicolumn{10}{r}{\footnotesize\itshape continued on next page}\\
+\endfoot
+\bottomrule
+\endlastfoot
+TR\_\allowbreak{}REF\_\allowbreak{}IZMIT & yes & 108000 & 62000 & E &  &  & operating & 1 & 1 \\
+TR\_\allowbreak{}REF\_\allowbreak{}IZMIR & yes & 114000 & 65000 & E &  &  & operating & 1 & 1 \\
+TR\_\allowbreak{}REF\_\allowbreak{}KIRIKKALE & yes & 52000 & 30000 & E &  &  & operating & 1 & 1 \\
+TR\_\allowbreak{}REF\_\allowbreak{}BATMAN & yes & 13000 & 8000 & E &  &  & operating & 1 & 1 \\
+TR\_\allowbreak{}REF\_\allowbreak{}STAR & yes & 125000 & 72000 & E &  &  & operating & 1 & 1 \\
+TR\_\allowbreak{}NH3\_\allowbreak{}IGSAS & yes & 70300 & 70300 & E &  &  & operating & 1 & 1 \\
+TR\_\allowbreak{}NH3\_\allowbreak{}GEMLIK & yes & 68600 & 68600 & E &  &  & operating & 1 & 1 \\
+TR\_\allowbreak{}NH3\_\allowbreak{}TOROS\_\allowbreak{}MERSIN & no & 0 & 0 & P & 8900 & 8900 & operating & 0 & 0 \\
+TR\_\allowbreak{}NH3\_\allowbreak{}TOROS\_\allowbreak{}SAMSUN & no & 0 & 0 & P &  &  & operating & 0 & 0 \\
+TR\_\allowbreak{}NH3\_\allowbreak{}TOROS\_\allowbreak{}CEYHAN & no & 0 & 0 & P &  &  & operating & 0 & 0 \\
+TR\_\allowbreak{}NH3\_\allowbreak{}BAGFAS & no & 0 & 0 & P &  &  & operating & 0 & 0 \\
+TR\_\allowbreak{}NH3\_\allowbreak{}GUBRETAS & no & 0 & 0 & P &  &  & operating & 0 & 0 \\
+TR\_\allowbreak{}NH3\_\allowbreak{}EGE & no & 0 & 0 & P &  &  & operating & 0 & 0 \\
+TR\_\allowbreak{}PCH\_\allowbreak{}PETKIM & by-product &  &  &  &  &  & operating & 0 & 0 \\
+TR\_\allowbreak{}STL\_\allowbreak{}ERDEMIR & no & 0 & 0 & P & 94000 & 114000 & operating & 0 & 1 \\
+TR\_\allowbreak{}STL\_\allowbreak{}ISDEMIR & no & 0 & 0 & P & 94000 & 114000 & operating & 0 & 1 \\
+TR\_\allowbreak{}STL\_\allowbreak{}KARDEMIR & no & 0 & 0 & P &  &  & operating & 0 & 0 \\
+TR\_\allowbreak{}STL\_\allowbreak{}TOSYALI & no & 0 & 0 & P &  &  & operating & 0 & 0 \\
+TR\_\allowbreak{}STL\_\allowbreak{}HABAS & yes & 790 & 790 & P &  &  & operating & 0 & 0 \\
+TR\_\allowbreak{}HUB\_\allowbreak{}HYSOUTHMARMARA & no & 0 & 0 & P & 500 & 538 & planned & 0 & 0 \\
+\end{longtable}
+}
+
+{\tiny
+\begin{longtable}{>{\raggedright\arraybackslash}p{2.25cm}>{\raggedright\arraybackslash}p{11.81cm}>{\raggedright\arraybackslash}p{5.40cm}>{\raggedright\arraybackslash}p{4.13cm}}
+\caption{Supplementary Table S1c. Demand nodes: estimation basis and coordinate provenance.}\label{tab:s1c}\\
+\toprule
+\textbf{node\_\allowbreak{}id} & \textbf{h2\_\allowbreak{}basis} & \textbf{future\_\allowbreak{}basis} & \textbf{coord\_\allowbreak{}source} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{l}{\footnotesize\itshape Supplementary Table S1c (continued)}\\
+\toprule
+\textbf{node\_\allowbreak{}id} & \textbf{h2\_\allowbreak{}basis} & \textbf{future\_\allowbreak{}basis} & \textbf{coord\_\allowbreak{}source} \\
+\midrule
+\endhead
+\midrule\multicolumn{4}{r}{\footnotesize\itshape continued on next page}\\
+\endfoot
+\bottomrule
+\endlastfoot
+TR\_\allowbreak{}REF\_\allowbreak{}IZMIT & 9.6 /\allowbreak{} 5.5 kg H2 per t crude capacity (EU refining average, CATF 2025); published H2 unit 160,000 Nm3/\allowbreak{}h (\textasciitilde{}126 kt/\allowbreak{}yr nameplate) suggests the factor underestimates this complex site &  & OSM way 157194960 (site B: way 226607383) \\
+TR\_\allowbreak{}REF\_\allowbreak{}IZMIR & 9.6 /\allowbreak{} 5.5 kg H2 per t crude capacity (CATF 2025) & planned SAF unit; first electrolyser use 2028-30 & OSM way 160400761 \\
+TR\_\allowbreak{}REF\_\allowbreak{}KIRIKKALE & 9.6 /\allowbreak{} 5.5 kg H2 per t crude capacity (CATF 2025) &  & OSM way 16897131 \\
+TR\_\allowbreak{}REF\_\allowbreak{}BATMAN & upper bound: EU-average factor overstates a near-topping refinery (Nelson 1.83); on-purpose H2 plant not verified &  & OSM way 129693533 \\
+TR\_\allowbreak{}REF\_\allowbreak{}STAR & 9.6 /\allowbreak{} 5.5 kg H2 per t crude capacity (CATF 2025); published H2 unit 3.84 million Nm3/\allowbreak{}d (\textasciitilde{}126 kt/\allowbreak{}yr nameplate); 2025 sustainability report H2 line = 0 GJ (not usable) &  & OSM way 618579218 \\
+TR\_\allowbreak{}NH3\_\allowbreak{}IGSAS & 0.1776 t H2 per t NH3 (stoichiometric) at nameplate capacity; natural-gas SMR & +400 kt/\allowbreak{}yr NH3 expansion announced, not firm & OSM way 226607388 \\
+TR\_\allowbreak{}NH3\_\allowbreak{}GEMLIK & 0.1776 t H2 per t NH3 (stoichiometric) at nameplate capacity &  & Wikimapia polygon 1296994 + address geocode (no Nominatim hit) \\
+TR\_\allowbreak{}NH3\_\allowbreak{}TOROS\_\allowbreak{}MERSIN & no on-site ammonia synthesis & Tekfen green-ammonia project 60 MW /\allowbreak{} 50 kt NH3/\allowbreak{}yr, pre-engineering, no FID & OSM way 206246411 \\
+TR\_\allowbreak{}NH3\_\allowbreak{}TOROS\_\allowbreak{}SAMSUN & NP/\allowbreak{}NPK/\allowbreak{}DAP only &  & not geocoded \\
+TR\_\allowbreak{}NH3\_\allowbreak{}TOROS\_\allowbreak{}CEYHAN & imports NH3 &  & not geocoded \\
+TR\_\allowbreak{}NH3\_\allowbreak{}BAGFAS & ammonium sulphate from purchased NH3 &  & OSM way 280136993 \\
+TR\_\allowbreak{}NH3\_\allowbreak{}GUBRETAS & imports NH3 &  & OSM service road inside site (approx.) \\
+TR\_\allowbreak{}NH3\_\allowbreak{}EGE & imports NH3 &  & not geocoded \\
+TR\_\allowbreak{}PCH\_\allowbreak{}PETKIM & no methanol/\allowbreak{}ammonia synthesis in Türkiye; H2 is cracker by-product used in hydrogenation; quantity not published &  & OSM way 618579217 \\
+TR\_\allowbreak{}STL\_\allowbreak{}ERDEMIR & one-off H2 injection trial (BF1; Oct 2024) & roadmap: 2 Mt NG-DRI 2030-40, green-H2 DRI 2040-50; 47-57 kg H2 per t DRI & OSM way 133474356 \\
+TR\_\allowbreak{}STL\_\allowbreak{}ISDEMIR &  & roadmap: 2 Mt NG-DRI, H2-DRI after \textasciitilde{}2040; 47-57 kg H2 per t DRI & OSM way 128639350 \\
+TR\_\allowbreak{}STL\_\allowbreak{}KARDEMIR & no H2 or DRI project found &  & OSM way 169163741 \\
+TR\_\allowbreak{}STL\_\allowbreak{}TOSYALI & 2023 claim to run Turkish plants primarily on H2 by 2026 is unverified and unquantified; H2-ready DRI modules are in Algeria &  & OSM way 1125141094 (rolling mill) \\
+TR\_\allowbreak{}STL\_\allowbreak{}HABAS & Aliağa H2 plant 1,000 Nm3/\allowbreak{}h (EIA 2023) -> <=790 t/\allowbreak{}yr; merchant H2 \textasciitilde{}450 t/\allowbreak{}yr from Kocaeli/\allowbreak{}Ankara SMR and Bilecik electrolysis &  & OSM way 187437823 \\
+TR\_\allowbreak{}HUB\_\allowbreak{}HYSOUTHMARMARA &  & FID Q4-2026, operation Q2-2028; offtakers H2O2, glass, ceramics, NaBH4 & OSM relation 15579981 (Enerjisa Bandırma power plants) \\
+\end{longtable}
+}
+
+\end{landscape}
+
+\subsection{Notes to Table S1}
+
+Industrial hydrogen consumers in Türkiye, compiled on 16 October 2026 and prepared independently of the Stage I candidate sites.
+
+\subsubsection{Selection rule (independent of the candidate sites)}
+
+\begin{center}\footnotesize
+\begin{tabularx}{\textwidth}{>{\hsize=0.450\hsize\raggedright\arraybackslash}X>{\hsize=1.550\hsize\raggedright\arraybackslash}Xl}
+\toprule
+\textbf{Rule} & \textbf{Definition} & \textbf{Nodes} \\
+\midrule
+\texttt{rule\_\allowbreak{}baseline} & Plants operating today that use or produce hydrogen on site (refineries and on-site ammonia synthesis) with an estimated demand of at least 1,000 t H2/\allowbreak{}yr & 7 \\
+\texttt{rule\_\allowbreak{}2040} & \texttt{rule\_\allowbreak{}baseline} plus integrated steel plants that have announced a transition to H2-DRI in their roadmaps (Erdemir, Isdemir) & 9 \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+Plants considered and not included:
+
+\begin{itemize}\setlength\itemsep{1pt}
+
+  \item \textbf{Fertiliser plants using imported ammonia:} Toros, BAGFAS, Gubretas, Ege Gubre.
+
+  \item \textbf{Petkim:} hydrogen arises as a by-product; the quantity is not published.
+
+  \item \textbf{Kardemir:} no H2 or DRI project.
+
+  \item \textbf{Tosyali:} no verified hydrogen demand in Türkiye.
+
+  \item \textbf{Habas:} below 1,000 t/yr.
+
+  \item \textbf{HySouthMarmara:} still at project stage.
+
+\end{itemize}
+
+\subsubsection{Value types}
+
+\begin{itemize}\setlength\itemsep{1pt}
+
+  \item \texttt{size\_status} and \texttt{h2\_value\_type}: \textbf{P} = published value, \textbf{E} = estimate.
+
+  \item No company publishes its hydrogen consumption in tonnes; refinery and ammonia demands are estimated from capacity multiplied by a conversion factor.
+
+  \item \texttt{h2\_onpurpose\_t\_yr} is the share supplied by dedicated hydrogen units (steam methane reforming) at refineries. This is the part that electrolytic hydrogen can substitute directly; the remainder of total consumption is by-product hydrogen from reformers and crackers.
+
+\end{itemize}
+
+\subsubsection{Conversion factors}
+
+\begin{center}\footnotesize
+\begin{tabularx}{\textwidth}{>{\hsize=0.450\hsize\raggedright\arraybackslash}X>{\hsize=0.749\hsize\raggedright\arraybackslash}X>{\hsize=1.801\hsize\raggedright\arraybackslash}X}
+\toprule
+\textbf{Factor} & \textbf{Value} & \textbf{Source} \\
+\midrule
+Ammonia & 0.1776 t H2 per t NH3 (stoichiometric: 3 x 2.016 /\allowbreak{} 2 x 17.031) & - \\
+Refinery, total H2 & about 9.6 kg H2 per t of crude (range 9.0-10.3) & CATF 2025: EU refinery hydrogen use 4,205 kt/\allowbreak{}yr against an EU capacity of 11.7 Mbbl/\allowbreak{}d, assuming 7.33 bbl/\allowbreak{}t and 75\% utilisation (S24) \\
+Refinery, on-purpose share & about 5.5 kg H2 per t of crude, roughly 60\% of the total & CATF 2025 (S24) \\
+H2-DRI & 47-57 kg H2 per t of DRI & Vogl et al. 2018, J. Clean. Prod. 203:736, doi:10.1016/\allowbreak{}j.jclepro.2018.08.279; Rechberger et al. 2020, steel research int., doi:10.1002/\allowbreak{}srin.202000110 \\
+Volume to mass & 1 Nm3 H2 = 0.08988 kg & - \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\textbf{Limitation.} The EU average factors understate complex refineries (Izmit, STAR) and overstate the simple Batman refinery. The published hydrogen unit capacity of Izmit and STAR, about 160,000 Nm3/h each, corresponds to roughly 126 kt/yr at nameplate and exceeds the factor-based estimate.
+
+\subsubsection{Verification status}
+
+\begin{itemize}\setlength\itemsep{1pt}
+
+  \item IGSAS, 396,000 t NH3/yr: verified against the plant page at yildiz.com.
+
+  \item Tupras capacities of 11.3, 11.9, 5.4 and 1.4 Mt/yr: verified against tupras.com.tr and the December 2024 investor presentation.
+
+  \item Checks used the primary sources listed below and were completed on 16 October 2026. Other values follow the cited sources without independent verification; their evidence levels are recorded in Table S1.
+
+\end{itemize}
+
+\subsubsection{National context}
+
+\begin{itemize}\setlength\itemsep{1pt}
+
+  \item \textbf{Strategy targets.} Ministry of Energy and Natural Resources, Hydrogen Technologies Strategy and Roadmap (January 2023): electrolyser capacity of 2 GW by 2030, 5 GW by 2035 and 70 GW by 2053. No tonnage target for demand is set (S21).
+
+  \item \textbf{National grey hydrogen base (estimate).} Refineries about 0.41 Mt, of which about 0.24 Mt is on-purpose, and ammonia about 0.08-0.14 Mt, giving roughly 0.5 Mt H2/yr in total. No official national figure was found.
+
+  \item \textbf{Third-party projections.} EBRD and Advisian put low-carbon hydrogen demand at about 60 kt/yr in 2030 and about 725 kt/yr in 2040 (S22). SHURA 2022 gives 3.4 Mt/yr in 2050 (S23).
+
+\end{itemize}
+
+\subsubsection{Sources}
+
+All web sources were accessed on 16 October 2026.
+
+\begin{itemize}\setlength\itemsep{1pt}
+
+  \item S1. Tüpraş. \textit{About us.} \url{https://www.tupras.com.tr/en/about-us}
+
+  \item S2. Tüpraş. \textit{Strategic transformation}; \textit{Integrated annual report 2025.} \url{https://www.tupras.com.tr/en/strategic-transformation} ; \url{https://www.tupras.com.tr/assets/uploads/integrated-report/tupras-2025-integrated-annual-report.pdf}
+
+  \item S3. Oil \& Gas Journal. \textit{Tüpraş commissions unit at Izmit refinery.} \url{https://www.ogj.com/refining-processing/article/17250889/tupras-commissions-unit-at-izmit-refinery}
+
+  \item S4. SOCAR Türkiye. \textit{STAR Refinery}; \textit{STAR Refinery sustainability report 2025.} \url{https://www.socar.com.tr/activity-fields/star-refinery}
+
+  \item S5. NS Energy. \textit{STAR Aegean refinery.} \url{https://www.nsenergybusiness.com/projects/star-aegean-refinery/}
+
+  \item S6. Yıldız Holding. \textit{İGSAŞ Kocaeli plant}; Global Energy Monitor, \textit{İGSAŞ Kocaeli ammonia facility.} \url{https://www.yildiz.com/en/our-activity-areas/fertilizer-industry/igsas-kocaeli-plant} ; \url{https://www.gem.wiki/IGSAS_Kocaeli_Ammonia_Facility}
+
+  \item S7. Gemlik Gübre. \textit{Yılfert plant.} \url{https://www.gemlikgubre.com.tr/yilfert-en}
+
+  \item S8. Ministry of Industry and Technology. \textit{Low-carbon roadmap for the Turkish fertiliser sector.} \url{https://www.sanayi.gov.tr/assets/pdf/birimler/turkiye-gubre-sektoru-icin-dusuk-karbonlu-yol-haritasiEN.pdf}
+
+  \item S9. International Maritime Organization, Future Fuels and Technology Project. \textit{World ammonia map 2024.} \url{https://futurefuels.imo.org/wp-content/uploads/2024/03/WorldAmmoniaMap2024.pdf}
+
+  \item S10. Toros Tarım. \textit{Mersin production plants.} \url{https://www.toros.com.tr/en/fertilizers/facilities/production-plants/mersin-production-plants}
+
+  \item S11. BAGFAŞ. \textit{Fertilizer production.} \url{https://www.bagfas.com.tr/en/Fertilizer.aspx}
+
+  \item S12. YatırımX. \textit{Gübretaş: patent registration for two innovation projects.} \url{https://www.yatirimx.com.tr/sirket-haberleri/gubretasin-2-yenilikci-projesine-turkpatent-tescili/25352}
+
+  \item S13. Petkim. \textit{Integrated annual report 2025.} \url{https://www.petkim.com.tr/assets/uploads/Petkim_2025_Integrated_Annual_Report.pdf}
+
+  \item S14. Erdemir. \textit{Giant step for green steel by Erdemir}; İsdemir, \textit{Company history.} \url{https://www.erdemir.com.tr/en/corporate/media/press-release/giant-step-for-green-steel-by-erdemir} ; \url{https://www.isdemir.com.tr/kurumsal/tarihce}
+
+  \item S15. Steel Radar. \textit{Kardemir increased its production in 2024; 2025 target is 2.5 million tons of sales.} \url{https://www.steelradar.com/en/kardemir-increased-its-production-in-2024-2025-target-is-25-million-tons-of-sales/}
+
+  \item S16. Tosyalı Holding. \textit{Tosyalı Holding breaks new ground in the world with green steel production.} \url{https://www.tosyaliholding.com.tr/en/media-central/press-releases/tosyali-holding/2023/tosyali-holding-breaks-new-ground-in-the-world-with-green-steel-production}
+
+  \item S17. SteelOrbis. \textit{Türkiye's Habaş to build hydrogen production facility in İzmir}; Habaş, \textit{Gas production.} \url{https://www.steelorbis.com/steel-news/latest-news/turkeys-habas-to-build-hydrogen-production-facility-in-izmir-1302955.htm} ; \url{https://habas.com.tr/en/s-gas/production}
+
+  \item S18. European Commission, CORDIS. \textit{Project 101112054}; Hydrogen Valley Platform, \textit{South Marmara Hydrogen Shore (HySouthMarmara).} \url{https://cordis.europa.eu/project/id/101112054} ; \url{https://h2v.eu/hydrogen-valley-platform/hydrogen-valleys-glance/south-marmara-hydrogen-shore-hysouthmarmara}
+
+  \item S20. Hidrojen Haber. \textit{Tekfen is building Türkiye's first green ammonia plant.} \url{https://www.hidrojenhaber.com/tekfen-turkiyenin-ilk-yesil-amonyak-tesisini-kuruyor/}
+
+  \item S21. Ministry of Energy and Natural Resources. \textit{Türkiye hydrogen technologies strategy and roadmap}, January 2023. \url{https://enerji.gov.tr/Media/Dizin/SGB/tr/Kurumsal_Politikalar/HSP/ETKB_Hidrojen_Stratejik_Plan2023.pdf}
+
+  \item S22. European Bank for Reconstruction and Development. \textit{Low-carbon hydrogen economy in Türkiye.} \url{https://www.ebrd.com/content/dam/ebrd_dxp/assets/pdfs/green-economy-transition/Low%20Carbon%20Hydrogen%20Economy%20in%20Turkiye.pdf}
+
+  \item S23. SHURA Energy Transition Center. \textit{Hydrogen report}, February 2026 (in Turkish). \url{https://shura.org.tr/wp-content/uploads/2026/02/SHURA-2026-02-Rapor-Hidrojen_TR.pdf}
+
+  \item S24. Clean Air Task Force. \textit{Hydrogen in EU industry: decarbonising existing hydrogen production and consumption in the EU 27}, 2025. \url{https://cdn.catf.us/wp-content/uploads/2025/02/04180154/eu-hydrogen-landscape.pdf}
+
+  \item S25. Vogl V, Åhman M, Nilsson LJ (2018). Assessment of hydrogen direct reduction for fossil-free steelmaking. \textit{Journal of Cleaner Production} 203:736-745. \url{https://doi.org/10.1016/j.jclepro.2018.08.279} ; Rechberger K, Spanlang A, Sasiain Conde A, Wolfmeir H, Harris C (2020). Green hydrogen-based direct reduction for low-carbon steelmaking. \textit{steel research international} 91(11):2000110. \url{https://doi.org/10.1002/srin.202000110}
+
+  \item S33. OpenStreetMap contributors. \textit{Nominatim geocoding service}; the way and relation identifiers used for each node are given in Table S1c.
+
+\end{itemize}
+
+\subsubsection{Renewable share and delivery points used in Stage III}
+
+\begin{itemize}\setlength\itemsep{1pt}
+
+  \item The renewable (RFNBO) share differs by sector. Ammonia complexes use the RED III industry target: 33.6 \% / 42 \% / 60 \% (Art. 22b reduced 2030, Art. 22a 2030, Art. 22a 2035). Refinery hydrogen used as an intermediate for transport fuels falls outside the industry target and counts towards the transport sub-target (at least 1 percentage point RFNBO in 2030, counted twice). Applied to Türkiye's 2024 transport final energy without aviation (1 124.7 PJ; TÜİK, March 2026), the sub-target corresponds to 46.9 kt H\textsubscript{2}/yr (mode), 93.7 kt without the multiplier (high) and 37.5 kt (low, 0.8 $\times$ mode). As shares of the 237 kt refinery on-purpose demand: 0.158 / 0.198 / 0.395. Derivation: Supplementary Table S2, Note N11.
+
+  \item Modal renewable demand: ammonia 58.3 kt + refineries 46.9 kt = 105.2 kt/yr (possibility range 84.2--177.1 kt/yr). Applying the industry share to every facility (upper-bound scenario) gives 157.9 kt/yr.
+
+  \item Facilities less than 2 km apart share one delivery point in Stage III: İzmir (Aliağa) and STAR refineries (Aliağa hub); İzmit refinery and İGSAŞ (Körfez hub). Arc lengths to a hub are the mean of the members' road distances. The import penalty of a hub weights each member's sector parity by its demand range.
+
+\end{itemize}
+
+\newpage\section{Supplementary Table S2. Techno-economic parameter set}
+
+Techno-economic parameter set for Stage III, with sources and evidence levels. The CSV gives, for each parameter, the triangular fuzzy low/mode/high values, the unit, the price basis year and currency, the full source reference, and an evidence level recording how far each source was read: FT = full text or full relevant section, FT-sec = full text of a secondary compilation, Ex = excerpt or search highlight, Abs = abstract only. Values marked (D) were derived by the author. Derivations for all values marked (D), the deterministic Tuz Golu facility data used in the model, and additional model inputs are documented in the Notes to Table S2 section; the underlying source notes are also available in the project GitHub repository.
+
+\begin{landscape}\genisle
+
+{\tiny
+\begin{longtable}{>{\raggedright\arraybackslash}p{1.52cm}>{\raggedright\arraybackslash}p{1.95cm}>{\raggedright\arraybackslash}p{1.07cm}>{\raggedright\arraybackslash}p{1.15cm}>{\raggedright\arraybackslash}p{0.97cm}>{\raggedright\arraybackslash}p{0.97cm}>{\raggedright\arraybackslash}p{1.22cm}>{\raggedright\arraybackslash}p{10.89cm}>{\raggedright\arraybackslash}p{1.69cm}}
+\caption{Supplementary Table S2. Stage~III techno-economic parameters, with sources and evidence levels.}\label{tab:s2}\\
+\toprule
+\textbf{\#} & \textbf{Parameter} & \textbf{Unit} & \textbf{Low} & \textbf{Mode} & \textbf{High} & \textbf{Basis year \& currency} & \textbf{Source(s) (DOI /\allowbreak{} URL)} & \textbf{Evidence} \\
+\midrule
+\endfirsthead
+\multicolumn{9}{l}{\footnotesize\itshape Supplementary Table S2 (continued)}\\
+\toprule
+\textbf{\#} & \textbf{Parameter} & \textbf{Unit} & \textbf{Low} & \textbf{Mode} & \textbf{High} & \textbf{Basis year \& currency} & \textbf{Source(s) (DOI /\allowbreak{} URL)} & \textbf{Evidence} \\
+\midrule
+\endhead
+\midrule\multicolumn{9}{r}{\footnotesize\itshape continued on next page}\\
+\endfoot
+\bottomrule
+\endlastfoot
+\multicolumn{9}{l}{\textbf{1 Onshore wind}} \\
+1.1 & Onshore wind CAPEX (total installed) & \euro{}/\allowbreak{}kW & 796 (D) & 924 (D) & 1 533 (D) & 2024 USD$\rightarrow$\euro{} @1.0824 & Low: IRENA 2025, Renewable Power Generation Costs in 2024: global TIC expected to reach \textasciitilde{}USD 861/\allowbreak{}kW "over the next five years" (\url{https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2025/Jul/IRENA_TEC_RPGC_in_2024_2025.pdf).} Mode (Türkiye): YEKA RES-2024, 1.2 GW for USD 1.2 bn (\url{https://newsbase.com/story/turkey-awards-1-2-gw-of-wind-power-deals-in-tenders-364113);} TÜREB, USD 1.3 bn for 1.3 GW in 2024 (\url{https://aea-al.org/wind-power-investments-in-turkey-surge-as-major-plants-inaugurated-in-may/);} PhillipCapital sector note, USD 1.0--1.1 M/\allowbreak{}MW (\url{https://www.phillipcapital.com.tr/Files/IndustryReport/297d6b50-db0a-419a-95e3-8cf82a593c70.pdf).} High: IRENA 2025, Table 2.1, Europe 2024 weighted average USD 1 659/\allowbreak{}kW & IRENA FT; Turkish items Ex \\
+1.2 & Onshore wind fixed O\&M & \euro{}/\allowbreak{}kW/\allowbreak{}yr & 22.2 (D) & 34.5 (D) & 41.6 (D) & Low 2025 \euro{}; mode 2022 USD; high 2024 USD & Low: DEA cat. 20 (2030) via PyPSA technology-data costs\_\allowbreak{}2030.csv: FOM 1.2167 \%/\allowbreak{}yr $\times$ 1 383 \euro{}/\allowbreak{}kW, plus VOM 1.80 \euro{}/\allowbreak{}MWh at 2 978 h (\url{https://github.com/PyPSA/technology-data).} Mode (Türkiye): UNCTAD 2024, Solar and wind power transition in Türkiye, Table 2: USD 36.3/\allowbreak{}kW/\allowbreak{}yr (\url{https://unctad.org/system/files/information-document/unda2030d13-turkieye-wind-solar%5Fen.pdf).} High: IRENA 2025, Table A3, "Other OECD" USD 45/\allowbreak{}kW/\allowbreak{}yr & FT-sec /\allowbreak{} Ex /\allowbreak{} FT \\
+1.3 & Onshore wind lifetime & yr & 20 & 25 & 30 & -- & Low: Demirkol et al. 2025, Energies 18:2632 (Türkiye case study), \url{https://doi.org/10.3390/en18102632.} Mode: IRENA 2025, Table A1 (economic life). High: DEA cat. 20 technical lifetime (via PyPSA) & Ex /\allowbreak{} FT /\allowbreak{} FT-sec \\
+\multicolumn{9}{l}{\textbf{2 Utility-scale PV}} \\
+2.1 & Utility PV CAPEX (total installed) & \euro{}/\allowbreak{}kW & 359 (D) & 647 (D) & 954 (D) & 2024 USD$\rightarrow$\euro{} & Low: IRENA 2025, global TIC expected to reach \textasciitilde{}USD 388/\allowbreak{}kW within five years. Mode (Türkiye): PhillipCapital, conventional and hybrid PV USD 0.4--0.7 M/\allowbreak{}MW (upper end used). High: IRENA 2025, Türkiye 2024 weighted-average TIC USD 1 033/\allowbreak{}kW (+41 \% y/\allowbreak{}y). Cross-check: DEA cat. 22 (2030) 482 \euro{}/\allowbreak{}kW (2025 \euro{}) & IRENA FT; PhillipCapital Ex \\
+2.2 & Utility PV fixed O\&M & \euro{}/\allowbreak{}kW/\allowbreak{}yr & 11.9 (D) & 13.8 (D) & 19.1 (D) & Low 2025 \euro{}; mode 2022 USD; high 2024 USD & Low: DEA cat. 22 via PyPSA (2.4757 \%/\allowbreak{}yr $\times$ 482 \euro{}/\allowbreak{}kW). Mode: UNCTAD 2024, Table 2 (Türkiye, USD 14.5/\allowbreak{}kW/\allowbreak{}yr). High: IRENA 2025, Table A4, OECD 2024 USD 20.7/\allowbreak{}kW/\allowbreak{}yr & FT-sec /\allowbreak{} Ex /\allowbreak{} FT \\
+2.3 & Utility PV lifetime & yr & 25 & 25 & 40 & -- & Low and mode: IRENA 2025, Table A1. High: DEA cat. 22 technical lifetime (via PyPSA) & FT /\allowbreak{} FT-sec \\
+\multicolumn{9}{l}{\textbf{3 PEM electrolyser system}} \\
+3.1 & PEM installed CAPEX (system + BoP + EPC/\allowbreak{}indirects) & \euro{}/\allowbreak{}kW\_\allowbreak{}el & 888 (D) & 1 249 (D) & 2 503 & Low and mode 2023 USD$\rightarrow$\euro{} @1.0813; high 2025 \euro{} & Low: IEA Global Hydrogen Review 2024, Assumptions annex: NZE-2030 global CAPEX USD 960/\allowbreak{}kWe, which includes electrolyser system, electrical equipment, gas treatment, BoP and EPC (\url{https://iea.blob.core.windows.net/assets/c87963ad-339e-47be-8b50-fca1fbc3d4b8/GlobalHydrogenReview2024AssumptionsAnnex.pdf).} Mode: IEA STEPS 2030 installed cost USD 1 250--1 450/\allowbreak{}kW, midpoint used, as reported by Argus (\url{https://www.argusmedia.com/en/news-and-insights/latest-market-news/2614112-iea-raises-2030-renewable-h2-cost-estimates).} High: European Hydrogen Observatory, European hydrogen market landscape, Nov 2025: PEM CAPEX 2 503 \euro{}/\allowbreak{}kW, 100 MW, incl. other CAPEX (\url{https://observatory.clean-hydrogen.europa.eu/sites/default/files/2025-11/The%20European%20hydrogen%20market%20landscape_November%202025.pdf)} & Ex /\allowbreak{} Ex /\allowbreak{} Ex \\
+3.2 & PEM fixed O\&M (excl. electricity; excl. stack replacement where separated) & \% CAPEX/\allowbreak{}yr & 2.0 (D) & 3.0 & 4.0 & -- & Low: EHO Nov 2025, OPEX 50.1 \euro{}/\allowbreak{}kW/\allowbreak{}yr $\div$ 2 503. Mode: IEA GHR 2024 annex, annual OPEX 3 \% of CAPEX. High: DEA renewable-fuels catalogue, electrolysis FOM 4 \%/\allowbreak{}yr (via PyPSA); Aalborg Univ. DEA-based data, PEM 4 \%/\allowbreak{}yr (\url{https://vbn.aau.dk/ws/files/80222058/Technology_data_for_SOEC_alkali_and_PEM_electrolysers.pdf)} & Ex /\allowbreak{} Ex /\allowbreak{} FT-sec \\
+3.3 & Stack lifetime & h & 40 000 & 50 000 & 80 000 & -- & Low: US DOE Hydrogen Program Record 24005, PEM (replacement interval) (\url{https://www.hydrogen.energy.gov/docs/hydrogenprogramlibraries/pdfs/24005-clean-hydrogen-production-cost-pem-electrolyzer.pdf).} Mode: IEA GHR 2024 annex, which notes the stack "can reach up to 95 000 h". High: IRENA 2020, Green Hydrogen Cost Reduction, Table 6, PEM state of the art 50 000--80 000 h (\url{https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2020/Dec/IRENA_Green_hydrogen_cost_2020.pdf);} Siemens Energy Elyzer P-300, stack "optimized for 80k EOH" & Ex /\allowbreak{} Ex /\allowbreak{} FT \\
+3.4 & Stack replacement cost & \% of installed CAPEX & 11 & 22.5 (D) & 45 & Low 2022 USD basis; others 2024--25 \euro{} & Low: DOE Record 24005, 11 \% of total installed capital cost. Mode: EHO survey PEM stack 563 \euro{}/\allowbreak{}kW $\div$ EHO total 2 503 \euro{}/\allowbreak{}kW, as quoted in JRC CETO 2025 (\url{https://www.enagas.es/content/dam/enagas/en/files/transicion-energetica/red-hidrogeno/observatorio-tecnologico-hidrogeno/jrc-water-electrolysis-hydrogen.pdf).} High: TNO 2024 (via JRC CETO 2025), stack = 20--45 \% of project CAPEX & Ex \\
+3.5 & System lifetime & yr & 22 & 25 & 30 & -- & Low: NREL 2019 (Ruth, Mayyas, Mann), PEM median 22 yr, range 10--30 (\url{https://docs.nlr.gov/docs/fy19osti/70380.pdf).} Mode: DEA renewable-fuels electrolysis technical lifetime (via PyPSA). High: DOE Record 24005, 30 yr & Ex /\allowbreak{} FT-sec /\allowbreak{} Ex \\
+3.6 & Minimum load & \% of nominal & 3 & 5 & 10 & -- & Low and high: NREL 2019, PEM minimum load 3--10 \%. Mode: IRENA 2020 Table 6, load range 5--120 \%; RVO 2021 memo, "most PEM manufacturers report 5--100 \%" (\url{https://english.rvo.nl/sites/default/files/2022/01/2021-12-Memo-minimum-last%20stop_start-en-degeneratie-van-elektrolysers.pdf).} Caveat: single-stack minimum load is higher (H-TEC 20 \%, Siemens P-300 40 \% per stack) & Ex /\allowbreak{} FT /\allowbreak{} Ex \\
+\multicolumn{9}{l}{\textbf{4 Hydrogen compression}} \\
+4.1 & Specific energy, 30 $\rightarrow$ 70--100 bar (pipeline injection) & kWh\_\allowbreak{}el/\allowbreak{}kg & 0.39 (D) & 0.56 (D) & 0.97 (D) & -- & Isothermal ideal-gas work scaled by two sourced real-machine efficiencies (Note N3): Neuman \& Esser, 60$\rightarrow$200 bar piston compressor, 15 MW at 300 000 Nm\textsuperscript{3}/\allowbreak{}h (\url{https://www.neuman-esser.com/en/news-media/magazine/storing-hydrogen/);} Stöckl et al. 2021 via PyPSA, 30$\rightarrow$250 bar, 1.707 kWh/\allowbreak{}kg (\url{https://doi.org/10.48550/arXiv.2005.03464)} & Ex /\allowbreak{} FT-sec \\
+4.2 & Specific energy, 30 $\rightarrow$ 150--200 bar (direct cavern injection) & kWh\_\allowbreak{}el/\allowbreak{}kg & 0.74 (D) & 0.88 (D) & 1.53 (D) & -- & Same method as 4.1 (Note N3) & Ex /\allowbreak{} FT-sec \\
+4.3 & Specific energy, pipeline (\textasciitilde{}60--100 bar) $\rightarrow$ 200 bar (cavern booster) & kWh\_\allowbreak{}el/\allowbreak{}kg & 0.30 & 0.56 & 0.85 (D) & -- & Low and mode: Neuman \& Esser, reported 0.9 \% (60$\rightarrow$120 bar, mid-filling) and 15 MW /\allowbreak{} 300 000 Nm\textsuperscript{3}/\allowbreak{}h (60$\rightarrow$200 bar). High: 70$\rightarrow$200 bar at the Stöckl-implied efficiency & Ex \\
+4.4 & Compressor CAPEX (installed station) & \euro{}/\allowbreak{}kW\_\allowbreak{}el (shaft/\allowbreak{}electric) & 2 205 (D) & 3 400 & 6 700 & Low 2025 \euro{}; mode and high 2022 \euro{} & Low: Stöckl et al. via PyPSA, 110.26 \euro{}/\allowbreak{}kW\_\allowbreak{}H2 $\div$ 0.05 kW\_\allowbreak{}el/\allowbreak{}kW\_\allowbreak{}H2. Mode and high: European Hydrogen Backbone (EHB) 2022, Table 1, compressor station 2.2 /\allowbreak{} 3.4 /\allowbreak{} 6.7 M\euro{}/\allowbreak{}MWe (\url{https://www.ehb.eu/files/downloads/ehb-report-220428-17h00-interactive-1.pdf);} EHB 2023 update gives 4.0 M\euro{}/\allowbreak{}MWe (\url{https://ehb.eu/files/downloads/EHB-2023-20-Nov-FINAL-design.pdf)} & FT-sec /\allowbreak{} Ex \\
+4.5 & Compressor fixed O\&M & \% CAPEX/\allowbreak{}yr & 1.7 & 4 & 5 & -- & EHB 2022 (1.7 \%); Stöckl et al. via PyPSA (4 \%); UK DESNZ 2023, Hydrogen Transport and Storage Cost Report (5 \%) (\url{https://assets.publishing.service.gov.uk/media/659e600b915e0b00135838a6/hydrogen-transport-and-storage-cost-report.pdf)} & Ex /\allowbreak{} FT-sec /\allowbreak{} FT \\
+4.6 & Compressor lifetime & yr & 15 & 20 & 25 & -- & Stöckl via PyPSA (15); DEA Energy Transport 2021, fill compressor (20, via PyPSA); EHB 2022 depreciation (25) & FT-sec /\allowbreak{} Ex \\
+\multicolumn{9}{l}{\textbf{5 Salt-cavern storage (generic, then Tuz Gölü)}} \\
+5.1 & Cavern CAPEX per kg working gas (incl. cavern, brine, surface compressor, cushion gas) & \euro{}/\allowbreak{}kg WG & 11.2 (D) & 16.1 (D) & 30.1 (D) & Low 2018 USD @1.181; mode and high 2021 USD @1.1827 & Low (Türkiye-derived): AIIB project document, Tuz Gölü expansion, USD 2 735 M for 40 caverns (\url{https://www.aiib.org/en/projects/approved/2018/_download/turkey/document/turkey-gas-storage-expansion.pdf),} $\div$ (40 $\times$ 5 168 t H\textsubscript{2} WG per cavern, Note N4). Mode: Papadias \& Ahluwalia 2021, IJHE 46:34527, "<USD 19/\allowbreak{}kg at 3 000 t" (\url{https://doi.org/10.1016/j.ijhydene.2021.08.028).} High: same paper, Table 7, USD 35.6/\allowbreak{}kg at 500 t, 120 atm. Cross-check: GIE/\allowbreak{}Guidehouse 2021, \euro{}840/\allowbreak{}MWh = \euro{}28.0/\allowbreak{}kg (\url{https://www.gie.eu/wp-content/uploads/filr/3517/Picturing%20the%20value%20of%20gas%20storage%20to%20the%20European%20hydrogen%20system_FINAL_140621.pdf)} & Ex (OSTI manuscript tables) /\allowbreak{} Ex \\
+5.2 & Cavern fixed O\&M & \% CAPEX/\allowbreak{}yr & 0 & 2 & 3 & -- & Low: DEA storage catalogue 151c, FOM 0 (via PyPSA). Mode: EnergyScope library, 2 \% (\url{https://library.energyscope.ch/v2.1.2/library/technologies/Chemical_storage/H2_STO/).} High: Wassermann et al. 2022, 3 \% (\url{https://doi.org/10.1515/9783110705201-003)} & FT-sec /\allowbreak{} Ex /\allowbreak{} Ex \\
+5.3 & Cavern lifetime & yr & 20 & 30 & 100 & -- & Low: Lord et al. (Sandia), equipment lifetime 20 yr (\url{https://www.osti.gov/servlets/purl/1325533).} Mode: Tuz Gölü ESIA, economic life 30 yr (World Bank ESIA executive summary, \url{https://documents1.worldbank.org/curated/en/424331497622953008/pdf/Turkey-Tuz-Golu-Gas-Storage-Expansion-Project-ESIA-Executive-Summary-06132017.pdf).} High: DEA 151c technical lifetime (via PyPSA) & Ex /\allowbreak{} Ex /\allowbreak{} FT-sec \\
+5.4 & Cushion-gas share (of maximum H\textsubscript{2} inventory) & \% & 30 & 33.3 & 38.3 & -- & Low: Papadias \& Ahluwalia 2021 (30 \%). Mode: Neuman \& Esser ("about 1/\allowbreak{}3"). High (Tuz Gölü-specific): Şan \& Karakılçık, Table 3, 38 519 t $\div$ 100 532 t (\url{https://fbe.cu.edu.tr/storage/makaleler/2021/TUZ%20DOMLARINDA%20H%C4%B0DROJEN.pdf)} & Ex /\allowbreak{} Ex /\allowbreak{} FT \\
+5.5 & Tuz Gölü H\textsubscript{2} working gas, 12 existing caverns & t H\textsubscript{2} & 62 013 & 62 013 & 63 436 (D) & -- & Şan \& Karakılçık, Table 3: $\Sigma$max 100 532 t $-$ $\Sigma$min 38 519 t = 62 013 t ($\approx$689.76 M Nm\textsuperscript{3}; 2 446 GWh HHV). High: the rounded "$\approx$2.5 TWh (HHV)" $\div$ 39.41 kWh/\allowbreak{}kg. Note N4 & FT \\
+5.6 & Tuz Gölü H\textsubscript{2} working gas, after expansion & t H\textsubscript{2} & 268 723 (D) & 279 058 (D) & 310 065 (D) & -- & Scaled from 5.5 by NG capacity or cavern count: 52/\allowbreak{}12 caverns (BOTAŞ, \url{https://www.botas.gov.tr/Icerik/on-the-way-to-being-an-energy/193);} 5.4/\allowbreak{}1.2 bcm (AIIB); 60/\allowbreak{}12 caverns (ESIA). Rough scaling: geometry and depth of the new caverns differ & Ex \\
+5.7 & Injection rate, 12 caverns (H\textsubscript{2}) & t/\allowbreak{}day & 1 860 (D) & 1 860 (D) & 2 696 (D) & -- & Derived from the NG design rate of 30 M Nm\textsuperscript{3}/\allowbreak{}d for 12 caverns (ESIA; Özarslan TR paper, \url{https://docplayer.biz.tr/1083316-yenilenebilir-enerji-kaynaklari-icin-buyuk-olcekli-enerji-depolama-yontemleri-ahmet-ozarslan-bulent-ecevit-universitesi-maden-muh.html).} Low and mode keep the same share of working gas per day (3 \%/\allowbreak{}d); high keeps the same volumetric flow (Note N4) & Ex \\
+5.8 & Withdrawal rate, 12 caverns (H\textsubscript{2}) & t/\allowbreak{}day & 2 481 (D) & 2 481 (D) & 3 595 (D) & -- & Same approach, NG 40 M Nm\textsuperscript{3}/\allowbreak{}d (4 \%/\allowbreak{}d of working gas) & Ex \\
+\multicolumn{9}{l}{\textbf{6 Hydrogen pipelines}} \\
+6.1 & New pipeline CAPEX, 20\textquotedbl{} (\textasciitilde{}1.2 GW; 180--315 kt/\allowbreak{}yr) & M\euro{}/\allowbreak{}km & 1.4 & 1.5 & 1.8 & 2022 \euro{} (high also = EHB 2023 value) & EHB 2022, Table 1 (low/\allowbreak{}medium/\allowbreak{}high); EHB 2023, Table 1 (1.80) & Ex \\
+6.2 & New pipeline CAPEX, 36\textquotedbl{} (\textasciitilde{}4.7 GW; 705--1 235 kt/\allowbreak{}yr) & M\euro{}/\allowbreak{}km & 2.0 & 2.2 & 3.2 & 2022 \euro{}; high = EHB 2023 & EHB 2022 /\allowbreak{} EHB 2023 & Ex \\
+6.3 & New pipeline CAPEX, 48\textquotedbl{} (\textasciitilde{}13 GW) & M\euro{}/\allowbreak{}km & 2.5 & 2.8 & 4.4 & 2022 \euro{}; high = EHB 2023 & EHB 2022 /\allowbreak{} EHB 2023 & Ex \\
+6.4 & Repurposed pipeline CAPEX, 20\textquotedbl{} & M\euro{}/\allowbreak{}km & 0.2 & 0.3 & 0.54 & 2022 \euro{}; high = EHB 2023 & EHB 2022 /\allowbreak{} EHB 2023 & Ex \\
+6.5 & Repurposed pipeline CAPEX, 36\textquotedbl{} (\textasciitilde{}3.6 GW) & M\euro{}/\allowbreak{}km & 0.2 & 0.4 & 0.64 & 2022 \euro{}; high = EHB 2023 & EHB 2022 /\allowbreak{} EHB 2023 & Ex \\
+6.6 & Repurposed pipeline CAPEX, 48\textquotedbl{} & M\euro{}/\allowbreak{}km & 0.3 & 0.5 & 0.88 & 2022 \euro{}; high = EHB 2023 & EHB 2022 /\allowbreak{} EHB 2023 & Ex \\
+6.7 & Pipeline fixed O\&M (excl. compressors) & \% CAPEX/\allowbreak{}yr & 0.8 & 0.9 & 1.0 & -- & EHB 2022, Table 1. DEA (via PyPSA) gives 3.17 \%/\allowbreak{}yr including boosters, as an upper sensitivity & Ex \\
+6.8 & Pipeline lifetime & yr & 30 & 40 & 50 & -- & Low: Guidehouse 2020 depreciation 30--55 yr (cited in SHURA 2022, \url{https://shura.org.tr/wp-content/uploads/2022/01/rapor_ENG-.pdf).} Mode: EHB 2022 depreciation 40 yr. High: DEA Energy Transport 2021 "H2 140" (via PyPSA) & Ex /\allowbreak{} Ex /\allowbreak{} FT-sec \\
+6.9 & Levelised transport cost, new pipeline, 50--500 kt/\allowbreak{}yr & \euro{}/\allowbreak{}kg per 1 000 km & 0.30 & 0.70 (D) & 0.98 (D) & 2021 \euro{} & EHB 2021, Table 4 (5 000 full-load hours): new 36\textquotedbl{} at 4.7 GW = 0.30 \euro{}/\allowbreak{}kg/\allowbreak{}1 000 km; new 20\textquotedbl{} at 1.2 GW = 0.14 \euro{}/\allowbreak{}kg/\allowbreak{}200 km $\rightarrow$ $\times$5. High = mode $\times$ 1.4, the EHB 2022 high/\allowbreak{}medium ratio (0.21/\allowbreak{}0.15) (\url{https://ehb.eu/files/downloads/European-Hydrogen-Backbone-April-2021-V3.pdf)} & FT \\
+6.10 & Levelised transport cost, repurposed pipeline, 50--500 kt/\allowbreak{}yr & \euro{}/\allowbreak{}kg per 1 000 km & 0.11 & 0.25 (D) & 0.35 (D) & 2021 \euro{} & EHB 2021, Table 4: repurposed 36\textquotedbl{} (3.6 GW) = 0.11; repurposed 20\textquotedbl{} = 0.05 \euro{}/\allowbreak{}kg/\allowbreak{}200 km $\rightarrow$ $\times$5; high $\times$ 1.4 as above. Backbone-wide average 0.11--0.21 (0.15 medium) (EHB 2022) & FT /\allowbreak{} Ex \\
+6.11 & In-line recompression energy & kWh\_\allowbreak{}el/\allowbreak{}kg per 1 000 km & -- & 0.63 (D) & -- & -- & DEA Energy Transport 2021 "H2 140", 0.019 MW\_\allowbreak{}el per MW\_\allowbreak{}H2 per 1 000 km (via PyPSA) $\times$ 33.33 & FT-sec \\
+\multicolumn{9}{l}{\textbf{7 Tube-trailer (CGH\textsubscript{2}) road transport}} \\
+7.1 & Payload per trailer & kg H\textsubscript{2} & 300 & 1 000 & 1 300 & -- & UK DESNZ 2023, Table 4 (Type I 228 bar: 300 kg; Type III/\allowbreak{}IV 500 bar: >1 000 kg) and Calvera 517 bar unit (1 300 kg); Burke et al. 2024 (600--800 kg at 250 bar) (\url{https://escholarship.org/content/qt83p5k54m/qt83p5k54m_noSplash_8bb1326c13cfb9aa3d0d376ec26d3e06.pdf)} & FT \\
+7.2 & Trailer CAPEX per kg payload & \euro{}/\allowbreak{}kg payload & 779 (D) & 961 (D) & 1 227 (D) & Low and mode \textasciitilde{}2020 \euro{}; high 2022 GBP @0.85276 & Low and mode: Lahnaoui et al. 2021, Energies 14:744, trailer cost table (885 kg $\rightarrow$ 689 k\euro{}; 1 100 kg $\rightarrow$ 1 057 k\euro{}) (\url{https://www.mdpi.com/1996-1073/14/3/744).} High: DESNZ 2023, \pounds{}1 046/\allowbreak{}kg deliverable payload & Ex /\allowbreak{} FT \\
+7.3 & Trailer O\&M /\allowbreak{} lifetime & \%/\allowbreak{}yr ; yr & 5 \% ; 10 & 5 \% ; 15 & 5 \% ; 30 & -- & DESNZ 2023 (O\&M 5 \%/\allowbreak{}yr; lifetime "10--30 yr", 15 yr base) & FT \\
+7.4 & Tractor unit (diesel 40--50 t) CAPEX /\allowbreak{} VOM /\allowbreak{} lifetime & \euro{}/\allowbreak{}veh ; \euro{}/\allowbreak{}km ; yr & -- & 178 557 ; 0.134 ; 10.5 & -- & 2025 \euro{} & DEA Commercial freight transport datasheet via PyPSA ("Diesel Truck Semi-Trailer max 50 tons") & FT-sec \\
+7.5 & Distance-variable levelised cost (trailering only, excl. compression) & \euro{}/\allowbreak{}kg per 100 km & 0.14 (D) & 0.35 (D) & 0.58 (D) & Low 2023 GBP; others USD @1.0824 & Low: DESNZ 2023, Table A4 (1 300 kg, 300 trips/\allowbreak{}yr: \pounds{}0.90 at 100 km $\rightarrow$ \pounds{}1.14 at 300 km). Mode: Reddi et al. 2018, IJHE 43:4428 (via Burke et al. 2024, Table 4: \$1.4 at 160 km $\rightarrow$ \$2.6 at 480 km). High: Reuß et al. 2021, Energies 14:3166 (via Burke: \$1.1 at 100 km $\rightarrow$ \$4.9 at 700 km). Note N6 & FT (secondary for Reddi/\allowbreak{}Reuß) \\
+7.6 & Compression 30 $\rightarrow$ 500 bar for trailer filling & kWh\_\allowbreak{}el/\allowbreak{}kg & 1.47 & 2.41 & 3.36 & -- & DESNZ 2023, Annex (low /\allowbreak{} standard /\allowbreak{} high compression cases) & FT \\
+\multicolumn{9}{l}{\textbf{8 Finance and currency}} \\
+8.1 & WACC for RE/\allowbreak{}H\textsubscript{2} projects in Türkiye (real, hard-currency (EUR/\allowbreak{}USD) basis) & \% & 7.5 & 10 & 12 & -- & Low: IRENA 2025, Table A1, real WACC "rest of world" 7.5 \% from 2020 (Türkiye rated B3, Fig. S7). Mode: SHURA 2022, Türkiye green-H\textsubscript{2} study, discount rate 10 \% in USD-real-2021 terms. High: Tagliapietra, Zachmann \& Fredriksson 2019, Energy Policy 131:295, upper bound 12 \% for Turkish wind (USD-denominated YEKDEM FiT; nominal, so $\approx$9.8 \% real at 2 \% USD inflation) (\url{https://doi.org/10.1016/j.enpol.2019.05.011).} Cross-check: IEA LCOH maps use a 9 \% default & FT /\allowbreak{} Ex /\allowbreak{} Abs \\
+8.2 & EUR/\allowbreak{}USD conversion basis & USD per \euro{} & 1.0813 (2023) & 1.0824 (2024) & 1.1300 (2025) & ECB annual averages & ECB reference rates via OeNB table /\allowbreak{} Bundesbank BBEX3 (\url{https://www.oenb.at/isawebstat/stabfrage/createReport?lang=EN&report=2.14;} \url{https://statistiken.bundesbank.de/statistiken-en/timeseries/BBEX3/A.USD.EUR.BB.AC.A04)} & Ex \\
+\multicolumn{9}{l}{\textbf{9 Electricity export price (PTF, day-ahead)}} \\
+9.1 & Annual-average PTF & \euro{}/\allowbreak{}MWh & 58.4 (D) & 60.6 (D) & 62.8 (D) & 2025 and 2024, TRY$\rightarrow$\euro{} (ECB: 35.5734 in 2024; 44.8161 in 2025) & 2024 arithmetic mean 2 235.52 TL/\allowbreak{}MWh (EPİAŞ 2024 annual report, \url{https://www.epias.com.tr/wp-content/uploads/2025/04/E24FRp_LR.pdf);} 2025 arithmetic mean 2 617.83 TL/\allowbreak{}MWh (myenerji /\allowbreak{} EnerjiVeri; EPDK reports a weighted average of 2 651.81, \url{https://www.epdk.gov.tr/Detay/DownloadDocument?id=aetLyVmDSsI%3D).} Mode = mean of the 2024 and 2025 \euro{} values & Ex \\
+9.2 & Hourly shape: PTF at hour 12:00 /\allowbreak{} 19:00 relative to the annual mean (2024) & -- & 0.672 & 1.000 & 1.220 & 2024 & EPİAŞ 2024 annual report: lowest hourly mean 1 503.28 TL at 12:00 (= 42.3 \euro{}/\allowbreak{}MWh); highest 2 727.40 TL at 19:00 (= 76.7 \euro{}/\allowbreak{}MWh) & Ex \\
+\multicolumn{9}{l}{\textbf{10 Water}} \\
+10.1 & Electrolyser water requirement & L/\allowbreak{}kg H\textsubscript{2} & 8.94 (D) & 17.5 & 26.5 & -- & Low: stoichiometric 18.015/\allowbreak{}2.016. Mode: IRENA \& Bluerisk 2023, PEM average consumption 17.52 L/\allowbreak{}kg. High: same source, PEM maximum withdrawal 26.46 L/\allowbreak{}kg (Table 2.1) (\url{https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2023/Dec/IRENA_Bluerisk_Water_for_hydrogen_production_2023.pdf)} & Ex \\
+10.2 & Water cost (Türkiye, industrial, excl. VAT) & \euro{}/\allowbreak{}m\textsuperscript{3} & 0.33 (D) & 1.12 (D) & 2.57 (D) & 2025 TL @44.8161 & Low: İSKİ 2025 "Toptan Hamsu" 14.81 TL/\allowbreak{}m\textsuperscript{3} (\url{https://iski.istanbul/abone-hizmetleri/abone-rehberi/su-birim-fiyatlari/).} Mode: Başkent OSB (Ankara), from July 2025, use-water tier 2 = 50 TL/\allowbreak{}m\textsuperscript{3} (\url{https://www.baskentosb.org/tr/medya/duyurular/su-birim-fiyatlarinda-yapilan-guncelleme-hakkinda-duyuru).} High: İSKİ OSB tier 4 (with own WWTP) 115.03 TL/\allowbreak{}m\textsuperscript{3} & Ex \\
+\multicolumn{9}{l}{\textbf{11 Battery (optional short-term buffer)}} \\
+11.1 & Li-ion 4-h battery system CAPEX (2030) & \euro{}/\allowbreak{}kWh & 191 (D) & 258 (D) & 327 (D) & 2024 USD @1.0824 & NREL, Cole, Ramasamy \& Turan 2025, Cost Projections for Utility-Scale Battery Storage: 2025 Update, Table 2, 2030 low/\allowbreak{}mid/\allowbreak{}high USD 207/\allowbreak{}279/\allowbreak{}354 per kWh (\url{https://docs.nrel.gov/docs/fy25osti/93281.pdf).} Cross-checks: IRENA 2025, 2024 actual USD 192/\allowbreak{}kWh; DEA 2030 189.9 \euro{}/\allowbreak{}kWh + inverter 213.9 \euro{}/\allowbreak{}kW (via PyPSA) & Ex /\allowbreak{} FT /\allowbreak{} FT-sec \\
+11.2 & Battery lifetime & yr & 10 (inverter) & 15 & 25 & -- & DEA storage catalogue via PyPSA (storage 25 yr, inverter 10 yr). The mode of 15 yr is not sourced; it is an assumed value for an integrated system & FT-sec \\
+\end{longtable}
+}
+
+\end{landscape}
+
+\subsection{Notes to Table S2}
+
+Supplementary Table S2 - source notes
+
+Techno-economic parameter set (triangular fuzzy numbers, 2030 investment year)
+
+Green-hydrogen supply chain, Türkiye: onshore wind and utility PV feeding co-located PEM electrolysis, compression, pipeline or tube-trailer transport, and seasonal storage in the Tuz Gölü salt caverns.
+
+Compiled 2026-10-18 from the sources listed in the table below.
+
+\textbf{Conventions}
+
+\begin{itemize}\setlength\itemsep{1pt}
+
+  \item Each value is a triangular fuzzy number (TFN) given as (low, mode, high).
+
+  \item All money values are in EUR. A value published in another currency is converted at the ECB annual-average rate for the year of its price basis (rates in Note N1). No inflation escalation is applied, so the "basis year" column gives the price year. Escalate with euro-area HICP if you need one common price year.
+
+  \item Unless stated otherwise, energy per kg H\textsubscript{2} uses the LHV (33.33 kWh/kg).
+
+  \item Evidence levels: \textbf{FT} = full text (or the full relevant section) read; \textbf{Ex} = excerpt or search highlight only; \textbf{Abs} = abstract only. "FT-sec" means the full text of a secondary compilation was read (the PyPSA \textit{technology-data} compilation of Danish Energy Agency (DEA) catalogue values), but not the original DEA datasheet.
+
+  \item "D" in the low/mode/high cells marks a derived value. Every derivation is shown in the notes below.
+
+\end{itemize}
+
+\subsubsection{2. Tuz Gölü facility facts (deterministic data for the model)}
+
+\begin{center}\scriptsize
+\begin{tabularx}{\textwidth}{>{\hsize=0.492\hsize\raggedright\arraybackslash}X>{\hsize=1.513\hsize\raggedright\arraybackslash}X>{\hsize=0.996\hsize\raggedright\arraybackslash}Xl}
+\toprule
+\textbf{Item} & \textbf{Value} & \textbf{Source} & \textbf{Evidence} \\
+\midrule
+Location & Sultanhanı, Aksaray, \textasciitilde{}40 km south of Lake Tuz; tied into the Kayseri--Konya--Seydişehir NG line & BOTAŞ vulnerability report; World Bank ESIA & Ex \\
+Phase 1 caverns & 12 caverns (UGS-1 to UGS-12), \textasciitilde{}630 000 m\textsuperscript{3} net (geometric) volume each; roof 1 100--1 230 m, floor 1 400--1 530 m & Şan \& Karakılçık, Table 1 (after Melendizli \& Akdağ 2015); ESIA & FT /\allowbreak{} Ex \\
+Phase 1 NG working gas /\allowbreak{} cushion gas & \textasciitilde{}1.0 bcm WG /\allowbreak{} \textasciitilde{}0.5--0.6 bcm cushion (later quoted as 1.2 bcm total capacity) & Şan \& Karakılçık (1 bcm /\allowbreak{} 0.5 bcm; their own calc 0.94 /\allowbreak{} 0.50 bcm); Özarslan TR paper Table 5 (1 000 /\allowbreak{} 600 M m\textsuperscript{3}); BOTAŞ /\allowbreak{} AIIB (1.2 bcm) & FT /\allowbreak{} Ex \\
+NG pressure range & 80--220 bar (alternative 70--200 bar) & Özarslan TR paper Table 5; Şan \& Karakılçık & Ex /\allowbreak{} FT \\
+NG max injection /\allowbreak{} withdrawal (12 caverns) & 30 /\allowbreak{} 40 million m\textsuperscript{3}/\allowbreak{}day & ESIA Table 3.2.1; Özarslan TR paper & Ex \\
+Expansion & +40 caverns (+ up to 8 spare), net 630 000--872 000 m\textsuperscript{3} each, total 5.4 bcm (AIIB, cost USD 2 735 M); BOTAŞ quotes 52 caverns /\allowbreak{} 5.4 bcm, 630 000--780 000 m\textsuperscript{3} each; ESIA quotes 48 new /\allowbreak{} 60 total, \textasciitilde{}6 bcm WG, 60 /\allowbreak{} 80 M m\textsuperscript{3}/\allowbreak{}d & AIIB PD; BOTAŞ; ESIA & Ex \\
+Status & 680 M m\textsuperscript{3} capacity and 20 M m\textsuperscript{3}/\allowbreak{}d withdrawal operating in 2019; 1.2 bcm stored by Oct 2023 & BOTAŞ; Anadolu Agency 2023-10-26 (\url{https://www.aa.com.tr/en/energy/natural-gas/exclusive-turkiye-ready-for-winter-as-gas-storage-facilities-totally-full/39153)} & Ex \\
+\textbf{H\textsubscript{2} working gas, 12 caverns} & \textbf{62 013 t ($\approx$2.45 TWh HHV = 2.07 TWh LHV); 5 168 t per cavern; cushion 38 519 t (38.3 \%)} & Şan \& Karakılçık (journal article from Şan's MSc thesis), Table 3; conversion in Note N4 & FT \\
+Özarslan (2012), IJHE 37:14265, \url{https://doi.org/10.1016/j.ijhydene.2012.07.111} & Pre-evaluation of Tuz Gölü for a solar-hydrogen-NG system; the full text reports about 6 million kg of working H\textsubscript{2} gas for a representative salt cavern, but no Tuz Gölü-specific H\textsubscript{2} capacity. The generic estimate is not used as a model input. & ScienceDirect, ADS & FT \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\subsubsection{3. Notes on conversions and derivations}
+
+\textbf{N1. Exchange rates.} ECB annual averages, from the OeNB/ECB table and Bundesbank BBEX3, Eurostat ert\_bil\_eur\_a for earlier years.
+
+\begin{itemize}\setlength\itemsep{1pt}
+
+  \item USD per \euro{}: 2018 1.181; 2021 1.1827; 2022 1.0530; 2023 1.0813; 2024 1.0824; 2025 1.1300.
+
+  \item GBP per \euro{}: 2022 0.85276; 2023 0.86979.
+
+  \item TRY per \euro{}: 2024 35.5734; 2025 44.8161. TCMB mid rates agree to <0.1 \%: 35.5389 and 44.8084; USD/TRY 32.8451 and 39.5418 (TCMB EVDS via altin.exchange).
+
+\end{itemize}
+
+Each value is converted at the rate for its price-basis year, with no CPI escalation.
+
+\begin{itemize}\setlength\itemsep{1pt}
+
+  \item Examples: USD 861/kW (2024) $\div$ 1.0824 = \euro{}795.5/kW; USD 960/kWe (2023) $\div$ 1.0813 = \euro{}887.8/kWe; USD 1 350/kW $\div$ 1.0813 = \euro{}1 248.5/kW.
+
+  \item USD amounts with an unclear price year were treated as the publication year: Papadias 2021; Reddi and Reuß via Burke et al. 2024.
+
+\end{itemize}
+
+\textbf{N2. Wind and PV O\&M.}
+
+\begin{itemize}\setlength\itemsep{1pt}
+
+  \item DEA wind: fixed part 1.2167 \% $\times$ 1 383.3 \euro{}/kW = 16.83 \euro{}/kW/yr. The variable part is VOM 1.8033 \euro{}/MWh $\times$ (0.34 $\times$ 8 760 h = 2 978 h, IRENA 2024 Türkiye capacity factor 34 \%, Table 2.2) = 5.37 \euro{}/kW/yr. Total 22.2 \euro{}/kW/yr.
+
+  \item DEA PV: 2.4757 \% $\times$ 482.5 = 11.94 \euro{}/kW/yr.
+
+  \item The PyPSA compilation reports DEA investment values in 2025 \euro{} (its \texttt{currency\_year} column).
+
+\end{itemize}
+
+\textbf{N3. Compression energy.}
+
+\begin{itemize}\setlength\itemsep{1pt}
+
+  \item Ideal isothermal work: W\_iso = (R$\cdot$T/M)$\cdot$ln(p\textsubscript{2}/p\textsubscript{1}), with R$\cdot$T/M = 8.314 $\times$ 303.15 / 0.002016 J/kg = 0.3473 kWh/kg per unit of ln.
+
+  \item Two real-machine efficiencies, each derived from a published data point:
+
+  \item Neuman \& Esser: 15 MW $\div$ (300 000 Nm\textsuperscript{3}/h $\times$ 0.0899 kg/Nm\textsuperscript{3}) = 0.556 kWh/kg for 60$\rightarrow$200 bar. W\_iso = 0.3473 $\times$ ln(200/60) = 0.418, so $\eta$\_NE = 0.752.
+
+  \item Stöckl et al. (via PyPSA): 1.707 kWh/kg for 30$\rightarrow$250 bar. W\_iso = 0.3473 $\times$ ln(250/30) = 0.736, so $\eta$\_St = 0.431.
+
+  \item Real energy = W\_iso / $\eta$:
+
+\end{itemize}
+
+\begin{center}\footnotesize
+\begin{tabularx}{\textwidth}{ll>{\hsize=1.000\hsize\raggedright\arraybackslash}X>{\hsize=1.000\hsize\raggedright\arraybackslash}X}
+\toprule
+\textbf{Pressure step} & \textbf{W\_\allowbreak{}iso (kWh/\allowbreak{}kg)} & \textbf{At $\eta$\_\allowbreak{}NE (kWh/\allowbreak{}kg)} & \textbf{At $\eta$\_\allowbreak{}St (kWh/\allowbreak{}kg)} \\
+\midrule
+30$\rightarrow$70 bar & 0.294 & 0.39 & 0.68 \\
+30$\rightarrow$100 bar & 0.418 & 0.56 & 0.97 \\
+30$\rightarrow$150 bar & 0.559 & 0.74 & 1.30 \\
+30$\rightarrow$200 bar & 0.659 & 0.88 & 1.53 \\
+70$\rightarrow$200 bar & 0.365 & 0.49 & 0.85 \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\begin{itemize}\setlength\itemsep{1pt}
+
+  \item Ideal gas is assumed. Z(H\textsubscript{2}) $\approx$ 1.06--1.13 at 100--200 bar would raise the work by a few per cent.
+
+  \item Low compressor CAPEX: 110.26 \euro{}/kW\_H2 $\div$ 0.05 kW\_el/kW\_H2 = 2 205 \euro{}/kW\_el (Stöckl via PyPSA; 206 kg/h, 30$\rightarrow$250 bar).
+
+  \item \textbf{Avoid double counting:} the cavern CAPEX in row 5.1 (Papadias) already contains the cavern compressor (\textasciitilde{}18 \% of capital) and the cushion gas (\textasciitilde{}4 \%).
+
+\end{itemize}
+
+\textbf{N4. Tuz Gölü hydrogen capacity (12 caverns).}
+
+\begin{itemize}\setlength\itemsep{1pt}
+
+  \item Şan \& Karakılçık, Table 3: $\Sigma$ maximum H\textsubscript{2} mass = 100 532 t and $\Sigma$ minimum (cushion) = 38 519 t. Working gas = 100 532 $-$ 38 519 = \textbf{62 013 t}.
+
+  \item Volume check: 689.76 $\times$ 10\textsuperscript{6} Nm\textsuperscript{3} $\times$ 0.08988 kg/Nm\textsuperscript{3} = 61 996 t $\checkmark$.
+
+  \item Energy check: 2 446.38 GWh (HHV) $\div$ 39.41 kWh/kg = 62 075 t $\checkmark$. The rounded "$\approx$2.5 TWh" gives 2.5 $\times$ 10\textsuperscript{9} / 39.41 = 63 436 t (used as the TFN high).
+
+  \item LHV energy = 62 013 t $\times$ 33.33 kWh/kg = 2.07 TWh. Per cavern: 62 013 / 12 = 5 168 t. Cushion share = 38 519 / 100 532 = 38.3 \%.
+
+  \item Expansion (rough, assumes similar caverns): 62 013 $\times$ 52/12 = 268 723 t; $\times$ 5.4/1.2 = 279 058 t; $\times$ 60/12 = 310 065 t.
+
+  \item Rates:
+
+  \item Same share of working gas per day: injection 30/1 000 = 3 \%/d $\rightarrow$ 0.03 $\times$ 62 013 = 1 860 t/d; withdrawal 4 \%/d $\rightarrow$ 2 481 t/d.
+
+  \item Same volumetric flow: 30 $\times$ 10\textsuperscript{6} Nm\textsuperscript{3}/d $\times$ 0.08988 = 2 696 t/d; 40 $\times$ 10\textsuperscript{6} $\times$ 0.08988 = 3 595 t/d.
+
+  \item These are not published H\textsubscript{2} design values. Wells and surface plant would need H\textsubscript{2} re-rating.
+
+  \item Low cavern CAPEX: USD 2 735 M $\div$ (40 caverns $\times$ 5 168 t) = USD 13.23/kg, $\div$ 1.181 (2018) = \textbf{\euro{}11.2/kg}. This assumes the new caverns hold as much H\textsubscript{2} as the Phase 1 caverns. It includes NG-specific surface plant, water and brine lines, and excludes H\textsubscript{2}-specific equipment and cushion gas.
+
+  \item Papadias: USD 19/kg $\div$ 1.1827 = \euro{}16.1/kg; USD 35.6/kg $\div$ 1.1827 = \euro{}30.1/kg.
+
+  \item GIE: \euro{}840/MWh $\times$ 0.03333 MWh/kg = \euro{}28.0/kg.
+
+\end{itemize}
+
+\textbf{N5. Pipeline throughput (EHB design capacity, LHV).} kt/yr = GW $\times$ 10\textsuperscript{6} $\times$ h / 33.33 / 10\textsuperscript{6}.
+
+\begin{center}\footnotesize
+\begin{tabularx}{\textwidth}{l>{\hsize=0.957\hsize\raggedright\arraybackslash}X>{\hsize=1.021\hsize\raggedright\arraybackslash}X>{\hsize=1.021\hsize\raggedright\arraybackslash}X}
+\toprule
+\textbf{Size} & \textbf{Design capacity} & \textbf{kt/\allowbreak{}yr at 5 000 h} & \textbf{kt/\allowbreak{}yr at 8 760 h} \\
+\midrule
+20\textquotedbl{} & 1.2 GW & 180 & 315 \\
+36\textquotedbl{} repurposed & 3.6 GW & 540 & 946 \\
+36\textquotedbl{} new & 4.7 GW & 705 & 1 235 \\
+48\textquotedbl{} & 13 GW & 1 950 & 3 417 \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+The study range of 50--500 kt/yr therefore maps onto 20\textquotedbl{} to 36\textquotedbl{} lines. Below \textasciitilde{}150 kt/yr, per-kg costs exceed the 20\textquotedbl{} value, and no source was found for that range. EHB levelised costs use 5 000 full-load hours and a 5 \% WACC (EHB 2022, Table 1). Re-levelise with your own WACC from the CAPEX rows.
+
+\textbf{N6. Tube-trailer cost per 100 km.}
+
+\begin{itemize}\setlength\itemsep{1pt}
+
+  \item DESNZ: (\pounds{}1.14 $-$ \pounds{}0.90) / 2 = \pounds{}0.12 per kg per 100 km $\div$ 0.86979 = \euro{}0.14.
+
+  \item Reddi: (\$2.6 $-$ \$1.4) / 320 km $\times$ 100 = \$0.375 $\div$ 1.0824 = \euro{}0.35.
+
+  \item Reuß: (\$4.9 $-$ \$1.1) / 600 km $\times$ 100 = \$0.633 $\div$ 1.0824 = \euro{}0.58.
+
+  \item The distance-independent part (25 km trip) is \pounds{}0.81--2.39/kg trailering plus \pounds{}1.2--1.5/kg compression (DESNZ Tables A3/A4).
+
+  \item At 270--1 400 km a fixed 300 trips/yr is infeasible (50 km/h, 4 h load and unload). Model the fleet size explicitly with rows 7.1--7.4 rather than using a linear \euro{}/kg/100 km.
+
+\end{itemize}
+
+\textbf{N7. PTF.}
+
+\begin{itemize}\setlength\itemsep{1pt}
+
+  \item 2024: 2 235.52 TL $\div$ 35.5734 = 62.84 \euro{}/MWh.
+
+  \item 2025: 2 617.83 $\div$ 44.8161 = 58.41 \euro{}/MWh (EPDK weighted average 2 651.81 $\rightarrow$ 59.17 \euro{}/MWh).
+
+  \item Hourly-converted USD means (EnerjiVeri): 68.1 (2024) and 66.4 (2025) USD/MWh, consistent with the \euro{} values.
+
+  \item Shape factors:
+
+  \item 2024 hour-of-day: 12:00 = 1 503.28/2 235.52 = 0.672; 19:00 = 2 727.40/2 235.52 = 1.220.
+
+  \item Sept 2025 time bands (EPİAŞ monthly report): night 22--06 = 1.079, day 06--17 = 0.840, peak 17--22 = 1.226 of the monthly mean.
+
+  \item Price caps: 3 000 TL/MWh (2024), 3 400 TL/MWh (2025).
+
+  \item Surplus sales from co-located PV happen mainly in midday hours, so apply the hourly shape. Do not use the flat mean.
+
+  \item 2026 year-to-date (EnerjiVeri, 291 days) is 2 012 TL $\approx$ 43.8 USD/MWh, a downside signal outside the requested 2024--25 window.
+
+  \item A full 8 760-h profile was \textbf{not} downloaded. Use the EPİAŞ Şeffaflık Platformu.
+
+\end{itemize}
+
+\textbf{N8. Water.} 1 kg H\textsubscript{2} needs 18.015/2.016 = 8.94 kg H\textsubscript{2}O stoichiometrically. TL tariffs are converted at 44.8161 TL/\euro{}. The İSKİ PDF tariff (11.59 TL raw bulk; 90.08 TL OSB tier 4) differs from the web-page values (14.81; 115.03), probably a mid-2025 revision; the web-page values were used. Demineralisation cost is not included.
+
+\textbf{N9. Scope differences in PEM CAPEX.}
+
+\begin{itemize}\setlength\itemsep{1pt}
+
+  \item IEA: system + electrical + gas treatment + BoP + EPC.
+
+  \item EHO 2025: stack + BoP + other utilities + other CAPEX (land, grid fees, permitting, contingency, EPC management).
+
+  \item Clean Hydrogen JU SRIA 2030 targets (500 \euro{}/kW; O\&M 21 \euro{}/(kg/d)/yr $\approx$ 9.2 \euro{}/kW/yr at 55 kWh/kg) exclude installation. They are \textbf{not} used as the low value.
+
+  \item JRC CETO 2025 reports large European projects at 2 630--3 050 \euro{}/kW (TNO 2024), above the TFN high. Use it for a stress case.
+
+  \item The DEA 2026 electrolysis update states that PEMEC costs were underestimated before; its figures could not be read as text.
+
+  \item EHO OPEX may include stack replacement, so do not add row 3.4 on top of the EHO-based O\&M.
+
+\end{itemize}
+
+\textbf{N10. WACC.} Model in real EUR or USD terms. A TRY-nominal WACC would embed Turkish inflation and is not comparable. IRENA 2023 (\textit{The cost of financing for renewable power}) lists Türkiye in its survey, but only in figures, so no numeric value could be extracted.
+
+\subsubsection{5. Additional inputs used in \texttt{params.yaml} (added 2026-10-18)}
+
+\begin{center}\footnotesize
+\begin{tabularx}{\textwidth}{>{\hsize=0.859\hsize\raggedright\arraybackslash}X>{\hsize=0.738\hsize\raggedright\arraybackslash}X>{\hsize=1.866\hsize\raggedright\arraybackslash}X>{\hsize=0.537\hsize\raggedright\arraybackslash}X}
+\toprule
+\textbf{Item} & \textbf{Value} & \textbf{Source} & \textbf{Evidence} \\
+\midrule
+Wind capacity density (total project area) & 3.0 MW/\allowbreak{}km\textsuperscript{2} (34 $\pm$ 22 ha/\allowbreak{}MW) & Denholm, Hand, Jackson \& Ong 2009, NREL/\allowbreak{}TP-6A2-45834, doi:10.2172/\allowbreak{}964608 & FT (Table 1 and Conclusions) \\
+PV capacity density (total area) & 31 MWac/\allowbreak{}km\textsuperscript{2} & Ong et al. 2013, NREL/\allowbreak{}TP-6A20-56290, doi:10.2172/\allowbreak{}1086349 & FT (already in the hard-criteria review) \\
+Green-hydrogen share of on-purpose demand, ammonia nodes & (0.336, 0.42, 0.60) & Directive (EU) 2023/\allowbreak{}2413, Art. 22a (42 \% by 2030, 60 \% by 2035) and Art. 22b (reduction to 33.6 \% in 2030); Commission guidance C/\allowbreak{}2025/\allowbreak{}2983 & FT (EUR-Lex guidance text) \\
+National cross-check & 2 GW electrolysers by 2030, 5 GW by 2035, 70 GW by 2053 & MENR 2023, \textit{Türkiye Hydrogen Technologies Strategy and Roadmap} (ETKB\_\allowbreak{}Hydrogen\_\allowbreak{}T\_\allowbreak{}Strategies.pdf); IEA policy record 17216 & FT \\
+Minimum electrolyser size if a site is opened & 50 MW & MENR 2023 roadmap, Fig. 3 (50--500 MW class for 2030) & Ex \\
+Tube-trailer intercept (distance-independent, excl. compression) & (0.43, 0.74, 0.90) \euro{}/\allowbreak{}kg & Intercepts of the three cost lines in Note N6: DESNZ \pounds{}0.78 @0.86979; Reddi \$0.80 @1.0824; Reuß \$0.47 @1.0824 & D \\
+Tuz Gölü coordinates & 38.0966 N, 33.5865 E & Google Places record "BOTAŞ Tuz Gölü Doğal Gaz Depolama Tesisi" (Sultanhanı), via Exa; consistent with BOTAŞ "40 km south of Tuz Gölü" & Ex \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\begin{center}\footnotesize
+\begin{tabularx}{\textwidth}{>{\hsize=0.638\hsize\raggedright\arraybackslash}X>{\hsize=0.450\hsize\raggedright\arraybackslash}X>{\hsize=2.229\hsize\raggedright\arraybackslash}X>{\hsize=0.683\hsize\raggedright\arraybackslash}X}
+\toprule
+\textbf{RPP demand-violation penalty $\delta$, ammonia nodes} & \textbf{5.63 \euro{}/\allowbreak{}kg H\textsubscript{2}-eq} & \textbf{H2Global pilot auction (Lot 1, Fertiglobe): renewable ammonia delivered to EU ports at 1 000 \euro{}/\allowbreak{}t (net FOB 811 \euro{}/\allowbreak{}t), \url{https://hintco.eu/lot-1-renewable-ammonia/} ; $\div$ 0.1776 t H\textsubscript{2}/\allowbreak{}t NH\textsubscript{3}. Excludes cracking} & \textbf{FT} \\
+\midrule
+Green-hydrogen share of on-purpose demand, refinery nodes & (0.158, 0.198, 0.395) & RED III Art. 25(1)(b) transport sub-target applied to TÜİK 2024 transport final energy (road, rail, domestic maritime); Note N11 & Ex (secondary summaries of the directive) /\allowbreak{} FT (TÜİK figures) \\
+RPP demand-violation penalty $\delta$, refinery nodes & 7.30 \euro{}/\allowbreak{}kg & Cracked RFNBO hydrogen landed in Europe, \$7.50--9.00/\allowbreak{}kg (S\&P Global Commodity Insights, 9 Jun 2025) at 1.1300 USD/\allowbreak{}EUR (ECB 2025 average); Note N15 & Ex \\
+New pipeline CAPEX and capacity, 12\textquotedbl{} & (1.045, 1.12, 1.344) M\euro{}/\allowbreak{}km; 222 t/\allowbreak{}d & Extrapolated from the EHB 2022 20\textquotedbl{}/\allowbreak{}36\textquotedbl{}/\allowbreak{}48\textquotedbl{} classes; mode confirmed by DEA 2025 datasheet (1.14 M\euro{}/\allowbreak{}km); Note N12 & D \\
+Trailer operating hours per year & 6 000 h (sensitivity 4 400 /\allowbreak{} 8 000) & Modelling assumption (two-shift operation) for the trip-feasibility correction; Note N13 & -- \\
+Trailer refill compression at the cavern & row 7.6 energy; rows 4.4--4.6 compressor & Note N14 & FT \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+Modelling choices that are not literature values (sensitivity-tested): RPP weight $\gamma$ = 0.2, Me parameter $\lambda$ = 0.5, export connection $\le$ electrolyser capacity, renewable plants co-located within the candidate's 0.1\textdegree{} cell (cluster level reported as a second baseline), modal demand supplied domestically (security-of-supply mandate; import diagnostic reported), trailer operating hours.
+
+\subsubsection{6. Additional parameters}
+
+\textbf{N11. Sector-specific renewable share of demand.}
+
+\begin{itemize}\setlength\itemsep{1pt}
+
+  \item Ammonia plants fall under the RED III industry target (Art. 22a): 33.6 \% (Art. 22b reduced 2030 target) / 42 \% (2030) / 60 \% (2035).
+
+  \item Hydrogen used in refineries as an intermediate for conventional transport fuels is excluded from the Art. 22a denominator "as it is covered by the transport target" (Hydrogen Europe, RED III position paper, June 2024, p. 3). The transport target (Art. 25(1)(b)) requires a combined 5.5 \% share of advanced biofuels and RFNBOs in 2030, of which at least 1 percentage point RFNBO; RFNBOs count at twice their energy content outside aviation and maritime (Clean Hydrogen Observatory, RED page, Dec 2025).
+
+  \item Turkish transport final energy 2024 (TÜİK, Ulaştırma Sektörü Nihai Enerji Tüketim İstatistikleri 2024, released 27 March 2026): road 1 103 279 TJ, rail 10 358 TJ, domestic maritime 11 020 TJ, aviation 287 106 TJ (84.5 \% international). Aviation is excluded from the base because its international share and the 1.5 multiplier make it ambiguous, and because aviation fuels fall under the separate ReFuelEU obligation: 1 124 657 TJ.
+
+  \item Mode: 1 \% $\times$ 1 124.7 PJ / 2 (multiplier) = 5.623 PJ $\rightarrow$ 46.9 kt H\textsubscript{2} at 120 MJ/kg LHV.
+
+  \item High: the same without the multiplier (the reading Hydrogen Europe recommends for the sub-target, guidance note 2025, Rec. 9): 93.7 kt.
+
+  \item Low: 0.8 $\times$ mode = 37.5 kt, mirroring the 33.6/42 ratio of the industry target (a symmetry assumption).
+
+  \item Shares of the 237 kt refinery on-purpose demand: 0.1582 / 0.1977 / 0.3954. The derivation assumes that the national transport RFNBO sub-target is met through refinery hydrogen, which is an upper estimate of the refinery role.
+
+  \item Baseline modal demand: ammonia 0.42 $\times$ 138.9 kt = 58.3 kt + refineries 46.9 kt = 105.2 kt (upper-bound scenario: 157.9 kt); possibility range 84.2--177.0 kt.
+
+\end{itemize}
+
+\textbf{N12. 12-inch pipeline class.} EHB 2022 medium new-pipeline CAPEX: 20\textquotedbl{} 1.5, 36\textquotedbl{} 2.2, 48\textquotedbl{} 2.8 M\euro{}/km (rows 6.1--6.3). A least-squares line in diameter gives 0.0463 M\euro{}/km per inch and 1.12 M\euro{}/km at 12\textquotedbl{}; the low/high vertices are the 20\textquotedbl{} vertices scaled by 1.12/1.5 $\rightarrow$ 1.045 / 1.12 / 1.344 M\euro{}/km. Capacity: a log-log fit to the EHB design capacities (1.2 / 4.7 / 13 GW) gives an exponent of 2.66; anchored at 20\textquotedbl{} (1.2 GW), 12\textquotedbl{} = 0.31 GW = 222 t/d. Evidence level D: extrapolated below the smallest EHB class. Check (10 Nov 2026): the Danish Energy Agency technology brief (July 2025, Fig. 1, 20 m/s velocity limit) gives about 1 GW at 12" and 70 bar, i.e. a 12"/20" capacity ratio of about 0.38 against 0.26 here; a run with 311 t/d (D\textsuperscript{2} scaling of the 20" class) leaves the design unchanged (9.96 \euro{}/kg, tag pipe12\_cap311). The brief gives no cost figures; costs are in the catalogue datasheets. Its truck cost curve (about 0.18 \euro{}/kg + 0.31 \euro{}/kg per 100 km, 0--300 km) is close to row 7.5 (mode 0.35 \euro{}/kg per 100 km), and it states that road transport only makes sense below 200--300 km.
+
+\begin{itemize}\setlength\itemsep{1pt}
+
+  \item \textit{DEA datasheet check (10 Nov 2026).} Technology Data for Energy Transport, data sheet version 8 (2025 prices), sheets 4.1--4.3: new 12\textquotedbl{} line 1.14 M\euro{}/km (lower 0.798, upper 1.71; Class 5 range $-$30 \%/+50 \%, note F) at 40 and 90 barg, 1.23 at 140 barg; 20\textquotedbl{} 1.41 (40 barg) / 1.76 (90 barg) / 2.10 (140 barg). PLR and LV stations are included (about 20 \% of the figure, note F). Additional costs for construction management and owner's costs, 35 \% (30--40 \%) of investment, "need to be added on top" (note G). Fixed O\&M 1 \%/yr, lifetime 50 yr, booster compressor stations 1.2 M\euro{}/MWe. Capacity at 20 m/s and full utilisation: 12\textquotedbl{} 600 MW at 40 barg (= 432 t/d), 1 200 MW at 90 barg; 20\textquotedbl{} 1 600 / 3 300 MW. The EHB reports do not state whether owner's costs are included ("pipeline (including gas metering) capex"), so the 35 \% cannot be assigned unambiguously.
+
+  \item \textit{Decision:} the EHB-based values are kept as baseline; the DEA mode (1.14) confirms ours (1.12), and the DEA 12\textquotedbl{}/20\textquotedbl{} cost ratio (0.81 at 40 barg, 0.65 at 90 barg) brackets ours (0.75). Two sensitivity runs: \texttt{pipe12\_dea} (12\textquotedbl{} triangle 0.798/1.14/1.71, 432 t/d) $\rightarrow$ 10.09 \euro{}/kg, Tuz Gölü$\rightarrow$Aliağa line replaced by trailers, trailer share of final deliveries 39 \%; \texttt{pipe\_capex135} (both diameters $\times$1.35) $\rightarrow$ 10.45 \euro{}/kg, Aliağa and Kırklareli$\rightarrow$Gemlik lines replaced, trailer share 60 \%. The Karaman--Tuz Gölü--Körfez spine is built in every run. The cost is robust (+1.3 \%, +4.9 \%); the modal split is not.
+
+\end{itemize}
+
+\textbf{N13. Long-haul trailer correction.} The levelised trailer lines (row 7.5) assume about 300 trips per trailer and year (DESNZ 2023). A round trip takes 2L/v + t\_lu (v = 50 km/h, t\_lu = 4 h, as in N6). With H = 6 000 operating hours per year (two-shift operation; sensitivity 4 400 and 8 000 h), a trailer makes n(L) = min(300, H/(2L/v + t\_lu)) trips, which binds above L = 400 km. The extra trailer capital per kg delivered is A\_tr (1/n(L) $-$ 1/300), with A\_tr the annualised trailer CAPEX plus 5 \%/yr O\&M per kg payload (rows 7.2, 7.3; WACC row 8.1). Driver time and fuel per km are already in the distance term.
+
+\textbf{N14. Trailer refilling at the cavern.} Hydrogen withdrawn from Tuz Gölü and dispatched by trailer is compressed to 500 bar on grid electricity. The 30 $\rightarrow$ 500 bar energy of row 7.6 (mode 2.41 kWh/kg) is used as a conservative upper value, because withdrawal pressure exceeds 30 bar. Compressor CAPEX and O\&M follow rows 4.4--4.6; the electricity is charged at the day-ahead price and counted in the RFNBO emission check at the grid factor.
+
+\textbf{N15. Sector-specific import parity $\delta$.} Ammonia nodes: 5.63 \euro{}/kg H\textsubscript{2}-equivalent (H2Global Lot 1, unchanged). Refinery nodes need gaseous hydrogen: RFNBO-compliant hydrogen landed in Europe after ammonia cracking costs \$7.50--9.00/kg (S\&P Global Commodity Insights, 9 June 2025, \url{https://www.spglobal.com/commodity-insights/en/news-research/latest-news/energy-transition/060925-ammonia-cracking-costs-emissions-key-to-hydrogens-competitiveness-in-europe).} At the ECB 2025 average of 1.1300 USD/EUR this is 6.64--7.96 \euro{}/kg; the midpoint 7.30 \euro{}/kg is used. Merged nodes weight the penalty by each facility's demand range.
+
+\newpage\section{Supplementary Table S3. Coded siting studies}
+
+Literature coding underpinning Stage II criterion selection. Table S3a summarizes the 22 coded studies, including country or study context, weighting and ranking methods, and evidence levels. Table S3b presents the criterion-by-study matrix used for frequency screening, with each criterion coded according to its mode of treatment in the study. The accompanying notes define the coding modes and criterion key, summarize criterion frequencies, and explain the criteria considered but not retained. The supplementary data and supporting notes are also available in the project GitHub repository.
+
+{\footnotesize
+\begin{longtable}{l>{\raggedright\arraybackslash}p{2.28cm}>{\raggedright\arraybackslash}p{2.84cm}>{\raggedright\arraybackslash}p{6.94cm}>{\raggedright\arraybackslash}p{1.51cm}}
+\caption{Supplementary Table S3a. The 22 siting studies coded for Stage~II criterion selection.}\label{tab:s3a}\\
+\toprule
+\textbf{ID} & \textbf{Study} & \textbf{Country /\allowbreak{} object} & \textbf{Method (weighting $\rightarrow$ ranking)} & \textbf{Ev.} \\
+\midrule
+\endfirsthead
+\multicolumn{5}{l}{\footnotesize\itshape Supplementary Table S3a (continued)}\\
+\toprule
+\textbf{ID} & \textbf{Study} & \textbf{Country /\allowbreak{} object} & \textbf{Method (weighting $\rightarrow$ ranking)} & \textbf{Ev.} \\
+\midrule
+\endhead
+\midrule\multicolumn{5}{r}{\footnotesize\itshape continued on next page}\\
+\endfoot
+\bottomrule
+\endlastfoot
+S01 & Messaoudi et al. 2019 [1] & Algeria, solar-H\textsubscript{2} production & GIS constraints + AHP overlay & A \\
+S02 & Ali et al. 2022 [2] & Thailand, solar-H\textsubscript{2} & GIS-AHP (literature + expert input + legal rules) & F \\
+S03 & Karipoğlu et al. 2022 [3] & Türkiye (Kayseri), solar-H\textsubscript{2} stations & GIS overlay, 8 sub-criteria (technical, accessibility, environmental) & A \\
+S04 & Keskin et al. 2024 [4] & Türkiye (Kayseri), wind/\allowbreak{}PV-H\textsubscript{2} near water bodies & GIS + HOMER (LCOE/\allowbreak{}LCOH) & A \\
+S05 & Pinto et al. 2025 [5] & Tunisia, solar-H\textsubscript{2} & Expert-defined, spatially measurable criteria; AHP & F \\
+S06 & Flora 2024 [6] & Cameroon, solar-H\textsubscript{2} & AHP /\allowbreak{} FAHP /\allowbreak{} Monte-Carlo FAHP & A \\
+S07 & Ishmam et al. 2024 [7] & Sub-Saharan Africa, H\textsubscript{2} cost-potentials & Land eligibility (33 criteria, local preferences) + groundwater limits + energy-system model + socio-economic indicators & F (partial) \\
+S08 & Wang, Hsueh \& Lin 2019 [8] & Vietnam, H\textsubscript{2} power plant & FAHP $\rightarrow$ TOPSIS (15 sub-criteria from literature and experts) & F (partial) \\
+S09 & Du et al. 2025 [9] & China, wind--PV--H\textsubscript{2} & GIS pre-screening $\rightarrow$ 4 candidates; linguistic + TFN "hybrid fuzzy" matrix; BWM + entropy $\rightarrow$ TODIM & A \\
+S10 & Ali, Aytekin \& Demidionov 2026 [10] & Bangladesh, wind-H\textsubscript{2} & Interval-valued T-spherical fuzzy SIWEC--SPOTIS; data + expert judgement & A \\
+S11 & Gül \& Akyüz 2026 [11] & Türkiye (South Marmara), H\textsubscript{2} infrastructure & 13 GIS criteria; entropy, FAHP and hybrid weights; TOPSIS/\allowbreak{}MOORA/\allowbreak{}VIKOR consensus & M + S \\
+S12 & IIT-Comillas WP 2026 [12] & Spain, renewable H\textsubscript{2} & Objective weights (CRITIC, entropy, STD, CILOS, IDOCRIW) compared & G \\
+S13 & WRI India 2026 [13] & India, H\textsubscript{2} hubs & Two-stage GIS-AHP (state readiness $\rightarrow$ 5 km hexagons) & G \\
+S14 & El-Aassar et al. 2026 [14] & Egypt, solar-H\textsubscript{2} (coastal) & FAHP; groundwater vulnerability indicators & F (partial) \\
+S15 & Canat \& Özkan 2024 [15] & Türkiye seas, offshore-wind H\textsubscript{2} for green steel & BWM $\rightarrow$ AHP & A \\
+S16 & Aziz et al. 2025 [16] & Bangladesh, solar-H\textsubscript{2} & GIS-AHP /\allowbreak{} FAHP & A (partial) \\
+S17 & Rekik \& El Alimi 2024 [17] & Tunisia, solar-H\textsubscript{2} & GIS-MCDM; EDAS/\allowbreak{}ARAS/\allowbreak{}MOORA/\allowbreak{}COPRAS & A \\
+S18 & Zhao, Ge \& Wang 2022 [18] & China, offshore wind & Spherical fuzzy + CRITIC $\rightarrow$ CPT-TOPSIS & A \\
+S19 & Yaman 2024 [19] & Türkiye (Adana), wind farms & GIS-AHP, 15 criteria including fault lines & F (partial) \\
+S20 & Öztaş \& Ervural 2025 [20] & Türkiye (Konya), PV & GIS + fuzzy BWM & A \\
+S21 & Harati et al. 2023 [21] & UK, underground H\textsubscript{2} storage (UHS) & AHP $\rightarrow$ PROMETHEE & A \\
+S22 & Jahanianfard et al. 2020 [22] & UHS siting & Fuzzy Delphi criteria prioritisation & F (partial) \\
+\end{longtable}
+}
+
+\begin{landscape}\genisle
+
+{\scriptsize
+\begin{longtable}{l>{\raggedright\arraybackslash}p{2.82cm}llllllllllllllll}
+\caption{Supplementary Table S3b. Criterion-by-study matrix. Mode codes are given in the notes below.}\label{tab:s3b}\\
+\toprule
+\textbf{ID} & \textbf{RES} & \textbf{TER} & \textbf{GRID} & \textbf{ROAD} & \textbf{INF} & \textbf{WAT} & \textbf{WST} & \textbf{ECO} & \textbf{LAND} & \textbf{SET} & \textbf{SOC} & \textbf{SEC} & \textbf{COST} & \textbf{DEM} & \textbf{HAZ} & \textbf{POL} & \textbf{GEO} \\
+\midrule
+\endfirsthead
+\multicolumn{18}{l}{\footnotesize\itshape Supplementary Table S3b (continued)}\\
+\toprule
+\textbf{ID} & \textbf{RES} & \textbf{TER} & \textbf{GRID} & \textbf{ROAD} & \textbf{INF} & \textbf{WAT} & \textbf{WST} & \textbf{ECO} & \textbf{LAND} & \textbf{SET} & \textbf{SOC} & \textbf{SEC} & \textbf{COST} & \textbf{DEM} & \textbf{HAZ} & \textbf{POL} & \textbf{GEO} \\
+\midrule
+\endhead
+\midrule\multicolumn{18}{r}{\footnotesize\itshape continued on next page}\\
+\endfoot
+\bottomrule
+\endlastfoot
+S01 & Q & Q & Q & X &  & X &  &  & X &  &  &  &  & Q &  &  &  \\
+S02 & Q & Q & Q & Q &  & Q &  & Q & Q & Q &  &  &  &  &  &  &  \\
+S03 & Q &  &  & Q &  & Q &  & d & d &  &  &  &  &  &  &  &  \\
+S04 & Q &  &  &  &  & Q &  &  &  &  &  &  & Q &  &  &  &  \\
+S05 & Q & Q &  & Q &  & Q & d & Q & Q &  &  & Q &  &  &  & Q &  \\
+S06 & Q & Q & Q & Q &  &  &  & X &  & Q &  &  &  &  &  &  &  \\
+S07 & Q &  &  &  &  &  & Q & X & X & X &  & Q & Q &  &  &  &  \\
+S08 &  &  & J & J &  & J &  & J & J &  & J &  & J & J &  & J &  \\
+S09 & H & d &  &  &  &  &  &  &  &  & d &  & H &  &  &  &  \\
+S10 & Q &  &  &  &  &  &  &  &  &  &  & d & Q &  & d &  &  \\
+S11 & d &  &  &  & d &  &  & d &  &  &  & d &  & d &  &  &  \\
+S12 & Q &  & Q &  &  & Q &  &  & Q &  &  &  &  & Q &  &  &  \\
+S13 & Q &  & Q & Q & Q & Q & Q &  &  &  &  &  &  & Q &  & Q &  \\
+S14 & Q & Q &  & Q &  & Q & Q &  & Q &  &  &  &  &  &  &  &  \\
+S15 & Q & d &  &  &  &  &  &  &  &  &  &  &  & d &  &  &  \\
+S16 & Q &  &  & d &  & Q &  &  &  & Q &  &  &  &  &  &  &  \\
+S17 & d & d &  & d &  &  &  & d &  &  &  &  &  &  &  &  &  \\
+S18 & J &  &  &  &  &  &  & J &  &  & J &  & J &  & J &  &  \\
+S19 & Q & Q & Q & Q &  &  &  & Q & Q & Q &  &  &  &  & Q &  &  \\
+S20 & Q & Q & Q & Q &  & Q &  &  &  & Q &  &  &  &  &  &  &  \\
+S21 & Q &  &  &  &  &  &  &  &  &  &  &  &  & Q & Q &  & Q \\
+S22 &  &  &  &  & J &  &  &  &  &  & J & J & J &  & J & J & J \\
+Code & Criterion &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+RES & Renewable resource (GHI, wind speed or CF, H\textsubscript{2} potential) &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+TER & Slope, elevation or terrain &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+GRID & Proximity to transmission or substation &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+ROAD & Road or transport access &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+INF & Ports, pipelines or other infrastructure &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+WAT & Proximity to or availability of water &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+WST & Water stress or sustainable abstraction &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+ECO & Protected areas or ecological sensitivity &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+LAND & Land-use or land-cover conflict &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+SET & Distance to settlements or population &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+SOC & Social or public acceptance &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+SEC & Socio-economic (HDI, workforce, jobs) &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+COST & LCOH, LCOE or CAPEX/\allowbreak{}OPEX &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+DEM & Hydrogen demand or proximity to off-takers &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+HAZ & Natural hazard, seismic or risk &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+POL & Policy, regulation, legal or geopolitical &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+GEO & Geological storage &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+\end{longtable}
+}
+
+\end{landscape}
+
+\subsection{Notes to Table S3}
+
+Supplementary Table S3 - notes
+
+Coding of the siting studies reviewed for Stage II criterion selection.
+
+--- Mode codes and criterion key --- Mode codes: \textbf{Q} quantitative/GIS/data; \textbf{J} expert-judged/linguistic; \textbf{H} hybrid; \textbf{d} dimension named, indicator not verified; \textbf{X} exclusion-only (not counted). J* means expert rating is inferred from the method (FAHP-TOPSIS on expert scores).
+
+\textbf{Column key.}
+
+\begin{center}\footnotesize
+\begin{tabularx}{\textwidth}{l>{\hsize=1.000\hsize\raggedright\arraybackslash}X}
+\toprule
+\textbf{Code} & \textbf{Criterion} \\
+\midrule
+RES & Renewable resource (GHI, wind speed or CF, H\textsubscript{2} potential) \\
+TER & Slope, elevation or terrain \\
+GRID & Proximity to transmission or substation \\
+ROAD & Road or transport access \\
+INF & Ports, pipelines or other infrastructure \\
+WAT & Proximity to or availability of water \\
+WST & Water stress or sustainable abstraction \\
+ECO & Protected areas or ecological sensitivity \\
+LAND & Land-use or land-cover conflict \\
+SET & Distance to settlements or population \\
+SOC & Social or public acceptance \\
+SEC & Socio-economic (HDI, workforce, jobs) \\
+COST & LCOH, LCOE or CAPEX/\allowbreak{}OPEX \\
+DEM & Hydrogen demand or proximity to off-takers \\
+HAZ & Natural hazard, seismic or risk \\
+POL & Policy, regulation, legal or geopolitical \\
+GEO & Geological storage \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+--- Frequency summary ---
+
+\begin{center}\footnotesize
+\begin{tabularx}{\textwidth}{>{\hsize=1.203\hsize\raggedright\arraybackslash}X>{\hsize=0.865\hsize\raggedright\arraybackslash}Xl>{\hsize=0.827\hsize\raggedright\arraybackslash}X>{\hsize=0.827\hsize\raggedright\arraybackslash}X>{\hsize=1.278\hsize\raggedright\arraybackslash}X}
+\toprule
+\textbf{Criterion family} & \textbf{Dimension} & \textbf{All (n = 22)} & \textbf{H\textsubscript{2} production (n = 17)} & \textbf{Dominant mode} & \textbf{Typical direction} \\
+\midrule
+RES renewable resource & Technical & \textbf{20} & \textbf{16} & Q & Benefit \\
+ROAD transport access & Technical/\allowbreak{}economic & 11 & 9 & Q & Cost (distance) \\
+TER slope/\allowbreak{}elevation & Technical & 10 & 8 & Q (often also X) & Cost \\
+WAT water proximity/\allowbreak{}availability & Technical/\allowbreak{}environmental & 10 & 9 & Q (often also X) & Cost (distance) /\allowbreak{} benefit (volume) \\
+GRID transmission proximity & Technical/\allowbreak{}economic & 8 & 6 & Q & Cost (distance) \\
+ECO protected/\allowbreak{}ecological & Environmental & 8 & 6 & Q (often also X) & Benefit (distance) \\
+LAND land-use conflict & Environmental & 7 & 6 & Q (often also X) & Benefit (suitable class) \\
+COST LCOH/\allowbreak{}CAPEX & Economic & 7 & 5 & Q (J in fuzzy studies) & Cost \\
+DEM demand proximity & Economic/\allowbreak{}supply chain & 7 & 6 & Q & Cost (distance) \\
+SET settlements & Social & 5 & 3 & Q & Ambiguous (labour vs. nuisance) \\
+SEC socio-economic & Social & 5 & 4 & Q/\allowbreak{}d & Benefit \\
+HAZ hazard/\allowbreak{}risk & Risk & 5 & 1 & Q or J & Cost \\
+SOC social acceptance & Social & 4 & 2 & \textbf{J} & Benefit \\
+WST water stress & Environmental & 4 & 4 & Q & Cost \\
+POL policy/\allowbreak{}regulation & Policy & 4 & 3 & Q/\allowbreak{}J & Benefit \\
+INF ports/\allowbreak{}pipelines & Infrastructure & 3 & 2 & Q/\allowbreak{}d & Cost (distance) \\
+GEO geological storage & Technical & 2 & \textbf{0} & Q or J & Benefit \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\textbf{Cross-check with an independent review.} Zun \& McLellan [38] reviewed 32 studies with 248 unique criteria. By category these were economic 33, environmental 31, technical 29, social 14 and risk \& safety 9. Weighting the criteria by how often they occur in the literature gives resource potential $\approx$34\%, H\textsubscript{2} demand 10\%, DEM 10\% and distance to main road 9\%. Our ordering matches this. Both reviews also find that \textbf{risk/safety and social criteria are under-represented} relative to their practical importance [38]. Mirsane et al. [39] and Pineda Serna et al. [40] likewise list resource, slope, grid, transport, demand and land-use as the most frequent criteria, with public acceptance as a recurring soft criterion.
+
+\textbf{Patterns relevant to this study}
+
+\begin{enumerate}\setlength\itemsep{1pt}
+
+  \item Physical and spatial criteria are almost always measured (Q). Expert-judged decision matrices (J) are used mainly for criteria without data, such as social acceptance, policy, risk and, in fuzzy studies, cost.
+
+  \item Recent fuzzy hydrogen-siting studies [9, 10] use a \textbf{hybrid} matrix: data for measurable criteria and linguistic expert judgement for the rest.
+
+  \item No hydrogen-\textit{production} siting study in the sample uses geological storage as a ranking criterion. It appears only in UHS siting [21, 22, 27].
+
+  \item Water \textit{stress} (as opposed to distance to water) is an emerging criterion [5, 7, 13, 14], strongly motivated by Tonelli et al. [41].
+
+\end{enumerate}
+
+--- Criteria considered and not retained ---
+
+\begin{center}\footnotesize
+\begin{tabularx}{\textwidth}{>{\hsize=0.450\hsize\raggedright\arraybackslash}X>{\hsize=1.550\hsize\raggedright\arraybackslash}X}
+\toprule
+\textbf{Criterion} & \textbf{Reason} \\
+\midrule
+C1a wind CF, C1b GHI (as separate criteria) & Causally embedded in T1. Keeping them with T1 double counts. Retain as reported descriptors and as a robustness variant ("CF + GHI instead of LCOH") \\
+C8 CO\textsubscript{2} abatement & An outcome of Stage III allocation, not a site attribute. Excluded as an optimisation output in [38]. Report it as a Stage III result \\
+C10 incentive-zone rating & See below \\
+Slope, elevation, contiguous area, cropland & Fully handled as Stage I hard constraints; little residual variance among the 5 candidates \\
+Distance to settlements & Covered by the Stage I built-up buffer and by S1. Direction is ambiguous in the literature (labour access vs. nuisance) \\
+Road access, port access & Low discrimination at this scale. Captured in E1 and E2 \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\textbf{Why C10 is dropped:}
+
+\begin{itemize}\setlength\itemsep{1pt}
+
+  \item Its legal basis, Decree 2012/3305, was repealed by Decree 9903 (Art. 34) [G1].
+
+  \item Decree 9903 keeps six regions (Annex 2). The Ministry's presentation lists Denizli 2, Kırıkkale 3, Malatya 4, Tunceli 5 and Muş 6 [G2]; the Official Gazette text of Annex 2 was not consulted directly.
+
+  \item Temporary Art. 3 grants Region-6 supports to districts affected by the 6 February 2023 earthquakes for applications until 31/12/2026. Whether this applies to the candidate districts was not established.
+
+  \item Arts. 9--10 withhold some supports (tax reduction, interest support) from electricity-generation investments, so zone rank is not a monotone proxy for GH\textsubscript{2} attractiveness.
+
+  \item The zone is therefore time-varying and weakly relevant to the siting decision.
+
+\end{itemize}
+
+--- References for the coded studies --- Format: Authors (year). Title. \textit{Journal} volume(issue):pages. DOI --- evidence level.
+
+\begin{enumerate}\setlength\itemsep{1pt}
+
+  \item Messaoudi D, Settou N, Negrou B, Settou B (2019). GIS based multi-criteria decision making for solar hydrogen production sites selection in Algeria. \textit{Int J Hydrogen Energy} 44(60):31808--31831. \url{https://doi.org/10.1016/j.ijhydene.2019.10.099} --- A
+
+  \item Ali F, Bennui A, Chowdhury S, Techato K (2022). Suitable site selection for solar-based green hydrogen in southern Thailand using GIS-MCDM approach. \textit{Sustainability} 14(11):6597. \url{https://doi.org/10.3390/su14116597} --- F
+
+  \item Karipoğlu F, Genç MS, Akarsu B (2022). GIS-based optimal site selection for the solar-powered hydrogen fuel charge stations. \textit{Fuel} 324:124626. \url{https://doi.org/10.1016/j.fuel.2022.124626} --- A
+
+  \item Keskin S, İpekli Z, Genç MS, Genç G (2024). Determination of hydrogen fuel production from GIS-based selected ponds using hybrid renewable energy systems in Kayseri. \textit{Process Saf Environ Prot} 191:2623--2633. \url{https://doi.org/10.1016/j.psep.2024.10.005} --- A
+
+  \item Pinto MC, Gaeta M, Arco E, Boccardo P, Corgnati SP (2025). Mapping the suitability of North Africa for green hydrogen production: a multi-criteria spatial decision support system combining GIS and AHP for Tunisia. \textit{Energy Sustain Soc} 15(1). \url{https://doi.org/10.1186/s13705-025-00512-4} --- F
+
+  \item Flora FMI (2024). A GIS-based application of Monte Carlo and multi-criteria decision-making approach for site suitability analysis of solar-hydrogen production: Case of Cameroon. \textit{Heliyon} 11(1):e41541. \url{https://doi.org/10.1016/j.heliyon.2024.e41541} --- A
+
+  \item Ishmam S, Heinrichs H, Winkler C, Bayat B, Lahnaoui A, Agbo SN, et al. (2024). Mapping local green hydrogen cost-potentials by a multidisciplinary approach. \textit{Int J Hydrogen Energy}. \url{https://doi.org/10.1016/j.ijhydene.2024.08.501} --- F (partial)
+
+  \item Wang C-N, Hsueh M-H, Lin D-F (2019). Hydrogen power plant site selection under fuzzy multicriteria decision-making (FMCDM) environment conditions. \textit{Symmetry} 11(4):596. \url{https://doi.org/10.3390/sym11040596} --- F (partial)
+
+  \item Du Y, Dong Y, Chen X, Sun L, Wu Y, Lü Q (2025). Site selection of wind-photovoltaic coupling hydrogen production project with the assistant of GIS: an MCDM study under the hybrid fuzzy environment. \textit{Energy Rep} 13:6089--6100. \url{https://doi.org/10.1016/j.egyr.2025.05.054} --- A
+
+  \item Ali T, Aytekin AH, Demidionov M (2026). Optimal siting of wind powered green hydrogen production in Bangladesh using interval-valued T-spherical fuzzy multi-criteria decision-making method. \textit{Int J Hydrogen Energy}. \url{https://doi.org/10.1016/j.ijhydene.2026.153931} --- A
+
+  \item Gül M, Akyüz E (2026). Consensus-based GIS--MCDM model for hydrogen infrastructure in Southern Marmara, Türkiye. \textit{Int J Hydrogen Energy} 202. \url{https://doi.org/10.1016/j.ijhydene.2025.152954} --- M + S (criteria dimensions from Balıkesir University news release, 15 Apr 2026)
+
+  \item IIT-Comillas (2026). A comparative objective weighting MCDM-GIS approach to renewable hydrogen production site selection: a Spanish case study. Working Paper IIT-26-073WP, Comillas Pontifical University. No DOI. --- G
+
+  \item WRI India (2026). Site suitability assessment of green hydrogen hubs in India. World Resources Institute India report. No DOI. --- G
+
+  \item El-Aassar AM, Hagagg KH, Hussien RA (2026). Multicriteria site suitability for solar-powered green hydrogen production plants along the Northwestern coast of Egypt. PMC13079861 (journal/DOI not captured). --- F (partial)
+
+  \item Canat AN, Özkan C (2024). Supplying hydrogen for green steel through renewable energy sources: a case study of Turkiye. \textit{J Clean Prod} 450:141961. \url{https://doi.org/10.1016/j.jclepro.2024.141961} --- A
+
+  \item Aziz MT, Haque A, Islam MR, Hosen MB, Kader Z, Aziz MA, et al. (2025). Site suitability assessment for solar powered green hydrogen production plants: a GIS based AHP and Fuzzy AHP approach for Bangladesh. \textit{Renew Energy} 254:123675. \url{https://doi.org/10.1016/j.renene.2025.123675} --- A
+
+  \item Rekik S, El Alimi S (2024). A spatial ranking of optimal sites for solar-driven green hydrogen production using GIS and MCDM: a case of Tunisia. \textit{Energy Explor Exploit} 42(6):2150--2190. \url{https://doi.org/10.1177/01445987241268072} --- A
+
+  \item Zhao H, Ge Y, Wang W (2022). A study on offshore wind farm site selection based on CRITIC and CPT-TOPSIS: a case study of China. \textit{Kybernetes}. \url{https://doi.org/10.1108/K-09-2022-1267} --- A
+
+  \item Yaman A (2024). A GIS-based multi-criteria decision-making approach (GIS-MCDM) for wind farm site selection, Adana, Türkiye (full title truncated in the retrieved record; verify). \textit{Clean Technol Environ Policy}. \url{https://doi.org/10.1007/s10098-024-02866-3} --- F (partial)
+
+  \item Öztaş Ö, Ervural B (2025). Integrating GIS and fuzzy BWM for solar PV power plant site selection: a case study of Konya, Turkey. \textit{Celal Bayar Univ J Sci} 21(1). \url{https://doi.org/10.18466/cbayarfbe.1589809} --- A
+
+  \item Harati S, Rezaei Gomari S, Ramegowda M, Pak T (2023). Multi-criteria site selection workflow for geological storage of hydrogen in depleted gas fields: a case for the UK. \textit{Int J Hydrogen Energy}. \url{https://doi.org/10.1016/j.ijhydene.2023.10.345} --- A
+
+  \item Jahanianfard D, Nemati B, Mapar M, Davarazar P, Zandi S, Davarazar M, et al. (2020). A sustainable approach for site selection of underground hydrogen storage facilities using fuzzy-Delphi methodology. \textit{J Settl Spat Plan}. \url{https://doi.org/10.24193/jsspsi.2020.6.02} --- F (partial)
+
+  \item Yılmaz T, Uyan M (2025). Optimal site selection for green hydrogen production plants based on solar energy in Konya/Türkiye. \textit{Int J Hydrogen Energy} 115:252--264. \url{https://doi.org/10.1016/j.ijhydene.2025.03.025} --- M
+
+  \item Taoufik M, Fekri A (2023). A GIS-based MCDM approach for site suitability analysis of solar-powered hydrogen production in the Souss-Massa Region, Morocco. \textit{Renew Energy Focus} 46:385--401. \url{https://doi.org/10.1016/j.ref.2023.08.004} --- A (SSRN abstract)
+
+  \item Wu Y, Deng Z, Tao Y, Wang L, Liu F, Zhou J (2021). Site selection decision framework for photovoltaic hydrogen production project using BWM-CRITIC-MABAC: a case study in Zhangjiakou. \textit{J Clean Prod} 324:129233. \url{https://doi.org/10.1016/j.jclepro.2021.129233} --- M
+
+  \item Şeker Ş, Aydın N (2020). Hydrogen production facility location selection for Black Sea using entropy based TOPSIS under IVPF environment. \textit{Int J Hydrogen Energy} 45:15855--15868. \url{https://doi.org/10.1016/j.ijhydene.2019.12.183} --- A
+
+  \item Deveci M (2018). Site selection for hydrogen underground storage using interval type-2 hesitant fuzzy sets. \textit{Int J Hydrogen Energy} 43(19):9353--9368. \url{https://doi.org/10.1016/j.ijhydene.2018.03.127} --- A
+
+  \item Thekkethil R, Ananthakumar MR, Kumar D, Srinivasan V, Kalshetty M (2024). Green hydrogen hubs in India: a first order AHP for site selection across states. \textit{Int J Hydrogen Energy} 63:767--774. \url{https://doi.org/10.1016/j.ijhydene.2024.02.268} --- M + S
+
+  \item Leal JI, Tofoli FL, Melo FDC, Leão RPS (2024). Site suitability analysis for green hydrogen production using MCDM methods: a case study in the state of Ceará, Brazil. \textit{Int J Hydrogen Energy} 97:406--418. \url{https://doi.org/10.1016/j.ijhydene.2024.11.427} --- M + S
+
+  \item Amjad F, Agyekum EB, Wassan NA (2024). Identification of appropriate sites for solar-based green hydrogen production using density-based clustering, BWM and spatial GIS. \textit{Int J Hydrogen Energy}. \url{https://doi.org/10.1016/j.ijhydene.2024.04.310} --- M
+
+  \item Hosseini Dehshiri SS, Hosseini Dehshiri SJ (2022). Locating wind farm for power and hydrogen production based on GIS and MCDM: an application. \textit{Int J Hydrogen Energy} 47(58):24569--24583. \url{https://doi.org/10.1016/j.ijhydene.2022.03.083} --- M
+
+  \item Guleria A, Bajaj RK (2020). A robust decision making approach for hydrogen power plant site selection utilizing (R,S)-norm Pythagorean fuzzy information measures based on VIKOR and TOPSIS. \textit{Int J Hydrogen Energy} 45(38):18802--18816. \url{https://doi.org/10.1016/j.ijhydene.2020.05.091} --- M
+
+  \item Monika, Sharma A, Bajaj RK (2024). On identifying suitable hydrogen power plant location under T-spherical fuzzy hypersoft matrix structures. \textit{Int J Hydrogen Energy}. \url{https://doi.org/10.1016/j.ijhydene.2024.04.221} --- M
+
+  \item Dong F, Wang P, Li W (2025). Suitability assessment of wind-photovoltaic-hydrogen-ammonia-alcohol integration project based on spherical fuzzy set and hybrid multi-attribute decision making. \textit{Int J Hydrogen Energy}. \url{https://doi.org/10.1016/j.ijhydene.2025.151677} --- M
+
+  \item Zhao H, Hao XW (2024). Risk assessment of offshore wind power hydrogen production based on spherical fuzzy set and cumulative prospect theory-TOPSIS. \textit{Int J Hydrogen Energy} 73:475--489. \url{https://doi.org/10.1016/j.ijhydene.2024.06.015} --- M
+
+  \item Wang C-N, Nguyen N-A-T, Dang T-T (2022). Offshore wind power station (OWPS) site selection using a two-stage MCDM-based spherical fuzzy set approach. \textit{Sci Rep} 12. \url{https://doi.org/10.1038/s41598-022-08257-2} --- F (partial)
+
+  \item Uguz YF, Bilgili A, Uzar M (2026). Toward improved siting of wind--solar hybrid farms: a novel framework integrating multi-criteria decision making, machine learning--driven feature selection, and spatial clustering. \textit{Appl Energy} 127609. \url{https://doi.org/10.1016/j.apenergy.2026.127609} --- A
+
+  \item Zun MT, McLellan BC (2026). Where in the world should we produce green hydrogen? An objective first-pass site selection. \textit{Hydrogen} 7(1):11. \url{https://doi.org/10.3390/hydrogen7010011} --- F
+
+  \item Mirsane RS, Etemad-Shahidi A, Sanjari MJ, Stewart RA (2026). Site selection of onshore wind and solar farms with hydrogen energy storage: a review. \textit{Energy Storage}. \url{https://doi.org/10.1002/est2.70342} --- A
+
+  \item Pineda Serna S, Gerres T, Cossent R (2023). Multi-criteria decision-making for renewable hydrogen production site selection: a systematic literature review. \textit{Curr Sustain Renew Energy Rep}. \url{https://doi.org/10.1007/s40518-023-00219-0} --- A
+
+  \item Tonelli D, Rosa L, Gabrielli P, Caldeira K, Parente A, Contino F (2023). Global land and water limits to electrolytic hydrogen production using wind and solar resources. \textit{Nat Commun} 14. \url{https://doi.org/10.1038/s41467-023-41107-x} --- F (partial)
+
+  \item Sharaf IM (2023). A new approach for spherical fuzzy TOPSIS and spherical fuzzy VIKOR applied to the evaluation of hydrogen storage systems. \textit{Soft Comput}. \url{https://doi.org/10.1007/s00500-022-07749-7} --- F (partial)
+
+  \item Sitorus F, Brito-Parada PR (2022). The selection of renewable energy technologies using a hybrid subjective and objective multiple criteria decision making method. \textit{Expert Syst Appl} 117839. \url{https://doi.org/10.1016/j.eswa.2022.117839} --- A
+
+  \item Kutlu Gündoğdu F, Kahraman C (2019). Extension of WASPAS with spherical fuzzy sets. \textit{Informatica} 30(2):269--292. \url{https://doi.org/10.15388/Informatica.2019.206} --- A
+
+  \item Kutlu Gündoğdu F, Kahraman C (2020). A novel spherical fuzzy analytic hierarchy process and its renewable energy application. \textit{Soft Comput} 24(6):4607--4621. \url{https://doi.org/10.1007/s00500-019-04222-w} --- A
+
+  \item Kutlu Gündoğdu F, Kahraman C (2019). Spherical fuzzy sets and spherical fuzzy TOPSIS method. \textit{J Intell Fuzzy Syst} 36(1):337--352. \url{https://doi.org/10.3233/JIFS-181401} --- M
+
+  \item Diakoulaki D, Mavrotas G, Papayannakis L (1995). Determining objective weights in multiple criteria problems: the CRITIC method. \textit{Comput Oper Res} 22(7):763--770. \url{https://doi.org/10.1016/0305-0548(94)00059-H} --- M
+
+  \item Ma J, Fan Z-P, Huang L (1999). A subjective and objective integrated approach to determine attribute weights. \textit{Eur J Oper Res} 112(2):397--404. \url{https://doi.org/10.1016/S0377-2217(98)00141-6} --- M
+
+  \item Li Y, Sun Y, Kang Y, Zhang F, Zhang J (2023). An optimal site selection framework for near-zero carbon emission power plants based on multiple stakeholders. \textit{Energies} 16(2):797. \url{https://doi.org/10.3390/en16020797} --- F (partial)
+
+  \item Tripathi DK, Nigam SK, Cavallaro F, Rani P, Mishra AR (2023). A novel CRITIC-RS-VIKOR group method with intuitionistic fuzzy information for renewable energy sources assessment. \textit{Group Decis Negot}. \url{https://doi.org/10.1007/s10726-023-09849-7} --- A
+
+  \item Alkan N (2024). Evaluation of sustainable development and utilization-oriented renewable energy systems based on CRITIC-SWARA-CODAS using interval valued picture fuzzy sets. \textit{Sustain Energy Grids Netw} 101263. \url{https://doi.org/10.1016/j.segan.2023.101263} --- M
+
+  \item Emodi NV, Lovell H, Levitt CJ, Franklin E (2021). A systematic literature review of societal acceptance and stakeholders' perception of hydrogen technologies. \textit{Int J Hydrogen Energy} 46(60):30669--30697. \url{https://doi.org/10.1016/j.ijhydene.2021.06.212} --- A
+
+  \item Steller RS, Recklies EA, Schweizer-Ries P (2024). Shaping transformation: discourse analysis and systematic review of socio-psychological factors in hydrogen technology acceptance. \textit{Int J Hydrogen Energy}. \url{https://doi.org/10.1016/j.ijhydene.2024.06.422} --- A
+
+  \item De-León Almaraz S, Kocsis T, Azzaro-Pantel C, Szántó Z (2023). Identifying social aspects related to the hydrogen economy: review, synthesis, and research perspectives. \textit{Int J Hydrogen Energy}. \url{https://doi.org/10.1016/j.ijhydene.2023.10.043} --- A
+
+  \item Maketo L, Ashworth P (2025). Social acceptance of green hydrogen in European Union and the United Kingdom: a systematic review. \textit{Renew Sustain Energy Rev} 115827. \url{https://doi.org/10.1016/j.rser.2025.115827} --- A
+
+  \item Kuzma S, Bierkens MFP, Lakshman S, Luo T, Saccoccia L, Sutanudjaja EH, Van Beek R (2023). Aqueduct 4.0: updated decision-relevant global water risk indicators. Technical Note, World Resources Institute. \url{https://doi.org/10.46830/writn.23.00061} --- G
+
+  \item Özdemir A, Pınarlık M (2023). Examination of the relationship between the location of wind plants and the earthquake risk: case study Türkiye. \textit{Gazi Univ J Sci Part C}. \url{https://doi.org/10.29109/gujsc.1328735} --- A
+
+  \item Tuncer B, Akkaya AD, Yücemen MS (2024). Multicriteria decision making in site selection for nuclear power plants. \textit{Nucl Technol}. \url{https://doi.org/10.1080/00295450.2023.2299078} --- A
+
+  \item Emre Ö, Duman TY, Özalp S, Şaroğlu F, Olgun Ş, Elmacı H, et al. (2018). Active fault database of Turkey. \textit{Bull Earthq Eng} 16(8):3229--3275. \url{https://doi.org/10.1007/s10518-016-0041-2} --- M
+
+  \item Özarslan A (2012). Large-scale hydrogen energy storage in salt caverns. \textit{Int J Hydrogen Energy} 37(19):14265--14277. \url{https://doi.org/10.1016/j.ijhydene.2012.07.111} --- A
+
+  \item Shao M, Han Z, Sun J, Xiao C, Zhang S, Zhao Y (2020). A review of multi-criteria decision making applications for renewable energy site selection. \textit{Renew Energy} 157:377--403. \url{https://doi.org/10.1016/j.renene.2020.04.137} --- M
+
+  \item Spyridonidou S, Vagiona DG (2023). A systematic review of site-selection procedures of PV and CSP technologies. \textit{Energy Rep} 9:2947--2979. \url{https://doi.org/10.1016/j.egyr.2023.01.132} --- M
+
+  \item Chang P-L, Hsu C-W, Chang P-C (2011). Fuzzy Delphi method for evaluating hydrogen production technologies. \textit{Int J Hydrogen Energy}. \url{https://doi.org/10.1016/j.ijhydene.2011.05.045} --- M
+
+\end{enumerate}
+
+\textbf{Legal and official sources}
+
+\begin{itemize}\setlength\itemsep{1pt}
+
+  \item G1. Yatırımlarda Devlet Yardımları Hakkında Karar, Karar Sayısı 9903, Resmî Gazete 30 Mayıs 2025 (Arts. 3, 9--10, 34; Temporary Art. 3). Ministry of Industry and Technology PDF. --- G
+
+  \item G2. T.C. Sanayi ve Teknoloji Bakanlığı, "Teşvik Tanıtım Sunumu" (regional table under Decree 9903), yatirimadestek.gov.tr. --- G.
+
+\end{itemize}
+
+\newpage\section{Supplementary Table S4. Stage~I screening detail}
+
+Stage I screening results: pixel-level exclusions (S4a), cell-level suitability constraints (S4b), and threshold sensitivity re-run on the frozen feature table (S4c). The tables provide the detailed accounting behind the main-text results.
+
+\subsection{S4a. Pixel-level exclusion of Türkiye's land area}
+
+"Excluded alone" is the area removed by a criterion applied by itself; "Remaining" is the area left after applying all criteria up to and including the row.
+
+\begin{center}\footnotesize
+\begin{tabularx}{\textwidth}{>{\hsize=1.671\hsize\raggedright\arraybackslash}X>{\hsize=0.759\hsize\raggedright\arraybackslash}X>{\hsize=0.570\hsize\raggedright\arraybackslash}Xl}
+\toprule
+\textbf{Step} & \textbf{Excluded alone (km2)} & \textbf{Remaining (km2)} & \textbf{Remaining (\%)} \\
+\midrule
+Land area of Türkiye & - & 776,243 & 100.0 \\
+X1 Elevation > 2000 m & 83,701 & 692,542 & 89.2 \\
+X2 Protected areas + 1 km & 34,476 & 662,923 & 85.4 \\
+X3 Built-up areas + 1 km & 218,128 & 456,597 & 58.8 \\
+X4 Airports + 5 km & 6,182 & 455,280 & 58.7 \\
+X5 Military areas & 857 & 455,200 & 58.6 \\
+X6 Water bodies and wetlands + 0.5 km & 42,479 & 432,805 & 55.8 \\
+X7 Tree cover, snow and ice & 194,083 & 300,541 & 38.7 \\
+Wind: slope <= 30 \% &  & 259,807 & 33.5 \\
+Wind: gross CF >= 25 \% &  & 52,114 & 6.7 \\
+Wind: contiguous patches >= 10 km2 &  & 35,132 & 4.5 \\
+PV/\allowbreak{}electrolyser: slope <= 10 \% &  & 149,681 & 19.3 \\
+PV/\allowbreak{}electrolyser: outside cropland &  & 52,305 & 6.7 \\
+PV/\allowbreak{}electrolyser: contiguous patches >= 3 km2 &  & 19,089 & 2.5 \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+The three wind rows and the three PV/electrolyser rows are applied to the land remaining after X1-X7, independently of each other.
+
+\subsection{S4b. Cell-level suitability constraints (0.1 degree grid)}
+
+"Passing alone" counts the cells that satisfy a constraint by itself.
+
+\begin{center}\footnotesize
+\begin{tabularx}{\textwidth}{>{\hsize=1.348\hsize\raggedright\arraybackslash}X>{\hsize=0.652\hsize\raggedright\arraybackslash}Xll}
+\toprule
+\textbf{Constraint} & \textbf{Remaining cells} & \textbf{Eliminated} & \textbf{Passing alone} \\
+\midrule
+Grid cells in Türkiye & 8,115 & - & - \\
+C1 GHI >= 1450 kWh/\allowbreak{}m2/\allowbreak{}yr & 7,404 & 711 & 7,404 \\
+C2 Wind-eligible area >= 10 km2 & 995 & 6,409 & 1,008 \\
+C3 PV-eligible area >= 3 km2 & 333 & 662 & 1,383 \\
+C4 Water within 50 km & 333 & 0 & 8,115 \\
+C5 Substation within 50 km & 333 & 0 & 8,102 \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+C2 and C3 are the binding constraints. C4 and C5 eliminate no further cells, because every cell that already satisfies C1-C3 lies within 50 km of both a water body and a substation.
+
+\subsection{S4c. Threshold sensitivity of the Stage I selection step}
+
+The selection step is re-run on the frozen feature table, so no raster or vector layer is re-read. A base-case candidate counts as reselected if a candidate of the scenario lies within 0.3 degrees of it.
+
+\begin{center}\footnotesize
+\begin{tabularx}{\textwidth}{>{\hsize=0.852\hsize\raggedright\arraybackslash}Xll>{\hsize=1.148\hsize\raggedright\arraybackslash}X}
+\toprule
+\textbf{Scenario} & \textbf{Suitable cells} & \textbf{Clusters} & \textbf{Base-case candidates reselected} \\
+\midrule
+Base case & 333 & 29 & S1, S2, S3, S4, S5 \\
+Gross CF >= 20 \% & 713 & 43 & S1, S2, S3 \\
+Gross CF >= 30 \% & 131 & 10 & S1, S2, S3, S5 \\
+PV patch >= 10 km2 & 114 & 7 & S1, S2, S3, S5 \\
+PV allowed on cropland & 821 & 47 & S1, S3, S5 \\
+GHI >= 1550 kWh/\allowbreak{}m2/\allowbreak{}yr & 318 & 28 & S1, S2, S3, S4 \\
+Water within 30 km & 330 & 28 & S1, S2, S3, S4, S5 \\
+Substation within 30 km & 294 & 30 & S1, S3, S4, S5 \\
+No spacing rule & 333 & 29 & S1, S2, S3, S4 \\
+Spacing >= 50 km & 333 & 29 & S1, S2, S3, S4 \\
+Spacing >= 150 km & 333 & 29 & S1, S2, S3, S5 \\
+Spacing >= 200 km & 333 & 29 & S1, S2, S3, S5 \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+Times reselected over the twelve scenarios: S1 12, S3 12, S2 10, S5 8, S4 6.
+
+\newpage\section{Supplementary Table S5. Stage~II method comparison}
+
+{\scriptsize
+\begin{longtable}{>{\raggedright\arraybackslash}p{5.03cm}>{\raggedright\arraybackslash}p{1.05cm}>{\raggedright\arraybackslash}p{1.05cm}>{\raggedright\arraybackslash}p{1.05cm}>{\raggedright\arraybackslash}p{1.05cm}>{\raggedright\arraybackslash}p{1.05cm}>{\raggedright\arraybackslash}p{1.57cm}>{\raggedright\arraybackslash}p{1.29cm}}
+\caption{Supplementary Table S5. Stage~II method comparison.}\label{tab:s5}\\
+\toprule
+\textbf{Method} & \textbf{S1} & \textbf{S2} & \textbf{S3} & \textbf{S4} & \textbf{S5} & \textbf{Lead of 1st over 2nd} & \textbf{Weight on K1-K4} \\
+\midrule
+\endfirsthead
+\multicolumn{8}{l}{\footnotesize\itshape Supplementary Table S5 (continued)}\\
+\toprule
+\textbf{Method} & \textbf{S1} & \textbf{S2} & \textbf{S3} & \textbf{S4} & \textbf{S5} & \textbf{Lead of 1st over 2nd} & \textbf{Weight on K1-K4} \\
+\midrule
+\endhead
+\midrule\multicolumn{8}{r}{\footnotesize\itshape continued on next page}\\
+\endfoot
+\bottomrule
+\endlastfoot
+SF-WASPAS, scale-matched mapping + CRITIC min-max (used here) & 0.504 (5) & 0.523 (3) & 0.518 (4) & 0.528 (2) & 0.568 (1) & 0.040 & 0.59 \\
+SF-WASPAS, wide-range mapping + CRITIC unnormalised & 0.475 (5) & 0.485 (4) & 0.499 (2) & 0.492 (3) & 0.595 (1) & 0.095 & 0.73 \\
+SF-WASPAS, matched data scale & 0.485 (5) & 0.500 (4) & 0.505 (3) & 0.506 (2) & 0.575 (1) & 0.068 & 0.72 \\
+SF-WASPAS, wide-range mapping + CRITIC min-max & 0.501 (5) & 0.517 (4) & 0.520 (3) & 0.522 (2) & 0.584 (1) & 0.062 & 0.59 \\
+Crisp WSM (defuzzified matrix and weights used here) & 0.506 (5) & 0.515 (4) & 0.535 (2) & 0.522 (3) & 0.594 (1) & 0.060 & as above \\
+Crisp WASPAS (defuzzified matrix and weights used here) & 0.482 (5) & 0.501 (4) & 0.515 (2) & 0.504 (3) & 0.586 (1) & 0.070 & as above \\
+\end{longtable}
+}
+
+Stage II ranking under six method variants. Cells give the suitability score Q01 and the rank in parentheses. The scale-matched construction used here maps measured data onto the score range of the linguistic terms and applies CRITIC to the column-normalised matrix; the wide-range construction maps data onto a wider range (scores of plus or minus 0.80) and applies CRITIC without normalisation; the two intermediate rows change one element at a time; the crisp rows apply a weighted sum and crisp WASPAS to the defuzzified matrix and weights used here. The score-sign check found no aggregated expert entry whose score sign disagreed with the sign of membership minus non-membership.
+
+\newpage\section{Supplementary Table S6. Stage~III run register}
+
+{\tiny
+\begin{longtable}{>{\raggedright\arraybackslash}p{1.49cm}>{\raggedright\arraybackslash}p{1.54cm}>{\raggedright\arraybackslash}p{1.12cm}>{\raggedright\arraybackslash}p{1.12cm}>{\raggedright\arraybackslash}p{2.01cm}>{\raggedright\arraybackslash}p{3.81cm}>{\raggedright\arraybackslash}p{1.12cm}l}
+\caption{Supplementary Table S6. Stage~III run register.}\label{tab:s6}\\
+\toprule
+\textbf{Run} & \textbf{Description} & \textbf{Delivered cost (EUR/\allowbreak{}kg)} & \textbf{Delivered (kt/\allowbreak{}yr)} & \textbf{Open sites} & \textbf{Pipelines} & \textbf{MIP gap} & \textbf{Status} \\
+\midrule
+\endfirsthead
+\multicolumn{8}{l}{\footnotesize\itshape Supplementary Table S6 (continued)}\\
+\toprule
+\textbf{Run} & \textbf{Description} & \textbf{Delivered cost (EUR/\allowbreak{}kg)} & \textbf{Delivered (kt/\allowbreak{}yr)} & \textbf{Open sites} & \textbf{Pipelines} & \textbf{MIP gap} & \textbf{Status} \\
+\midrule
+\endhead
+\midrule\multicolumn{8}{r}{\footnotesize\itshape continued on next page}\\
+\endfoot
+\bottomrule
+\endlastfoot
+base & Baseline (cell land, phi=1) & 9.964 & 105.2 & S1,S2,S4,S5 & S5>TR\_\allowbreak{}NH3\_\allowbreak{}GEMLIK[12in],S1>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}KORFEZ[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}ALIAGA[12in] & 0.00083 & optimal \\
+deterministic & Deterministic (modal values, gamma = 0) & 8.751 & 105.2 & S1,S2,S4,S5 & S5>TR\_\allowbreak{}NH3\_\allowbreak{}GEMLIK[12in],S1>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}KORFEZ[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}ALIAGA[12in] & 0.00081 & optimal \\
+land\_\allowbreak{}cluster & Cluster-level land (second baseline) & 8.642 & 105.2 & S1,S5 & S5>TR\_\allowbreak{}NH3\_\allowbreak{}GEMLIK[12in],S1>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}KORFEZ[12in] & 0.00097 & optimal \\
+phi0\_\allowbreak{}5 & Co-use phi=0.5 & 10.223 & 105.2 & S1,S2,S4,S5 & S1>TR\_\allowbreak{}HUB\_\allowbreak{}ALIAGA[12in],S4>TR\_\allowbreak{}HUB\_\allowbreak{}KORFEZ[12in] & 0.0009 & optimal \\
+phi0\_\allowbreak{}0 & Exclusive land phi=0 & 10.62 & 105.2 & S1,S2,S3,S4,S5 & S1>TR\_\allowbreak{}HUB\_\allowbreak{}ALIAGA[12in],S4>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}KORFEZ[12in] & 0.00099 & optimal \\
+island & S-island (no surplus sales) & 10.532 & 105.2 & S1,S2,S4,S5 & S5>TR\_\allowbreak{}NH3\_\allowbreak{}GEMLIK[12in],S1>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}KORFEZ[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}ALIAGA[12in] & 0.00089 & optimal \\
+grid & S-grid (annual matching) & 8.068 & 105.2 & S1,S3,S4,S5 & S1>TR\_\allowbreak{}HUB\_\allowbreak{}ALIAGA[12in],S5>TR\_\allowbreak{}HUB\_\allowbreak{}KORFEZ[12in],S5>TR\_\allowbreak{}NH3\_\allowbreak{}GEMLIK[12in] & 0.00094 & optimal \\
+sec48 & eta = 48,kWh/\allowbreak{}kg & 8.947 & 105.2 & S1,S4,S5 & S5>TR\_\allowbreak{}NH3\_\allowbreak{}GEMLIK[12in],S1>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}KORFEZ[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}ALIAGA[12in] & 0.001 & optimal \\
+sec57\_\allowbreak{}5 & eta = 57.5,kWh/\allowbreak{}kg & 10.35 & 105.2 & S1,S2,S4,S5 & S5>TR\_\allowbreak{}NH3\_\allowbreak{}GEMLIK[12in],S1>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}KORFEZ[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}ALIAGA[12in] & 0.00094 & optimal \\
+trailer\_\allowbreak{}h4400 & Trailer hours 4,400,h/\allowbreak{}yr & 10.018 & 105.2 & S1,S2,S4,S5 & S5>TR\_\allowbreak{}NH3\_\allowbreak{}GEMLIK[12in],S1>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}KORFEZ[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}ALIAGA[12in] & 0.00079 & optimal \\
+trailer\_\allowbreak{}h8000 & Trailer hours 8,000,h/\allowbreak{}yr & 9.943 & 105.2 & S1,S2,S4,S5 & S5>TR\_\allowbreak{}NH3\_\allowbreak{}GEMLIK[12in],S1>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}KORFEZ[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}ALIAGA[12in] & 0.00099 & optimal \\
+pipe\_\allowbreak{}geo\_\allowbreak{}cap & Pipeline length le 1.2times geodesic & 9.717 & 105.2 & S1,S2,S4,S5 & S5>TR\_\allowbreak{}HUB\_\allowbreak{}ALIAGA[12in],S1>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}KORFEZ[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}NH3\_\allowbreak{}GEMLIK[12in] & 0.00091 & optimal \\
+pipe12\_\allowbreak{}cap311 & 12-inch capacity 311,t/\allowbreak{}d & 9.96 & 105.2 & S1,S2,S4,S5 & S5>TR\_\allowbreak{}NH3\_\allowbreak{}GEMLIK[12in],S1>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}KORFEZ[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}ALIAGA[12in] & 0.00093 & optimal \\
+pipe12\_\allowbreak{}dea & 12-inch cost and capacity, DEA (2025) & 10.091 & 105.2 & S1,S2,S4,S5 & S5>TR\_\allowbreak{}NH3\_\allowbreak{}GEMLIK[12in],S1>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}KORFEZ[12in] & 0.00089 & optimal \\
+pipe\_\allowbreak{}capex135 & Pipeline CAPEX +35\% (DEA owner's costs) & 10.449 & 105.2 & S1,S2,S4,S5 & S1>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}KORFEZ[12in] & 0.00081 & optimal \\
+demand\_\allowbreak{}upper & Upper-bound demand (42\% for all) & 9.597 & 157.9 & S1,S2,S3,S4,S5 & S5>TR\_\allowbreak{}NH3\_\allowbreak{}GEMLIK[12in],S1>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU[12in],S4>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}KORFEZ[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}ALIAGA[12in] & 0.00098 & optimal \\
+gamma0 & gamma = 0 & 9.96 & 105.2 & S1,S2,S4,S5 & S5>TR\_\allowbreak{}NH3\_\allowbreak{}GEMLIK[12in],S1>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}KORFEZ[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}ALIAGA[12in] & 0.00099 & optimal \\
+gamma0\_\allowbreak{}25 & gamma = 0.25 & 9.966 & 105.2 & S1,S2,S4,S5 & S5>TR\_\allowbreak{}NH3\_\allowbreak{}GEMLIK[12in],S1>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}KORFEZ[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}ALIAGA[12in] & 0.00093 & optimal \\
+lambda0\_\allowbreak{}25 & lambda = 0.25 & 8.296 & 105.2 & S1,S2,S4,S5 & S5>TR\_\allowbreak{}NH3\_\allowbreak{}GEMLIK[12in],S1>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}KORFEZ[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}ALIAGA[12in] & 0.00054 & optimal \\
+lambda0\_\allowbreak{}75 & lambda = 0.75 & 11.631 & 105.2 & S1,S2,S4,S5 & S5>TR\_\allowbreak{}NH3\_\allowbreak{}GEMLIK[12in],S1>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}KORFEZ[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}ALIAGA[12in] & 0.00072 & optimal \\
+delta10 & delta = 10 & 9.964 & 105.2 & S1,S2,S4,S5 & S5>TR\_\allowbreak{}NH3\_\allowbreak{}GEMLIK[12in],S1>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}KORFEZ[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}ALIAGA[12in] & 0.00096 & optimal \\
+delta12\_\allowbreak{}5 & delta = 12.5 & 9.568 & 156.0 & S1,S2,S3,S4,S5 & S5>TR\_\allowbreak{}NH3\_\allowbreak{}GEMLIK[12in],S1>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU[12in],S4>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}KORFEZ[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}ALIAGA[12in] & 0.00059 & optimal \\
+delta15 & delta = 15 & 9.626 & 164.7 & S1,S2,S3,S4,S5 & S5>TR\_\allowbreak{}NH3\_\allowbreak{}GEMLIK[12in],S1>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU[12in],S4>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}KORFEZ[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}ALIAGA[12in] & 0.00091 & optimal \\
+delta20 & delta = 20 & 9.856 & 177.0 & S1,S2,S3,S4,S5 & S4>TR\_\allowbreak{}NH3\_\allowbreak{}GEMLIK[12in],S1>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU[12in],S3>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}KORFEZ[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}ALIAGA[12in] & 0.00098 & optimal \\
+abl0\_\allowbreak{}v3equiv & abl0\_\allowbreak{}v3equiv & 10.704 & 157.9 & S1,S2,S3,S4,S5 & S5>TR\_\allowbreak{}NH3\_\allowbreak{}GEMLIK,S1>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU & 0.00094 & optimal \\
+abl1\_\allowbreak{}demand & abl1\_\allowbreak{}demand & 10.261 & 105.2 & S1,S2,S4,S5 & S1>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU & 0.00079 & optimal \\
+abl2\_\allowbreak{}merge & abl2\_\allowbreak{}merge & 10.19 & 105.2 & S1,S2,S4,S5 & S1>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU,TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}KORFEZ & 0.00089 & optimal \\
+abl3\_\allowbreak{}small & abl3\_\allowbreak{}small & 9.768 & 105.2 & S1,S2,S4,S5 & S5>TR\_\allowbreak{}NH3\_\allowbreak{}GEMLIK[12in],S1>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}KORFEZ[12in] & 0.00084 & optimal \\
+import\_\allowbreak{}free & import\_\allowbreak{}free & 0.14 & 0.0 &  &  & 0.0 & optimal \\
+import\_\allowbreak{}free\_\allowbreak{}d10 & import\_\allowbreak{}free\_\allowbreak{}d10 & -0.003 & 0.0 &  &  & 0.0 & optimal \\
+import\_\allowbreak{}free\_\allowbreak{}d12\_\allowbreak{}5 & import\_\allowbreak{}free\_\allowbreak{}d12\_\allowbreak{}5 & 8.744 & 89.0 & S1,S2,S3,S4,S5 & S1>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}KORFEZ[12in] & 0.00076 & optimal \\
+import\_\allowbreak{}free\_\allowbreak{}d15 & import\_\allowbreak{}free\_\allowbreak{}d15 & 9.578 & 161.9 & S1,S2,S3,S4,S5 & S5>TR\_\allowbreak{}NH3\_\allowbreak{}GEMLIK[12in],S1>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU[12in],S4>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}KORFEZ[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}ALIAGA[12in] & 0.00079 & optimal \\
+outage\_\allowbreak{}cavern & outage\_\allowbreak{}cavern & 10.805 & 105.2 & S1,S2,S3,S4,S5 & S1>TR\_\allowbreak{}HUB\_\allowbreak{}ALIAGA[12in],S4>TR\_\allowbreak{}HUB\_\allowbreak{}KORFEZ[12in] & 0.00038 & optimal \\
+outage\_\allowbreak{}pipeline & outage\_\allowbreak{}pipeline & 10.048 & 105.2 & S1,S2,S4,S5 & S1>TR\_\allowbreak{}HUB\_\allowbreak{}ALIAGA[12in],S4>TR\_\allowbreak{}HUB\_\allowbreak{}KORFEZ[12in],S5>TR\_\allowbreak{}NH3\_\allowbreak{}GEMLIK[12in] & 0.00016 & optimal \\
+cf\_\allowbreak{}top3\_\allowbreak{}det & cf\_\allowbreak{}top3\_\allowbreak{}det & 9.717 & 105.2 & S2,S4,S5 & S4>TR\_\allowbreak{}HUB\_\allowbreak{}KORFEZ[12in],S5>TR\_\allowbreak{}NH3\_\allowbreak{}GEMLIK[12in],S2>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}ALIAGA[12in] & 0.0 & optimal \\
+cf\_\allowbreak{}top3\_\allowbreak{}rpp & cf\_\allowbreak{}top3\_\allowbreak{}rpp & 11.073 & 105.2 & S2,S4,S5 & S4>TR\_\allowbreak{}HUB\_\allowbreak{}KORFEZ[12in],S5>TR\_\allowbreak{}NH3\_\allowbreak{}GEMLIK[12in],S2>TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU[12in],TR\_\allowbreak{}UGS\_\allowbreak{}TUZGOLU>TR\_\allowbreak{}HUB\_\allowbreak{}ALIAGA[12in] & 0.00094 & optimal \\
+\end{longtable}
+}
+
+Register of all Stage III runs reported in the paper: delivered cost (Me expected value per kg delivered; modal values for deterministic runs), delivered quantity, open sites, pipelines (12-inch lines marked [12in]), the relative MIP gap at termination and the solver status. abl0-abl3 are the stepwise decomposition from the earlier configuration, import\_free runs lift the domestic-supply mandate at the import price shown, outage runs re-optimise the network for maximum delivery without the asset, and cf runs are the sequential rank-then-optimise counterfactuals.
+
+\newpage\section{Supplementary Note S7. Stage~III mathematical model}
+
+The full algebraic formulation of Stage~III follows. Sets are candidate sites $i\in I$,
+industrial demand nodes $j\in J$, directed transport arcs $a=(u,v)\in A$,
+representative days $d\in D$, hours $h\in H$, seasons $s\in S$, and transport
+modes $m\in\{p,t\}$ for pipeline and tube trailer, and pipeline diameter classes
+$k\in K=\{20'',12''\}$. The salt-cavern node is $g$. Facilities less than 2\,km apart
+(Aliağa--STAR and İzmit--İGSAŞ) form one delivery node each, so $J$ has five elements. The representative-day weight $w_d$ is measured in days per year;
+$c^W_{idh}$ and $c^P_{idh}$ are the wind and PV capacity factors, $L_a$ is
+road distance, and $L^p_a$ is the pipeline route-length proxy. The fuzzy
+renewable-demand requirement at node $j$ is
+$\tilde d_j=(d_{j1},d_{j2},d_{j3})=\sum_{n\in N_j}\tilde\theta_{\sigma(n)} D_n^{\mathrm{op}}$, where $N_j$
+are the facilities at node $j$, $D_n^{\mathrm{op}}$ is their on-purpose hydrogen demand and
+$\tilde\theta_{\sigma(n)}$ is the renewable share of the facility's sector (ammonia or refinery). All costs are annual EUR
+unless stated otherwise.
+\textbf{Decision variables.} Installed capacities are $W_i$, $P_i$, $E_i$
+and $K_i$ (MW for wind, PV, electrolysis and compression), $K_g$ (MW, trailer-refill
+compression at the cavern) and $V$ (tonnes of cavern working gas). The binary variables $o_i$ and
+$y_{ak}$ indicate an open site and a built pipeline of diameter class $k$. Hourly variables are electrolyser load $e_{idh}$,
+electricity export $x_{idh}$, curtailment $u_{idh}$, grid import $im_{idh}$,
+and hydrogen dispatch rates $p^p_{idh}$ and $p^t_{idh}$ (tonnes per hour).
+Daily arc flows are $f_{a,m,d}$ (tonnes per day), annual delivery is $Y_j$
+(tonnes per year), seasonal cavern inventory is $I_s$, and $\alpha_j$ is the
+Me-confidence decision variable. The auxiliary $s_i$ is jointly used wind--PV
+area (km$^2$); it is distinct from the spherical-fuzzy notation elsewhere.
+
+\textbf{Unit conventions.} The factor 1{,}000 converts tonnes to kilograms; $q_j^{\mathrm{short}}$
+is in tonnes and $\delta$ in EUR/kg. All continuous variables are non-negative except where bounds are stated;
+$o_i$ and $y_{ak}$ are binary. Unit costs in €/kg are multiplied by 1{,}000 to apply to flows in tonnes.
+
+
+
+\subsubsection{Land, capacity and opening constraints}
+Let $W_i^{\max}$ and $P_i^{\max}$ be the cell- or cluster-based capacity bounds
+from eligible area, $A_i^{\cap}$ and $A_i^{\cup}$ the measured intersection
+and union of the wind and PV masks, $\rho_W$ and $\rho_P$ their capacity
+densities, and $\phi$ the allowed co-use share. The land constraints are
+\begin{equation}
+\begin{aligned}
+\frac{W_i}{\rho_W}+\frac{P_i}{\rho_P}-s_i &\le A_i^{\cup},\\
+0\le s_i &\le \frac{W_i}{\rho_W},\qquad
+s_i\le \frac{P_i}{\rho_P},\qquad s_i\le \phi A_i^{\cap},\\
+0\le W_i &\le W_i^{\max},\qquad 0\le P_i\le P_i^{\max},\\
+E_i^{\min}o_i\le E_i &\le (W_i^{\max}+P_i^{\max})o_i,\\
+\textstyle\sum_{k}y_{ak}&\le 1,\qquad o_i\in\{0,1\},\qquad y_{ak}\in\{0,1\}.
+\end{aligned}
+\label{eq:s5_land_open}
+\end{equation}
+
+\subsubsection{Hourly electricity and production constraints}
+With specific electrolysis consumption $\eta$ (kWh/kg) and compression
+coefficients $\kappa_p$ and $\kappa_t$ (kWh/kg), hourly generation is allocated
+to electrolysis, compression, export and curtailment:
+\begin{equation}
+\begin{aligned}
+c^W_{idh}W_i+c^P_{idh}P_i+im_{idh}
+ &= e_{idh}+x_{idh}+u_{idh}+\kappa_p p^p_{idh}+\kappa_t p^t_{idh},\\
+p^p_{idh}+p^t_{idh} &= e_{idh}/\eta,\\
+0\le e_{idh} &\le E_i,\qquad 0\le x_{idh}\le r_xE_i,\\
+\kappa_p p^p_{idh}+\kappa_t p^t_{idh} &\le K_i,
+\end{aligned}
+\label{eq:s5_electricity}
+\end{equation}
+where $r_x$ is the export-capacity ratio. In the base and S-island cases
+$im_{idh}=0$; S-island also fixes $x_{idh}=0$. In S-grid, annual matching is
+imposed on the site-level import and export variables:
+\begin{equation}
+\sum_{i,d,h}w_d im_{idh}\le \sum_{i,d,h}w_d x_{idh}.
+\label{eq:s5_matching}
+\end{equation}
+
+\subsubsection{Transport, demand and seasonal storage}
+Daily production dispatched from each site equals its hourly pipeline and
+trailer production. Demand nodes receive a constant daily quantity; new
+pipeline flow is limited by its binary construction decision. Cavern injection
+and withdrawal are bounded by their daily design rates:
+\begin{equation}
+\begin{aligned}
+\sum_h p^p_{idh}&=\sum_{a\in\mathrm{out}(i)}f_{a,p,d},\qquad
+\sum_h p^t_{idh}=\sum_{a\in\mathrm{out}(i)}f_{a,t,d},\\
+\sum_{a\in\mathrm{in}(j),m}f_{a,m,d}&=Y_j/365,\\
+0\le f_{a,p,d}&\le \textstyle\sum_k F_k y_{ak},\\
+\sum_{a\in\mathrm{in}(g),m}f_{a,m,d}&\le R^{\mathrm{in}},\qquad
+\sum_{a\in\mathrm{out}(g),m}f_{a,m,d}\le R^{\mathrm{out}}.
+\end{aligned}
+\label{eq:s5_flow}
+\end{equation}
+For each season, inventory changes by weighted net cavern flow and is cyclic
+over the year:
+\begin{equation}
+I_{s^+}=I_s+\sum_{d\in D_s}w_d\left(
+\sum_{a\in\mathrm{in}(g),m}f_{a,m,d}-
+\sum_{a\in\mathrm{out}(g),m}f_{a,m,d}\right),\qquad
+0\le I_s\le V\le V^{\max},\quad I_{S+1}=I_1.
+\label{eq:s5_inventory}
+\end{equation}
+Here $s^+$ denotes the next season with wrap-around, $D_s$ is its set of
+representative days, and $F_k$ (864 and 222\,t/d), $R^{\mathrm{in}}$, $R^{\mathrm{out}}$ and
+$V^{\max}$ are the pipeline, injection, withdrawal and working-gas limits. Trailers leaving the
+cavern are refilled to 500\,bar on grid electricity, so
+$K_g\ge\kappa_t\sum_{a\in\mathrm{out}(g)}f_{a,t,d}/24$ for every day $d$.
+
+The robust Me-demand constraint is the crisp equivalent for the branch
+$\alpha_j\ge\lambda$; $\alpha_j$ is bounded between $\lambda$ and 1:
+\begin{equation}
+Y_j+M_j\ge d_{j2}+\frac{\alpha_j-\lambda}{1-\lambda}
+(d_{j3}-d_{j2}),\qquad \lambda\le\alpha_j\le1,\quad Y_j,M_j\ge0.
+\label{eq:s5_demand}
+\end{equation}
+Restricting $\alpha_j\ge\lambda$ means that the modal demand is always supplied. In the baseline this
+is an explicit domestic-supply mandate and imports are fixed at $M_j=0$; in the import diagnostic,
+$M_j$ is free and costs $1000\,\delta_j M_j$.
+For the full-year outage tests, the model fixes $\alpha_j=\lambda$, replaces
+this constraint by $Y_j+q_j^{\mathrm{short}}=d_{j2}$, and adds the penalty
+$1000\delta\sum_j q_j^{\mathrm{short}}$ to annual cost.
+
+\subsubsection{Robust cost and objectives}
+Let $q_k$ denote the annual activity quantities multiplying unit-cost
+coefficients $c_k$ from Supplementary Table S2. They comprise installed wind,
+PV, electrolyser and compressor capacity; weighted electrolyser MWh for stack
+replacement; weighted hydrogen output for water; pipeline-km by diameter class; fixed and
+distance-variable trailer tonne-km; the additional trailer-capacity years of long hauls; and cavern
+working gas. Grid-electricity
+quantity and export quantity are defined below. With $\mathcal K=\{W,PV,E,K,
+\mathrm{stack},\mathrm{water},\mathrm{pipe},\mathrm{tr,fix},\mathrm{tr,dist},
+\mathrm{cavern}\}$, the remaining annual quantities are
+\begin{equation}
+\begin{aligned}
+q_W&=\sum_iW_i, & q_{PV}&=\sum_iP_i, & q_E&=\sum_iE_i, & q_K&=\sum_iK_i,\\
+q_{\mathrm{stack}}&=\sum_{i,d,h}w_de_{idh}, &
+q_{\mathrm{water}}&=\sum_{i,d,h}w_de_{idh}/\eta, &
+q_{\mathrm{pipe},k}&=\sum_aL_a^py_{ak},\\
+q_{\mathrm{tr,fix}}&=\sum_{a,d}w_df_{a,t,d}, &
+q_{\mathrm{tr,dist}}&=\sum_{a,d}w_d(L_a/100)f_{a,t,d}, &
+q_{\mathrm{cavern}}&=V,\\
+q_{\mathrm{tcap}}&=\sum_{a,d}w_d\,1000\,\xi(L_a)f_{a,t,d}, & & & & \\
+\end{aligned}
+\label{eq:s5_activity_quantities}
+\end{equation}
+The grid-electricity and export quantities are
+\begin{equation}
+\begin{aligned}
+q_{\mathrm{grid}}={}&\sum_{i,d,h}w_dB_h im_{idh}
++\sum_{a,d}w_d\epsilon_r L^p_a f_{a,p,d}/1000
++\sum_{a\in\mathrm{in}(g),m,d}w_d\epsilon_g f_{a,m,d},\\
+q_{\mathrm{sell}}={}&\sum_{i,d,h}w_dB_hx_{idh},
+\end{aligned}
+\label{eq:s5_grid_quantities}
+\end{equation}
+where $B_h$ is the day-ahead price time-band factor, $\epsilon_r$ the
+pipeline-recompression energy per 1,000 km, and $\epsilon_g$ the cavern
+booster energy; trailer refilling at the cavern adds $\sum_{a\in\mathrm{out}(g),d}w_d\kappa_tf_{a,t,d}$ to
+$q_{\mathrm{grid}}$ and $K_g$ to the compressor capacity. The long-haul term uses
+$\xi(L)=\max\{0,1/n(L)-1/n_0\}$ with $n(L)=\min\{n_0,H/(2L/v+t_{lu})\}$ trips per trailer and year
+($n_0=300$, $H=6{,}000$\,h, $v=50$\,km/h, $t_{lu}=4$\,h); its unit cost is the annualised trailer
+capital and O\&M per kg of payload (Supplementary Table~S2, rows 7.2--7.3). At a cost-coefficient vertex $c$ and grid prices $p_b$ for
+imports and $p_s$ for exports, total annual cost is the linear expression
+\begin{equation}
+z(c,p_b,p_s)=\sum_{k\in\mathcal K}c_kq_k+p_bq_{\mathrm{grid}}-p_sq_{\mathrm{sell}}.
+\label{eq:s5_cost}
+\end{equation}
+For each triangular coefficient $\tilde c_k=(c_{k1},c_{k2},c_{k3})$, its Me
+expected coefficient is $\bar c_k=[(1-\lambda)c_{k1}+c_{k2}+\lambda c_{k3}]/2$;
+the day-ahead (PTF) price $\tilde p=(p_1,p_2,p_3)$ has expectation
+$\bar p=[(1-\lambda)p_1+p_2+\lambda p_3]/2$. The optimistic and pessimistic
+costs use the low-cost/high-sale and high-cost/low-sale vertices, respectively.
+The robust possibilistic objective is
+\begin{equation}
+\min f_1= z(\bar c,\bar p,\bar p)
++\gamma\big[z(c_3,p_3,p_1)-z(c_1,p_1,p_3)\big]
++1000\sum_j\frac{1-\alpha_j}{1-\lambda}\sum_{n\in N_j}\delta_{\sigma(n)}(d_{n3}-d_{n2}),
+\label{eq:s5_rpp_objective}
+\end{equation}
+where $\delta_{\sigma(n)}$ is the import parity of the facility's sector (5.63\,€/kg for ammonia,
+7.30\,€/kg for refineries, which need cracked hydrogen).
+Written out, at $\lambda=0.5$ and $\gamma=0.2$ each cost coefficient enters $f_1$ with vertex weights
+$(0.05,0.5,0.45)$ and each revenue coefficient with $(0.45,0.5,0.05)$, so the RPP objective is a
+deterministic MILP evaluated at a pessimistically shifted point estimate plus a confidence-dependent
+penalty; for $\gamma>(1-\lambda)/2$ the weight on $c_1$ becomes negative. For the second objective, annual
+hydrogen output at site $i$ and production-weighted suitability are
+\begin{equation}
+H_i=\sum_{d,h}w_de_{idh}/\eta,\qquad
+\max f_2=\sum_iQ_i^{01}H_i,\qquad
+\bar Q=f_2/\sum_iH_i.
+\label{eq:s5_suitability}
+\end{equation}
+AUGMECON2 imposes $\sum_i(Q_i^{01}-\varepsilon)H_i=S_\varepsilon$, with
+$S_\varepsilon\ge0$, and minimises $f_1-\mu S_\varepsilon$. The implementation
+uses $\mu=10^{-3}|f_{1,\min}|/R_2$, where $f_{1,\min}$ is the cost-optimal
+objective and $R_2=(\max_iQ_i^{01}-\min_iQ_i^{01})\sum_jd_{j2}$ is the range of the second objective in
+tonnes H\textsubscript{2}/yr, so that the augmentation term is of the same order as the MIP tolerance.
+
+
+\newpage\section{Supplementary Table S8. Stage~I exclusion and suitability criteria}
+
+\begin{table}[htbp]
+\centering
+\caption{Stage~I exclusion and suitability criteria. Thresholds follow the cited studies.}
+\label{tab:s8}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llllp{5.2cm}}
+\toprule
+Code & Criterion & Rule & Data source & Basis \\
+\midrule
+\multicolumn{5}{l}{\textit{Pixel level, all technologies (exclusion)}} \\
+X1 & Elevation & $>2000$\,m & Copernicus GLO-90 digital elevation model (DEM) & Noorollahi et~al. (2016) \\
+X2 & Protected areas & area $+1$\,km & OpenStreetMap & Pfennig et~al. (2023); Taoufik et~al. (2021) \\
+X3 & Built-up areas & area $+1$\,km & European Space Agency (ESA) WorldCover 2021 & Ryberg et~al. (2018); Yaman (2024) \\
+X4 & Airports (International Air Transport Association / International Civil Aviation Organization codes) & $+5$\,km & OpenStreetMap & Yaman (2024); national obstacle rules \\
+X5 & Military areas & area & OpenStreetMap & Yildiz (2023) \\
+X6 & Permanent water, wetlands & area $+0.5$\,km & ESA WorldCover 2021 & Ali et~al. (2022); Noorollahi et~al. (2016) \\
+X7 & Tree cover (forest, mangrove), snow and ice & area & ESA WorldCover 2021 (classes 10, 70, 95) & Lu et~al. (2009); Pfennig et~al. (2023) \\
+\midrule
+\multicolumn{5}{l}{\textit{Pixel level, technology masks (eligibility)}} \\
+W1 & Slope, wind & $\le 30\%$ & Copernicus GLO-90 DEM & Yildiz (2023); Yaman (2024) \\
+W2 & Gross capacity factor, wind & $\ge 25\%$ & Global Wind Atlas v3, International Electrotechnical Commission (IEC) Class II & Davis et~al. (2023); Lu et~al. (2009); Kursun (2023) \\
+P1 & Slope, PV and electrolyser & $\le 10\%$ & Copernicus GLO-90 DEM & Noorollahi et~al. (2016); Pfennig et~al. (2023) \\
+P2 & Cropland, PV and electrolyser & excluded & ESA WorldCover 2021 & Law No.~5403, Art.~13 \\
+A1 & Contiguous wind-eligible patch & $\ge 10$\,km$^2$ & derived & Pfennig et~al. (2023) \\
+A2 & Contiguous PV-eligible patch & $\ge 3$\,km$^2$ & derived & Ong et~al. (2013) \\
+\midrule
+\multicolumn{5}{l}{\textit{Cell level ($0.1^\circ$), suitability constraints}} \\
+C1 & Global horizontal irradiation (GHI) & $\ge 1450$\,kWh/m$^2$/yr & Photovoltaic Geographical Information System (PVGIS), Surface Solar Radiation Data Set--Heliosat 3 (SARAH3) & Noorollahi et~al. (2016); Aly et~al. (2017) \\
+C2 & Wind-eligible area in cell & $\ge 10$\,km$^2$ & derived (A1) & Pfennig et~al. (2023) \\
+C3 & PV-eligible area in cell & $\ge 3$\,km$^2$ & derived (A2) & Ong et~al. (2013) \\
+C4 & Perennial river or freshwater lake, or coastline & $\le 50$\,km & HydroRIVERS; Natural Earth & Pfennig et~al. (2023) \\
+C5 & Substation $\ge 154$\,kV & $\le 50$\,km & OpenStreetMap & Turkish Electricity Transmission Corporation (TEİAŞ) connection levels \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\subsection*{Sources for this table}
+\begin{enumerate}\setlength{\itemsep}{0pt}
+\item Ali, F., Bennui, A., Chowdhury, S., Techato, K., 2022. Suitable site selection for solar-based green hydrogen in southern Thailand using GIS-MCDM approach. Sustainability 14~(11), 6597. https://doi.org/10.3390/su14116597
+\item Aly, A., Jensen, S.S., Pedersen, A.B., 2017. Solar power potential of Tanzania: Identifying CSP and PV hot spots through a GIS multicriteria decision making analysis. Renewable Energy 113, 159--175. https://doi.org/10.1016/j.renene.2017.05.077
+\item Davis, N.N., Badger, J., Hahmann, A.N., Hansen, B.O., Mortensen, N.G., Kelly, M., et~al., 2023. The Global Wind Atlas: A high-resolution dataset of climatologies and associated web-based application. Bulletin of the American Meteorological Society 104~(8), E1507--E1525. https://doi.org/10.1175/BAMS-D-21-0075.1
+\item Kursun, B., 2023. Exploitable wind power potential in Turkey with technological advancement and resulting environmental-economic aspects. Energy Exploration \& Exploitation 41~(1), 187--209. https://doi.org/10.1177/01445987221115814
+\item Lu, X., McElroy, M.B., Kiviluoma, J., 2009. Global potential for wind-generated electricity. Proceedings of the National Academy of Sciences 106~(27), 10933--10938. https://doi.org/10.1073/pnas.0904101106
+\item Noorollahi, E., Fadai, D., Akbarpour Shirazi, M., Ghodsipour, S., 2016. Land suitability analysis for solar farms exploitation using GIS and fuzzy analytic hierarchy process (FAHP)---A case study of Iran. Energies 9~(8), 643. https://doi.org/10.3390/en9080643
+\item Ong, S., Campbell, C., Denholm, P., Margolis, R., Heath, G., 2013. Land-Use Requirements for Solar Power Plants in the United States. Technical Report NREL/TP-6A20-56290. National Renewable Energy Laboratory, Golden, CO. https://doi.org/10.2172/1086349
+\item Pfennig, M., B{\"o}ttger, D., H{\"a}ckner, B., Geiger, D., Zink, C., Bisevic, A., et~al., 2023. Global GIS-based potential analysis and cost assessment of Power-to-X fuels in 2050. Applied Energy 347, 121289. https://doi.org/10.1016/j.apenergy.2023.121289
+\item Ryberg, D.S., Robinius, M., Stolten, D., 2018. Evaluating land eligibility constraints of renewable energy sources in Europe. Energies 11~(5), 1246. https://doi.org/10.3390/en11051246
+\item Taoufik, M., Laghlimi, M., Fekri, A., 2021. Land suitability analysis for solar farms exploitation using the GIS and analytic hierarchy process (AHP) -- a case study of Morocco. Polityka Energetyczna -- Energy Policy Journal 24~(2), 79--96. https://doi.org/10.33223/epj/133474
+\item Yaman, A., 2024. A GIS-based multi-criteria decision-making approach (GIS-MCDM) for determination of the most appropriate site selection of onshore wind farm in Adana, Turkey. Clean Technologies and Environmental Policy 26~(12), 4231--4254. https://doi.org/10.1007/s10098-024-02866-3
+\item Yildiz, S.S., 2023. Determining wind energy potential using geographic information system functions: A case study in Bal{\i}kesir, Turkey. Applied Sciences 13~(16), 9183. https://doi.org/10.3390/app13169183
+\end{enumerate}
+
+
+\newpage\section{Supplementary Table S9. Stage~II preference criteria}
+
+\begin{table}[htbp]
+\centering
+\caption{Stage~II preference criteria. All criteria are evaluated for the five Stage~I candidates; the four data-derived criteria are computed from open datasets, while the three expert-judged criteria are elicited in the survey.}
+\label{tab:s9}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llllp{3.6cm}p{4.2cm}}
+\toprule
+Code & Criterion & Unit & Direction & Source / mode & Literature support \\
+\midrule
+K1 & Grid-connection proximity (distance to $\ge$154\,kV substation) & km & Cost & OpenStreetMap / data & Messaoudi et~al. (2019); Ali et~al. (2022); Yaman (2024) \\
+K2 & Water stress of the supplying basin & score 0--5 & Cost & World Resources Institute (WRI) Aqueduct 4.0 (Kuzma et~al., 2023) / data & Ishmam et~al. (2024); Tonelli et~al. (2023); Gezen U{\c{c}}ar (2026) \\
+K3 & Ecological sensitivity (distance to protected areas beyond the 1\,km buffer) & km & Benefit & OpenStreetMap protected-area snapshot / data & Ali et~al. (2022); Pinto et~al. (2025); Yaman (2024) \\
+K4 & Seismic hazard (peak ground acceleration (PGA); 475-year return period) & g & Cost & Global Earthquake Model (GEM) Global Seismic Hazard Model (GSHM) v2023.1 / data & Emre et~al. (2018); Yaman (2024); Ali et~al. (2026); Zhao et~al. (2024) \\
+K5 & Local social acceptance & 1--9 & Benefit & Expert survey & Emodi et~al. (2021); Zhao et~al. (2024); Zun and McLellan (2026) \\
+K6 & Permitting, land-acquisition and regulatory readiness & 1--9 & Benefit & Expert survey & Pinto et~al. (2025); Zun and McLellan (2026) \\
+K7 & Industrial-logistics ecosystem and skilled workforce & 1--9 & Benefit & Expert survey & Ishmam et~al. (2024); Zun and McLellan (2026) \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\subsection*{Sources for this table}
+\begin{enumerate}\setlength{\itemsep}{0pt}
+\item Ali, F., Bennui, A., Chowdhury, S., Techato, K., 2022. Suitable site selection for solar-based green hydrogen in southern Thailand using GIS-MCDM approach. Sustainability 14~(11), 6597. https://doi.org/10.3390/su14116597
+\item Ali, T., Aytekin, A., Demidionov, M., 2026. Optimal siting of wind powered green hydrogen production in Bangladesh using interval-valued T-spherical fuzzy multi-criteria decision-making method. International Journal of Hydrogen Energy 217, 153931. https://doi.org/10.1016/j.ijhydene.2026.153931
+\item Emodi, N.V., Lovell, H., Levitt, C., Franklin, E., 2021. A systematic literature review of societal acceptance and stakeholders' perception of hydrogen technologies. International Journal of Hydrogen Energy 46~(60), 30669--30697. https://doi.org/10.1016/j.ijhydene.2021.06.212
+\item Emre, {\"O}., Duman, T.Y., {\"O}zalp, S., {\c{S}}aro{\u{g}}lu, F., Olgun, {\c{S}}., Elmac{\i}, H., et~al., 2018. Active fault database of Turkey. Bulletin of Earthquake Engineering 16~(8), 3229--3275. https://doi.org/10.1007/s10518-016-0041-2
+\item Gezen U{\c{c}}ar, M., 2026. Spatial optimization of green hydrogen production hubs and capacity allocation: A hybrid MCDA--MILP framework for T{\"u}rkiye. International Journal of Hydrogen Energy 269, 157032. https://doi.org/10.1016/j.ijhydene.2026.157032
+\item Ishmam, S., Heinrichs, H., Winkler, C., Bayat, B., Lahnaoui, A., Agbo, S., et~al., 2024. Mapping local green hydrogen cost-potentials by a multidisciplinary approach. International Journal of Hydrogen Energy 87, 1155--1170. https://doi.org/10.1016/j.ijhydene.2024.08.501
+\item Kuzma, S., Bierkens, M.F.P., Lakshman, S., Luo, T., Saccoccia, L., Sutanudjaja, E.H., et~al., 2023. Aqueduct 4.0: Updated decision-relevant global water risk indicators. Technical Note. World Resources Institute, Washington, DC. https://doi.org/10.46830/writn.23.00061
+\item Messaoudi, D., Settou, N., Negrou, B., Settou, B., 2019. GIS based multi-criteria decision making for solar hydrogen production sites selection in Algeria. International Journal of Hydrogen Energy 44~(60), 31808--31831. https://doi.org/10.1016/j.ijhydene.2019.10.099
+\item Pinto, M.C., Gaeta, M., Arco, E., Boccardo, P., Corgnati, S.P., 2025. Mapping the suitability of North Africa for green hydrogen production: an application of a multi-criteria spatial decision support system combining GIS and AHP for Tunisia. Energy, Sustainability and Society 15~(1), 20. https://doi.org/10.1186/s13705-025-00512-4
+\item Tonelli, D., Rosa, L., Gabrielli, P., Caldeira, K., Parente, A., Contino, F., 2023. Global land and water limits to electrolytic hydrogen production using wind and solar resources. Nature Communications 14~(1), 5532. https://doi.org/10.1038/s41467-023-41107-x
+\item Yaman, A., 2024. A GIS-based multi-criteria decision-making approach (GIS-MCDM) for determination of the most appropriate site selection of onshore wind farm in Adana, Turkey. Clean Technologies and Environmental Policy 26~(12), 4231--4254. https://doi.org/10.1007/s10098-024-02866-3
+\item Zhao, H., Ge, Y., Wang, W., 2024. A study on offshore wind farm site selection based on CRITIC and CPT-TOPSIS: a case study of China. Kybernetes 53~(3), 1117--1147. https://doi.org/10.1108/K-09-2022-1267
+\item Zun, M.T., McLellan, B.C., 2026. Where in the world should we produce green hydrogen? An objective first-pass site selection. Hydrogen 7~(1), 11. https://doi.org/10.3390/hydrogen7010011
+\end{enumerate}
+
+
+\newpage\section{Supplementary Note S10. Comparison with published cost estimates}
+
+Published Turkish estimates are mostly plant-gate costs, so they compare with the production component of the delivered cost, not with the delivered cost itself. The baseline production component is 6.83\,€/kg under the Me valuation and 5.76\,€/kg at modal values. G{\"u}l and Aky{\"u}z (2023) report 5.87--6.80\,\$/kg for PV-based production at Bandırma in 2023, about 5.4--6.3\,€/kg at that year's average exchange rate, which brackets the modal value. The remaining gap to the Me value reflects the right-skewed cost ranges rather than a different technology basis. Spatially resolved estimates for Türkiye find lower production costs on the Aegean and Black Sea coasts than in the interior (Guven and Kayalica, 2025); here the interior sites are selected because of their contiguous eligible land, and their cost disadvantage is partly offset by co-located wind and PV and by surplus-electricity sales. Logistics add 3.14\,€/kg (2.99\,€/kg at modal values), so delivered costs are about 46--52\% above plant-gate costs, a margin that plant-gate comparisons such as Devrim and Eryilmaz (2026) do not capture.
+
+
+\newpage\section{Supplementary Note S11. Reconciling the Monte Carlo and Me valuations}
+
+The Monte Carlo samples the same annualised coefficient triangles that the RPP uses. Its mean cost of the baseline design, 1,093\,M€/yr, therefore matches the mean of those triangles (1,091\,M€/yr); it differs from the Me expected value (1,048\,M€/yr) only because the Me measure at $\lambda=0.5$ weights the vertices $(\tfrac14,\tfrac12,\tfrac14)$ rather than $(\tfrac13,\tfrac13,\tfrac13)$. Sampling CAPEX, WACC and lifetime separately and annualising each draw, as an earlier version of this analysis did, gives a lower mean of 1,007\,M€/yr, because the annualised triangles combine the extremes of their inputs.
+
+
+\newpage\section{Supplementary Note S12. Stage~II standard formulations}
+
+This note collects the standard spherical-fuzzy and CRITIC--WASPAS formulations used in Stage~II; the hybrid construction that anchors the measured criteria is given in the main text.
+
+A spherical fuzzy number (SFN) $\tilde{s} = (\mu, \nu, \pi)$ consists of membership, non-membership and hesitancy degrees in $[0,1]$ that satisfy $\mu^2 + \nu^2 + \pi^2 \le 1$ (Kutlu G{\"u}ndo{\u{g}}du and Kahraman, 2019b).
+
+SFNs are compared with the score function of Kutlu G{\"u}ndo{\u{g}}du and Kahraman (2019a):
+\begin{equation}
+\text{Score}(\tilde{s}) = (\mu - \pi)^2 - (\nu - \pi)^2 .
+\label{eq:score}
+\end{equation}
+
+Equation~\eqref{eq:score} is strictly increasing along the nine linguistic terms, with values from $-0.64$ to $0.64$, and for data-derived SFNs it is linear in $r_{ij}$ over the same range, so both parts of the matrix are ordered consistently. Because the score is not monotone for arbitrary SFNs with large hesitancy, the sign of the score was checked against $\mu-\nu$ for every aggregated expert entry; no entry was inconsistent. Each entry is defuzzified to $p_{ij} = (1 + \text{Score}(\tilde{x}_{ij}))/2$.
+
+CRITIC derives objective weights from the contrast and conflict of the criteria in the decision matrix (Diakoulaki et~al., 1995). As in the original method, each column of the defuzzified matrix is first rescaled to $[0,1]$ by its own minimum and maximum, so that a criterion's weight reflects its relative contrast rather than the spread of its measurement scale. Let $p_{ij}$ be this normalised matrix, $\sigma_j$ the standard deviation of criterion $j$ and $\rho_{jk}$ the correlation between criteria $j$ and $k$. The CRITIC weights are
+\begin{equation}
+w_j^{C} = \frac{\sigma_j \sum_{k}(1 - \rho_{jk})}{\sum_{l} \sigma_l \sum_{k}(1 - \rho_{lk})} .
+\end{equation}
+
+Following Kutlu G{\"u}ndo{\u{g}}du and Kahraman (2019a), the weighted sum model (WSM) and weighted product model (WPM) are computed in spherical fuzzy arithmetic. The WSM is the spherical weighted arithmetic mean of the row, $\tilde{Q}_i^{(1)} = \text{SWAM}_w(\tilde{x}_{i1},\dots,\tilde{x}_{i7})$, and the WPM is the spherical weighted geometric mean (SWGM), $\tilde{Q}_i^{(2)} = \text{SWGM}_w(\tilde{x}_{i1},\dots,\tilde{x}_{i7})$. The suitability score combines their scores,
+\begin{equation}
+Q_i = \lambda_W\, \text{Score}\big(\tilde{Q}_i^{(1)}\big) + (1-\lambda_W)\, \text{Score}\big(\tilde{Q}_i^{(2)}\big), \qquad \lambda_W = 0.5 .
+\end{equation}
+
+
+\newpage\section{Supplementary Table S13. Stage~II weight-blend sensitivity}
+
+{\scriptsize
+\begin{longtable}{>{\raggedright\arraybackslash}p{2.91cm}>{\raggedright\arraybackslash}p{1.21cm}>{\raggedright\arraybackslash}p{1.21cm}>{\raggedright\arraybackslash}p{1.21cm}>{\raggedright\arraybackslash}p{1.21cm}>{\raggedright\arraybackslash}p{1.21cm}>{\raggedright\arraybackslash}p{2.30cm}>{\raggedright\arraybackslash}p{1.89cm}}
+\caption{Supplementary Table S13. Stage~II weight-blend sensitivity.}\label{tab:s13}\\
+\toprule
+\textbf{Expert weight share (beta)} & \textbf{S1} & \textbf{S2} & \textbf{S3} & \textbf{S4} & \textbf{S5} & \textbf{Lead of 1st over 2nd} & \textbf{Weight on K1-K4} \\
+\midrule
+\endfirsthead
+\multicolumn{8}{l}{\footnotesize\itshape Supplementary Table S13 (continued)}\\
+\toprule
+\textbf{Expert weight share (beta)} & \textbf{S1} & \textbf{S2} & \textbf{S3} & \textbf{S4} & \textbf{S5} & \textbf{Lead of 1st over 2nd} & \textbf{Weight on K1-K4} \\
+\midrule
+\endhead
+\midrule\multicolumn{8}{r}{\footnotesize\itshape continued on next page}\\
+\endfoot
+\bottomrule
+\endlastfoot
+0.00 & 0.509 (5) & 0.527 (3) & 0.525 (4) & 0.529 (2) & 0.573 (1) & 0.044 & 0.62 \\
+0.25 & 0.507 (5) & 0.525 (3) & 0.521 (4) & 0.529 (2) & 0.571 (1) & 0.042 & 0.60 \\
+0.50 (used here) & 0.504 (5) & 0.523 (3) & 0.518 (4) & 0.528 (2) & 0.568 (1) & 0.040 & 0.59 \\
+0.75 & 0.502 (5) & 0.522 (3) & 0.515 (4) & 0.528 (2) & 0.566 (1) & 0.038 & 0.58 \\
+1.00 & 0.500 (5) & 0.520 (3) & 0.512 (4) & 0.528 (2) & 0.564 (1) & 0.036 & 0.57 \\
+\end{longtable}
+}
+
+Sensitivity of the Stage II ranking to the subjective-objective weight blend. The parameter beta is the share of each final criterion weight taken from the aggregated expert ratings, the remainder coming from the CRITIC contrast weights, so beta = 0 applies the CRITIC weights alone and beta = 1 the expert weights alone; the manuscript holds beta at 0.5. It is distinct from the Stage III confidence levels alpha\_j. Cells give the suitability score Q01 and the rank in parentheses. The ordering is S5 > S4 > S2 > S3 > S1 at every value tested, so no rank reversal occurs anywhere on the interval. The lead of the first site over the second narrows monotonically from 0.044 at beta = 0 to 0.036 at beta = 1, that is, the separation of S5 is widest when the weights come entirely from the measured data and narrowest when they come entirely from the panel. The last column reports the share of the final weight carried by the four measured criteria K1-K4. This check varies the weight blend; the method variants of Table S5 vary the data mapping, the CRITIC normalisation and the use of fuzzy arithmetic.
+
+\end{document}

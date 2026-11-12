@@ -1,0 +1,2 @@
+node_id,name,operator,province,district,lat,lon,coord_source,coord_confidence,source_ids
+TR_UGS_TUZGOLU,Tuz Gölü underground gas storage (salt caverns),BOTAŞ,Aksaray,Sultanhanı,38.0966,33.5865,"Google Places record 'BOTAŞ Tuz Gölü Doğal Gaz Depolama Tesisi' (Gazi, Sultanhanı; plus code 3HWP+JH), retrieved via Exa 2026-10-18; consistent with BOTAŞ '40 km south of Tuz Gölü'",medium,https://www.botas.gov.tr/pages/tuz-golu-underground-natural-gas-storage-facility/375

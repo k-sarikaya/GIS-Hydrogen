@@ -1,0 +1,7 @@
+Method,S1,S2,S3,S4,S5,Lead of 1st over 2nd,Weight on K1-K4
+"SF-WASPAS, scale-matched mapping + CRITIC min-max (used here)",0.504 (5),0.523 (3),0.518 (4),0.528 (2),0.568 (1),0.040,0.59
+"SF-WASPAS, wide-range mapping + CRITIC unnormalised",0.475 (5),0.485 (4),0.499 (2),0.492 (3),0.595 (1),0.095,0.73
+"SF-WASPAS, matched data scale",0.485 (5),0.500 (4),0.505 (3),0.506 (2),0.575 (1),0.068,0.72
+"SF-WASPAS, wide-range mapping + CRITIC min-max",0.501 (5),0.517 (4),0.520 (3),0.522 (2),0.584 (1),0.062,0.59
+"Crisp WSM (defuzzified matrix and weights used here)",0.506 (5),0.515 (4),0.535 (2),0.522 (3),0.594 (1),0.060,as above
+"Crisp WASPAS (defuzzified matrix and weights used here)",0.482 (5),0.501 (4),0.515 (2),0.504 (3),0.586 (1),0.070,as above

@@ -1,0 +1,24 @@
+{
+  "run_utc": "2026-10-18T18:51:22+00:00",
+  "sites_sha256": "6402c215c706574703eb7883c4b8e42865f6d5ffc4cade797a63ae232acefb99",
+  "sources": {
+    "aqueduct40": {
+      "url": "https://files.wri.org/aqueduct/aqueduct-4-0-water-risk-data.zip",
+      "sha256": "bd3ed2bce88d6ff1b89191632ad134a2436e1e1d49599382f23a04d513624fc3",
+      "layer": "baseline_annual"
+    },
+    "gem_gshm_v2023_1": {
+      "url": "https://zenodo.org/records/8409647/files/GEM-GSHM_PGA-475y-rock_v2023.zip?download=1",
+      "sha256": "b06fbc4d303ac735d9fcf464cff3b26c0ad16cec485ee0c465127278afd8b41f",
+      "file": "v2023_1_pga_475_rock_3min.tif",
+      "crs": "EPSG:4326",
+      "res": [
+        0.05,
+        0.049996666666667
+      ],
+      "aggregation": "3x3 window mean"
+    },
+    "protected_snapshot": "data/raw/gis/real/snapshot_osm_protected.geojson.gz"
+  },
+  "output_sha256": "84d65244a7e865103235b4c97a6c675440f8552de153eb0aca33b8dbc697492e"
+}

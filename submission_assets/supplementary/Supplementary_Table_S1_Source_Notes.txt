@@ -1,0 +1,85 @@
+# Demand node inventory
+
+Industrial hydrogen consumers in Türkiye, compiled on 16 October 2026 and prepared independently of the Stage I candidate sites.
+
+## Selection rule (independent of the candidate sites)
+
+| Rule | Definition | Nodes |
+|---|---|---|
+| `rule_baseline` | Plants operating today that use or produce hydrogen on site (refineries and on-site ammonia synthesis) with an estimated demand of at least 1,000 t H2/yr | 7 |
+| `rule_2040` | `rule_baseline` plus integrated steel plants that have announced a transition to H2-DRI in their roadmaps (Erdemir, Isdemir) | 9 |
+
+Plants considered and not included:
+
+- **Fertiliser plants using imported ammonia:** Toros, BAGFAS, Gubretas, Ege Gubre.
+- **Petkim:** hydrogen arises as a by-product; the quantity is not published.
+- **Kardemir:** no H2 or DRI project.
+- **Tosyali:** no verified hydrogen demand in Türkiye.
+- **Habas:** below 1,000 t/yr.
+- **HySouthMarmara:** still at project stage.
+
+## Value types
+
+- `size_status` and `h2_value_type`: **P** = published value, **E** = estimate.
+- No company publishes its hydrogen consumption in tonnes; refinery and ammonia demands are estimated from capacity multiplied by a conversion factor.
+- `h2_onpurpose_t_yr` is the share supplied by dedicated hydrogen units (steam methane reforming) at refineries. This is the part that electrolytic hydrogen can substitute directly; the remainder of total consumption is by-product hydrogen from reformers and crackers.
+
+## Conversion factors
+
+| Factor | Value | Source |
+|---|---|---|
+| Ammonia | 0.1776 t H2 per t NH3 (stoichiometric: 3 x 2.016 / 2 x 17.031) | - |
+| Refinery, total H2 | about 9.6 kg H2 per t of crude (range 9.0-10.3) | CATF 2025: EU refinery hydrogen use 4,205 kt/yr against an EU capacity of 11.7 Mbbl/d, assuming 7.33 bbl/t and 75% utilisation (S24) |
+| Refinery, on-purpose share | about 5.5 kg H2 per t of crude, roughly 60% of the total | CATF 2025 (S24) |
+| H2-DRI | 47-57 kg H2 per t of DRI | Vogl et al. 2018, J. Clean. Prod. 203:736, doi:10.1016/j.jclepro.2018.08.279; Rechberger et al. 2020, steel research int., doi:10.1002/srin.202000110 |
+| Volume to mass | 1 Nm3 H2 = 0.08988 kg | - |
+
+**Limitation.** The EU average factors understate complex refineries (Izmit, STAR) and overstate the simple Batman refinery. The published hydrogen unit capacity of Izmit and STAR, about 160,000 Nm3/h each, corresponds to roughly 126 kt/yr at nameplate and exceeds the factor-based estimate.
+
+## Verification status
+
+- IGSAS, 396,000 t NH3/yr: verified against the plant page at yildiz.com.
+- Tupras capacities of 11.3, 11.9, 5.4 and 1.4 Mt/yr: verified against tupras.com.tr and the December 2024 investor presentation.
+- Checks used the primary sources listed below and were completed on 16 October 2026. Other values follow the cited sources without independent verification; their evidence levels are recorded in Table S1.
+
+## National context
+
+- **Strategy targets.** Ministry of Energy and Natural Resources, Hydrogen Technologies Strategy and Roadmap (January 2023): electrolyser capacity of 2 GW by 2030, 5 GW by 2035 and 70 GW by 2053. No tonnage target for demand is set (S21).
+- **National grey hydrogen base (estimate).** Refineries about 0.41 Mt, of which about 0.24 Mt is on-purpose, and ammonia about 0.08-0.14 Mt, giving roughly 0.5 Mt H2/yr in total. No official national figure was found.
+- **Third-party projections.** EBRD and Advisian put low-carbon hydrogen demand at about 60 kt/yr in 2030 and about 725 kt/yr in 2040 (S22). SHURA 2022 gives 3.4 Mt/yr in 2050 (S23).
+
+## Sources
+
+All web sources were accessed on 16 October 2026.
+
+- S1. Tüpraş. *About us.* https://www.tupras.com.tr/en/about-us
+- S2. Tüpraş. *Strategic transformation*; *Integrated annual report 2025.* https://www.tupras.com.tr/en/strategic-transformation ; https://www.tupras.com.tr/assets/uploads/integrated-report/tupras-2025-integrated-annual-report.pdf
+- S3. Oil & Gas Journal. *Tüpraş commissions unit at Izmit refinery.* https://www.ogj.com/refining-processing/article/17250889/tupras-commissions-unit-at-izmit-refinery
+- S4. SOCAR Türkiye. *STAR Refinery*; *STAR Refinery sustainability report 2025.* https://www.socar.com.tr/activity-fields/star-refinery
+- S5. NS Energy. *STAR Aegean refinery.* https://www.nsenergybusiness.com/projects/star-aegean-refinery/
+- S6. Yıldız Holding. *İGSAŞ Kocaeli plant*; Global Energy Monitor, *İGSAŞ Kocaeli ammonia facility.* https://www.yildiz.com/en/our-activity-areas/fertilizer-industry/igsas-kocaeli-plant ; https://www.gem.wiki/IGSAS_Kocaeli_Ammonia_Facility
+- S7. Gemlik Gübre. *Yılfert plant.* https://www.gemlikgubre.com.tr/yilfert-en
+- S8. Ministry of Industry and Technology. *Low-carbon roadmap for the Turkish fertiliser sector.* https://www.sanayi.gov.tr/assets/pdf/birimler/turkiye-gubre-sektoru-icin-dusuk-karbonlu-yol-haritasiEN.pdf
+- S9. International Maritime Organization, Future Fuels and Technology Project. *World ammonia map 2024.* https://futurefuels.imo.org/wp-content/uploads/2024/03/WorldAmmoniaMap2024.pdf
+- S10. Toros Tarım. *Mersin production plants.* https://www.toros.com.tr/en/fertilizers/facilities/production-plants/mersin-production-plants
+- S11. BAGFAŞ. *Fertilizer production.* https://www.bagfas.com.tr/en/Fertilizer.aspx
+- S12. YatırımX. *Gübretaş: patent registration for two innovation projects.* https://www.yatirimx.com.tr/sirket-haberleri/gubretasin-2-yenilikci-projesine-turkpatent-tescili/25352
+- S13. Petkim. *Integrated annual report 2025.* https://www.petkim.com.tr/assets/uploads/Petkim_2025_Integrated_Annual_Report.pdf
+- S14. Erdemir. *Giant step for green steel by Erdemir*; İsdemir, *Company history.* https://www.erdemir.com.tr/en/corporate/media/press-release/giant-step-for-green-steel-by-erdemir ; https://www.isdemir.com.tr/kurumsal/tarihce
+- S15. Steel Radar. *Kardemir increased its production in 2024; 2025 target is 2.5 million tons of sales.* https://www.steelradar.com/en/kardemir-increased-its-production-in-2024-2025-target-is-25-million-tons-of-sales/
+- S16. Tosyalı Holding. *Tosyalı Holding breaks new ground in the world with green steel production.* https://www.tosyaliholding.com.tr/en/media-central/press-releases/tosyali-holding/2023/tosyali-holding-breaks-new-ground-in-the-world-with-green-steel-production
+- S17. SteelOrbis. *Türkiye's Habaş to build hydrogen production facility in İzmir*; Habaş, *Gas production.* https://www.steelorbis.com/steel-news/latest-news/turkeys-habas-to-build-hydrogen-production-facility-in-izmir-1302955.htm ; https://habas.com.tr/en/s-gas/production
+- S18. European Commission, CORDIS. *Project 101112054*; Hydrogen Valley Platform, *South Marmara Hydrogen Shore (HySouthMarmara).* https://cordis.europa.eu/project/id/101112054 ; https://h2v.eu/hydrogen-valley-platform/hydrogen-valleys-glance/south-marmara-hydrogen-shore-hysouthmarmara
+- S20. Hidrojen Haber. *Tekfen is building Türkiye's first green ammonia plant.* https://www.hidrojenhaber.com/tekfen-turkiyenin-ilk-yesil-amonyak-tesisini-kuruyor/
+- S21. Ministry of Energy and Natural Resources. *Türkiye hydrogen technologies strategy and roadmap*, January 2023. https://enerji.gov.tr/Media/Dizin/SGB/tr/Kurumsal_Politikalar/HSP/ETKB_Hidrojen_Stratejik_Plan2023.pdf
+- S22. European Bank for Reconstruction and Development. *Low-carbon hydrogen economy in Türkiye.* https://www.ebrd.com/content/dam/ebrd_dxp/assets/pdfs/green-economy-transition/Low%20Carbon%20Hydrogen%20Economy%20in%20Turkiye.pdf
+- S23. SHURA Energy Transition Center. *Hydrogen report*, February 2026 (in Turkish). https://shura.org.tr/wp-content/uploads/2026/02/SHURA-2026-02-Rapor-Hidrojen_TR.pdf
+- S24. Clean Air Task Force. *Hydrogen in EU industry: decarbonising existing hydrogen production and consumption in the EU 27*, 2025. https://cdn.catf.us/wp-content/uploads/2025/02/04180154/eu-hydrogen-landscape.pdf
+- S25. Vogl V, Åhman M, Nilsson LJ (2018). Assessment of hydrogen direct reduction for fossil-free steelmaking. *Journal of Cleaner Production* 203:736-745. https://doi.org/10.1016/j.jclepro.2018.08.279 ; Rechberger K, Spanlang A, Sasiain Conde A, Wolfmeir H, Harris C (2020). Green hydrogen-based direct reduction for low-carbon steelmaking. *steel research international* 91(11):2000110. https://doi.org/10.1002/srin.202000110
+- S33. OpenStreetMap contributors. *Nominatim geocoding service*; the way and relation identifiers used for each node are given in Table S1c.
+
+## Renewable share and delivery points used in Stage III
+
+- The renewable (RFNBO) share differs by sector. Ammonia complexes use the RED III industry target: 33.6 % / 42 % / 60 % (Art. 22b reduced 2030, Art. 22a 2030, Art. 22a 2035). Refinery hydrogen used as an intermediate for transport fuels falls outside the industry target and counts towards the transport sub-target (at least 1 percentage point RFNBO in 2030, counted twice). Applied to Türkiye's 2024 transport final energy without aviation (1 124.7 PJ; TÜİK, March 2026), the sub-target corresponds to 46.9 kt H₂/yr (mode), 93.7 kt without the multiplier (high) and 37.5 kt (low, 0.8 × mode). As shares of the 237 kt refinery on-purpose demand: 0.158 / 0.198 / 0.395. Derivation: Supplementary Table S2, Note N11.
+- Modal renewable demand: ammonia 58.3 kt + refineries 46.9 kt = 105.2 kt/yr (possibility range 84.2–177.1 kt/yr). Applying the industry share to every facility (upper-bound scenario) gives 157.9 kt/yr.
+- Facilities less than 2 km apart share one delivery point in Stage III: İzmir (Aliağa) and STAR refineries (Aliağa hub); İzmit refinery and İGSAŞ (Körfez hub). Arc lengths to a hub are the mean of the members' road distances. The import penalty of a hub weights each member's sector parity by its demand range.

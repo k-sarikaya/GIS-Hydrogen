@@ -1,0 +1,23 @@
+﻿ID,Study,Country / object,Method (weighting → ranking),Ev.
+S01,Messaoudi et al. 2019 [1],"Algeria, solar-H₂ production",GIS constraints + AHP overlay,A
+S02,Ali et al. 2022 [2],"Thailand, solar-H₂",GIS-AHP (literature + expert input + legal rules),F
+S03,Karipoğlu et al. 2022 [3],"Türkiye (Kayseri), solar-H₂ stations","GIS overlay, 8 sub-criteria (technical, accessibility, environmental)",A
+S04,Keskin et al. 2024 [4],"Türkiye (Kayseri), wind/PV-H₂ near water bodies",GIS + HOMER (LCOE/LCOH),A
+S05,Pinto et al. 2025 [5],"Tunisia, solar-H₂","Expert-defined, spatially measurable criteria; AHP",F
+S06,Flora 2024 [6],"Cameroon, solar-H₂",AHP / FAHP / Monte-Carlo FAHP,A
+S07,Ishmam et al. 2024 [7],"Sub-Saharan Africa, H₂ cost-potentials","Land eligibility (33 criteria, local preferences) + groundwater limits + energy-system model + socio-economic indicators",F (partial)
+S08,"Wang, Hsueh & Lin 2019 [8]","Vietnam, H₂ power plant",FAHP → TOPSIS (15 sub-criteria from literature and experts),F (partial)
+S09,Du et al. 2025 [9],"China, wind–PV–H₂","GIS pre-screening → 4 candidates; linguistic + TFN ""hybrid fuzzy"" matrix; BWM + entropy → TODIM",A
+S10,"Ali, Aytekin & Demidionov 2026 [10]","Bangladesh, wind-H₂",Interval-valued T-spherical fuzzy SIWEC–SPOTIS; data + expert judgement,A
+S11,Gül & Akyüz 2026 [11],"Türkiye (South Marmara), H₂ infrastructure","13 GIS criteria; entropy, FAHP and hybrid weights; TOPSIS/MOORA/VIKOR consensus",M + S
+S12,IIT-Comillas WP 2026 [12],"Spain, renewable H₂","Objective weights (CRITIC, entropy, STD, CILOS, IDOCRIW) compared",G
+S13,WRI India 2026 [13],"India, H₂ hubs",Two-stage GIS-AHP (state readiness → 5 km hexagons),G
+S14,El-Aassar et al. 2026 [14],"Egypt, solar-H₂ (coastal)",FAHP; groundwater vulnerability indicators,F (partial)
+S15,Canat & Özkan 2024 [15],"Türkiye seas, offshore-wind H₂ for green steel",BWM → AHP,A
+S16,Aziz et al. 2025 [16],"Bangladesh, solar-H₂",GIS-AHP / FAHP,A (partial)
+S17,Rekik & El Alimi 2024 [17],"Tunisia, solar-H₂",GIS-MCDM; EDAS/ARAS/MOORA/COPRAS,A
+S18,"Zhao, Ge & Wang 2022 [18]","China, offshore wind",Spherical fuzzy + CRITIC → CPT-TOPSIS,A
+S19,Yaman 2024 [19],"Türkiye (Adana), wind farms","GIS-AHP, 15 criteria including fault lines",F (partial)
+S20,Öztaş & Ervural 2025 [20],"Türkiye (Konya), PV",GIS + fuzzy BWM,A
+S21,Harati et al. 2023 [21],"UK, underground H₂ storage (UHS)",AHP → PROMETHEE,A
+S22,Jahanianfard et al. 2020 [22],UHS siting,Fuzzy Delphi criteria prioritisation,F (partial)

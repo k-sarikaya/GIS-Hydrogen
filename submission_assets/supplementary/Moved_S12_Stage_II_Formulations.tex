@@ -1,0 +1,21 @@
+This note collects the standard spherical-fuzzy and CRITIC--WASPAS formulations used in Stage~II; the hybrid construction that anchors the measured criteria is given in the main text.
+
+A spherical fuzzy number (SFN) $\tilde{s} = (\mu, \nu, \pi)$ consists of membership, non-membership and hesitancy degrees in $[0,1]$ that satisfy $\mu^2 + \nu^2 + \pi^2 \le 1$ (Kutlu G{\"u}ndo{\u{g}}du and Kahraman, 2019b).
+
+SFNs are compared with the score function of Kutlu G{\"u}ndo{\u{g}}du and Kahraman (2019a):
+\begin{equation}
+\text{Score}(\tilde{s}) = (\mu - \pi)^2 - (\nu - \pi)^2 .
+\label{eq:score}
+\end{equation}
+
+Equation~\eqref{eq:score} is strictly increasing along the nine linguistic terms, with values from $-0.64$ to $0.64$, and for data-derived SFNs it is linear in $r_{ij}$ over the same range, so both parts of the matrix are ordered consistently. Because the score is not monotone for arbitrary SFNs with large hesitancy, the sign of the score was checked against $\mu-\nu$ for every aggregated expert entry; no entry was inconsistent. Each entry is defuzzified to $p_{ij} = (1 + \text{Score}(\tilde{x}_{ij}))/2$.
+
+CRITIC derives objective weights from the contrast and conflict of the criteria in the decision matrix (Diakoulaki et~al., 1995). As in the original method, each column of the defuzzified matrix is first rescaled to $[0,1]$ by its own minimum and maximum, so that a criterion's weight reflects its relative contrast rather than the spread of its measurement scale. Let $p_{ij}$ be this normalised matrix, $\sigma_j$ the standard deviation of criterion $j$ and $\rho_{jk}$ the correlation between criteria $j$ and $k$. The CRITIC weights are
+\begin{equation}
+w_j^{C} = \frac{\sigma_j \sum_{k}(1 - \rho_{jk})}{\sum_{l} \sigma_l \sum_{k}(1 - \rho_{lk})} .
+\end{equation}
+
+Following Kutlu G{\"u}ndo{\u{g}}du and Kahraman (2019a), the weighted sum model (WSM) and weighted product model (WPM) are computed in spherical fuzzy arithmetic. The WSM is the spherical weighted arithmetic mean of the row, $\tilde{Q}_i^{(1)} = \text{SWAM}_w(\tilde{x}_{i1},\dots,\tilde{x}_{i7})$, and the WPM is the spherical weighted geometric mean (SWGM), $\tilde{Q}_i^{(2)} = \text{SWGM}_w(\tilde{x}_{i1},\dots,\tilde{x}_{i7})$. The suitability score combines their scores,
+\begin{equation}
+Q_i = \lambda_W\, \text{Score}\big(\tilde{Q}_i^{(1)}\big) + (1-\lambda_W)\, \text{Score}\big(\tilde{Q}_i^{(2)}\big), \qquad \lambda_W = 0.5 .
+\end{equation}

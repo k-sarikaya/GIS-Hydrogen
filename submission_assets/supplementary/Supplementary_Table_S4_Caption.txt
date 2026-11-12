@@ -1,0 +1,1 @@
+Supplementary Table S4. Stage I screening results: pixel-level exclusions (S4a), cell-level suitability constraints (S4b), and threshold sensitivity re-run on the frozen feature table (S4c). The tables provide the detailed accounting behind the main-text results.

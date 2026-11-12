@@ -1,0 +1,174 @@
+{
+  "run_utc": "2026-10-18T18:35:19+00:00",
+  "year": 2023,
+  "k_per_season": 6,
+  "turbine": "V126/3450",
+  "hub_height_m": 100,
+  "pv": "1 kWp fixed, optimal tilt, 14% loss",
+  "sources": {
+    "S1": {
+      "era5": {
+        "url": "https://archive-api.open-meteo.com/v1/archive",
+        "sha256": "b26b1546a4c843d5a73337e8cc011eb094e6243b228091619633f078a37a9181",
+        "status": "cached",
+        "grid_point": [
+          37.0,
+          33.25
+        ]
+      },
+      "pvgis": {
+        "url": "https://re.jrc.ec.europa.eu/api/v5_3/seriescalc",
+        "sha256": "e5223628eefdc1b90cfa284edd2e43e2dba9f2ea575882afdb97a0a0a4ff5e52",
+        "status": "cached",
+        "optimal_slope_deg": 34
+      },
+      "gwa_target_gross_cf": 0.341,
+      "wind_speed_scale": 1.6544,
+      "era5_raw_cf": 0.0988,
+      "wind_cf_mean": 0.341,
+      "pv_cf_mean": 0.1905,
+      "wind_pv_hourly_corr": 0.01
+    },
+    "S2": {
+      "era5": {
+        "url": "https://archive-api.open-meteo.com/v1/archive",
+        "sha256": "14119aa80680d9f13300cfbcc869bc824cb1cfa30fbe6ed677dcde39bfedf641",
+        "status": "cached",
+        "grid_point": [
+          38.5,
+          37.0
+        ]
+      },
+      "pvgis": {
+        "url": "https://re.jrc.ec.europa.eu/api/v5_3/seriescalc",
+        "sha256": "059035c73186c189ae2c0905bf8fac9f3e95b1e3fc6bd391d16d2c25424d9379",
+        "status": "cached",
+        "optimal_slope_deg": 35
+      },
+      "gwa_target_gross_cf": 0.336,
+      "wind_speed_scale": 1.8314,
+      "era5_raw_cf": 0.0891,
+      "wind_cf_mean": 0.336,
+      "pv_cf_mean": 0.1836,
+      "wind_pv_hourly_corr": 0.061
+    },
+    "S3": {
+      "era5": {
+        "url": "https://archive-api.open-meteo.com/v1/archive",
+        "sha256": "9e3ba292354cee20ca4b34f2b9139ee37d02f12f35e08d48c730e45171a32275",
+        "status": "cached",
+        "grid_point": [
+          37.5,
+          39.75
+        ]
+      },
+      "pvgis": {
+        "url": "https://re.jrc.ec.europa.eu/api/v5_3/seriescalc",
+        "sha256": "51c244b058c692e061e4bbeaa77c993d3195f98a914f2d7605548057cc3ff725",
+        "status": "cached",
+        "optimal_slope_deg": 33
+      },
+      "gwa_target_gross_cf": 0.271,
+      "wind_speed_scale": 1.2479,
+      "era5_raw_cf": 0.1582,
+      "wind_cf_mean": 0.271,
+      "pv_cf_mean": 0.1778,
+      "wind_pv_hourly_corr": -0.093
+    },
+    "S4": {
+      "era5": {
+        "url": "https://archive-api.open-meteo.com/v1/archive",
+        "sha256": "bb70cb1bf4e66778d2662ab7035f3a2f4e269b97de7c25d26d03a32360525a70",
+        "status": "cached",
+        "grid_point": [
+          38.5,
+          35.25
+        ]
+      },
+      "pvgis": {
+        "url": "https://re.jrc.ec.europa.eu/api/v5_3/seriescalc",
+        "sha256": "f9abd0223e88f7635539419fa7c25e07fc4fc1353cf36ace8ec0d33ddf169185",
+        "status": "cached",
+        "optimal_slope_deg": 36
+      },
+      "gwa_target_gross_cf": 0.287,
+      "wind_speed_scale": 2.0411,
+      "era5_raw_cf": 0.0448,
+      "wind_cf_mean": 0.287,
+      "pv_cf_mean": 0.1807,
+      "wind_pv_hourly_corr": -0.002
+    },
+    "S5": {
+      "era5": {
+        "url": "https://archive-api.open-meteo.com/v1/archive",
+        "sha256": "d6c7d960acdfe5e0782cf5b0c4f26d78f0b002e857d4a5240ecfa3c905d97185",
+        "status": "cached",
+        "grid_point": [
+          41.75,
+          27.5
+        ]
+      },
+      "pvgis": {
+        "url": "https://re.jrc.ec.europa.eu/api/v5_3/seriescalc",
+        "sha256": "20466d3ba4510754729eac5a546e9906708dc5e26902be519ba180e47a1d09d6",
+        "status": "cached",
+        "optimal_slope_deg": 34
+      },
+      "gwa_target_gross_cf": 0.337,
+      "wind_speed_scale": 1.0639,
+      "era5_raw_cf": 0.2972,
+      "wind_cf_mean": 0.337,
+      "pv_cf_mean": 0.1568,
+      "wind_pv_hourly_corr": -0.054
+    }
+  },
+  "representation_check": {
+    "S1": {
+      "wind_full": 0.341,
+      "wind_rep": 0.341,
+      "pv_full": 0.1905,
+      "pv_rep": 0.1905
+    },
+    "S2": {
+      "wind_full": 0.336,
+      "wind_rep": 0.336,
+      "pv_full": 0.1836,
+      "pv_rep": 0.1836
+    },
+    "S3": {
+      "wind_full": 0.271,
+      "wind_rep": 0.271,
+      "pv_full": 0.1778,
+      "pv_rep": 0.1778
+    },
+    "S4": {
+      "wind_full": 0.287,
+      "wind_rep": 0.287,
+      "pv_full": 0.1807,
+      "pv_rep": 0.1807
+    },
+    "S5": {
+      "wind_full": 0.337,
+      "wind_rep": 0.337,
+      "pv_full": 0.1568,
+      "pv_rep": 0.1568
+    }
+  },
+  "energy_preserving_scale": {
+    "S1_wind_cf": 1.2081,
+    "S1_pv_cf": 0.9289,
+    "S2_wind_cf": 1.1845,
+    "S2_pv_cf": 0.9201,
+    "S3_wind_cf": 1.4471,
+    "S3_pv_cf": 0.906,
+    "S4_wind_cf": 1.1653,
+    "S4_pv_cf": 0.9321,
+    "S5_wind_cf": 1.0387,
+    "S5_pv_cf": 0.9939
+  },
+  "outputs_sha256": {
+    "day_assignment_2023_k6.csv": "ce0f3583cc3692150dbe0d6ee55f7f77741e12ab72794a420ec105ea8b1388d3",
+    "hourly_profiles_2023.csv": "ba02a08ea1375d7969cf6ff3405a994bcead31aa65b0e1239d761fbc372a414d",
+    "representative_days_2023_k6.csv": "bb7caace978ed2067fe628fda9ae26669b28bf33aacb55391b9362c89bb15982"
+  }
+}
