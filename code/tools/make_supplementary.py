@@ -79,6 +79,12 @@ def kir(s):
     for i in range(0, len(parts), 2):
         parts[i] = (parts[i].replace('/', r'/\allowbreak{}')
                             .replace(r'\_', r'\_\allowbreak{}'))
+        # Uzun, bolunemez buyuk harf dizileri (TR_HUB_HYSOUTHMARMARA'nin son
+        # parcasi gibi) sutun disina tasiyor; her 8 harfte kirilma izni ver.
+        parts[i] = re.sub(r'[A-Z]{10,}',
+                          lambda m: r'\allowbreak{}'.join(
+                              m.group(0)[j:j + 8] for j in range(0, len(m.group(0)), 8)),
+                          parts[i])
     return ''.join(parts)
 
 
@@ -329,6 +335,9 @@ def md_table(block):
 def notes(name, base=r'\subsection'):
     t = (SUP / name).read_text(encoding='utf-8-sig')
     t = re.sub(r'^#\s+.*$', '', t, count=1, flags=re.M)     # ust basligi at
+    # "--- Baslik ---" satirlari ayri bir kalin paragraf olsun; duz metin olarak
+    # birakilirsa izleyen metne yapisip sag marja tasiyor.
+    t = re.sub(r'^---\s*(\S.*?\S)\s*---\s*$', r'\n**\1**\n', t, flags=re.M)
     t = re.sub(r'^---\s*$', '', t, flags=re.M)
     return md_block(t.strip(), base)
 

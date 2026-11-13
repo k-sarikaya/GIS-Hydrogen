@@ -49,6 +49,16 @@ SENS = [
 ]
 
 
+
+def lcoh_hucre(s):
+    """Teslimat sifirsa kg basi maliyet tanimsizdir.
+
+    import_free kosumlarinda talebin tamami ithalatla karsilanir ve yurt ici
+    teslimat 0 olur; LCOH o zaman sifira bolmeden kalan cozucu artigidir
+    (0.14, -0.003 gibi). Tabloya sayi yerine '--' yazilir.
+    """
+    return '--' if float(s.delivered_t) < 1.0 else round(float(s.LCOH_E_eur_kg), 3)
+
 def sol(tag):
     f = S3 / tag / 'solution.csv'
     return pd.read_csv(f).iloc[0] if f.exists() else None
@@ -87,7 +97,7 @@ def sens_table(N):
         rows.append(f"{lab} & {s.LCOH_E_eur_kg:.2f} & {s.delivered_t / 1e3:.1f} & {a:.2f} & {s.q_wind_MW / 1e3:.2f} & "
                     f"{s.q_pv_MW / 1e3:.2f} & {s.q_ely_MW / 1e3:.2f} & {abs(s.cavern_t) / 1e3:.1f} & {s.open_sites.replace(',', ', ')} & "
                     f"{npipes(s)} & {tsh:.2f} & {qbar(s):.3f} \\\\")
-        reg.append({'Run': tag, 'Description': lab.replace('$', '').replace('\\', ''), 'Delivered cost (EUR/kg)': round(s.LCOH_E_eur_kg, 3),
+        reg.append({'Run': tag, 'Description': lab.replace('$', '').replace('\\', ''), 'Delivered cost (EUR/kg)': lcoh_hucre(s),
                     'Delivered (kt/yr)': round(s.delivered_t / 1e3, 1), 'Open sites': s.open_sites, 'Pipelines': s.pipelines,
                     'MIP gap': round(float(s.mip_gap), 5), 'Status': s.solver_status})
         N[f'lcoh_{tag}'] = round(float(s.LCOH_E_eur_kg), 2)
@@ -96,7 +106,7 @@ def sens_table(N):
                 'import_free_d12_5', 'import_free_d15', 'outage_cavern', 'outage_pipeline', 'cf_top3_det', 'cf_top3_rpp']:
         s = sol(tag)
         if s is not None:
-            reg.append({'Run': tag, 'Description': tag, 'Delivered cost (EUR/kg)': round(s.LCOH_E_eur_kg, 3),
+            reg.append({'Run': tag, 'Description': tag, 'Delivered cost (EUR/kg)': lcoh_hucre(s),
                         'Delivered (kt/yr)': round(s.delivered_t / 1e3, 1), 'Open sites': s.open_sites, 'Pipelines': s.pipelines,
                         'MIP gap': round(float(s.mip_gap), 5), 'Status': s.solver_status})
     pd.DataFrame(reg).to_csv(SUP / 'Supplementary_Table_S6_Run_Register.csv', index=False, encoding='utf-8-sig')

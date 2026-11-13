@@ -27,8 +27,8 @@ abl0_v3equiv,abl0_v3equiv,10.704,157.9,"S1,S2,S3,S4,S5","S5>TR_NH3_GEMLIK,S1>TR_
 abl1_demand,abl1_demand,10.261,105.2,"S1,S2,S4,S5",S1>TR_UGS_TUZGOLU,0.00079,optimal
 abl2_merge,abl2_merge,10.19,105.2,"S1,S2,S4,S5","S1>TR_UGS_TUZGOLU,TR_UGS_TUZGOLU>TR_HUB_KORFEZ",0.00089,optimal
 abl3_small,abl3_small,9.768,105.2,"S1,S2,S4,S5","S5>TR_NH3_GEMLIK[12in],S1>TR_UGS_TUZGOLU[12in],TR_UGS_TUZGOLU>TR_HUB_KORFEZ[12in]",0.00084,optimal
-import_free,import_free,0.14,0.0,,,0.0,optimal
-import_free_d10,import_free_d10,-0.003,0.0,,,0.0,optimal
+import_free,import_free,--,0.0,,,0.0,optimal
+import_free_d10,import_free_d10,--,0.0,,,0.0,optimal
 import_free_d12_5,import_free_d12_5,8.744,89.0,"S1,S2,S3,S4,S5","S1>TR_UGS_TUZGOLU[12in],TR_UGS_TUZGOLU>TR_HUB_KORFEZ[12in]",0.00076,optimal
 import_free_d15,import_free_d15,9.578,161.9,"S1,S2,S3,S4,S5","S5>TR_NH3_GEMLIK[12in],S1>TR_UGS_TUZGOLU[12in],S4>TR_UGS_TUZGOLU[12in],TR_UGS_TUZGOLU>TR_HUB_KORFEZ[12in],TR_UGS_TUZGOLU>TR_HUB_ALIAGA[12in]",0.00079,optimal
 outage_cavern,outage_cavern,10.805,105.2,"S1,S2,S3,S4,S5","S1>TR_HUB_ALIAGA[12in],S4>TR_HUB_KORFEZ[12in]",0.00038,optimal
