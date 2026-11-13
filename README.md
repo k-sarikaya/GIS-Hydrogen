@@ -44,12 +44,16 @@ python code/gis/sensitivity_stageB.py
 # Candidate x demand road distance matrix (OSRM response is frozen; --refresh re-queries)
 python code/network/distance_matrix.py --sites data/raw/gis/real/candidate_sites.csv --rule rule_2040
 
-# Stage II — ranking and its robustness checks
-python code/mcdm/sf_critic_waspas.py
-python code/mcdm/leave_one_criterion_out.py
-python code/mcdm/leave_one_expert_out.py
-python code/mcdm/method_comparison.py
-python code/mcdm/alpha_sweep_table.py          # weight-blend sensitivity (Supplementary Table S13)
+# Stage II — needs the raw survey responses, which are withheld (see "Data" below).
+# Its outputs are provided instead, and Stage III reads them directly:
+#   data/processed/stage2/stage2_scores.csv     Q01 scores and ranking
+#   data/processed/stage2/stage2_weights.csv    CRITIC, expert and final weights
+# With the raw responses in hand, the stage and its robustness checks run as:
+#   python code/mcdm/sf_critic_waspas.py --survey <responses.csv>
+#   python code/mcdm/leave_one_criterion_out.py
+#   python code/mcdm/leave_one_expert_out.py
+#   python code/mcdm/method_comparison.py
+#   python code/mcdm/alpha_sweep_table.py       # weight-blend sensitivity (Supplementary Table S13)
 
 # Stage III — baseline, sensitivity runs and the Pareto front
 python code/optimization/run_stage3_batch.py
@@ -76,9 +80,9 @@ cd manuscript && latexmk -pdf manuscript.tex
 - **Stage I runs in two steps.** The *extract* step processes every source in
   memory and freezes a cell-level feature table, the OpenStreetMap snapshots,
   and the URL plus SHA-256 checksum of each input together with package
-  versions (`features_manifest.json`). The *select* step is deterministic and
+  versions (`data/raw/gis/real/features_manifest.json`). The *select* step is deterministic and
   reads only that table, so the threshold sensitivity analysis repeats exactly
-  without network access. Output checksums are written to `gis_summary.json`.
+  without network access. Output checksums are written to `gis_summary.json` in the output directory.
 - **Pinned versions.** Stage I packages are in `code/gis/requirements-gis.txt`,
   the remaining stages in `code/requirements.txt`.
 - **Clean-environment check (30 October 2026).** In a virtual environment built
@@ -89,7 +93,7 @@ cd manuscript && latexmk -pdf manuscript.tex
   scripts but not re-run in the clean environment; MILP solutions may differ
   within the 0.1% gap depending on solver version and hardware.
 - **Frozen responses.** The PVGIS and tile caches (`cache_*.csv`) and the OSRM
-  routing response (`osrm_response.json`) are stored rather than re-queried.
+  routing response (`data/processed/network/osrm_response.json`) are stored rather than re-queried.
 
 `docs/REPRODUCIBILITY.md` gives the software environment and the stage-to-script
 mapping in full.
@@ -102,17 +106,25 @@ supplementary tables as machine-readable CSV, and the survey instrument.
 
 Not included: individual expert survey responses. They are personal data
 collected under an informed-consent form, and with four respondents they would
-be re-identifiable. The aggregated spherical-fuzzy values the model actually
-uses are in `data/processed/stage2/aggregated_expert_sfn.csv`; the questionnaire,
-invitation text and consent form are in `survey/`, so the elicitation can be
-inspected and repeated. `data/survey/expert_responses_SYNTHETIC.csv` exists for
-code testing only and must not be used for analysis.
+be re-identifiable.
+
+This sets one boundary on reproduction, and it is worth stating precisely. The
+step from raw responses to the Stage II ranking cannot be re-run from this
+repository. Everything on either side of it can. The questionnaire, invitation
+text and consent form are in `survey/`, so the elicitation itself can be
+inspected and repeated with a new panel; the aggregated spherical-fuzzy values
+that the ranking is built from are in
+`data/processed/stage2/aggregated_expert_sfn.csv`; and the ranking it produced
+is in `data/processed/stage2/stage2_scores.csv`, which is the file Stage III
+reads. Stages III and IV, the Pareto front, the Monte Carlo evaluation, the
+emissions accounting and every sensitivity run therefore reproduce in full from
+what is here.
 
 Two further notes on scope, also stated in the paper's limitations: no
 basin-level water abstraction quota is imposed in Stage III, because no verified
 open spatial dataset was available for the candidate basins (water stress enters
 through the Stage II ranking instead, at a nominal 17.5 L/kg set in
-`params.yaml`); and the outage scenarios test full-year loss of the cavern or of
+`data/raw/params/params.yaml`); and the outage scenarios test full-year loss of the cavern or of
 the most heavily used pipeline, not partial or 30-day outages.
 
 ## Licence
